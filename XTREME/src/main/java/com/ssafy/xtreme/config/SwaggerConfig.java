@@ -17,10 +17,10 @@ public class SwaggerConfig {
 	public Docket api() {
 		return new Docket(DocumentationType.SWAGGER_2).select()
 				.apis(RequestHandlerSelectors.basePackage("com.ssafy.xtreme.controller"))
-				.paths(PathSelectors.ant("/api/**")).build().apiInfo(apiInfo());
+				.paths(PathSelectors.ant("/**")).build().apiInfo(apiInfo());
 	}
 
 	private ApiInfo apiInfo() {
-		return new ApiInfoBuilder().title("SSAFY Swaager").description("SSAFY 게시판").version("v1").build();
+		return new ApiInfoBuilder().title("XTREME").description("XTREME Competition by Kahkaho").version("v1").build();
 	}
 }

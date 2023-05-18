@@ -1,35 +1,75 @@
 package com.ssafy.xtreme.controller;
 
-import java.io.UnsupportedEncodingException;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;import org.springframework.web.jsf.FacesContextUtils;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.ssafy.xtreme.model.dto.User;
+import com.ssafy.xtreme.model.service.UserService;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api-user")
+@Api(tags = "XTREME_User")
 public class UserRestController {
-
-	private static final String SUCCESS = "succes";
-	private static final String FAIL = "fail";
-
-	@PostMapping("/login")
-	public ResponseEntity<Map<String, Object>> login(User user) {
-
-		Map<String, Object> result = new HashMap<String, Object>();
-
-		// user를 이용해서 Service -> Dao -> DB를 통해 실제 유저인지 확인을 해야한다.
-		// 우리는 하지 않겠다. ㅎ 직접 해볼것
-		// 아이디가 널이 아니거나 길이가 있거나
-		HttpStatus status = null;
+	
+	@Autowired
+	private UserService userService;
+	
+	//전체 사용자 조회
+	@ApiOperation(value="전체 사용자 목록 조회")
+	@GetMapping("/users")
+	public ResponseEntity<List<User>> userList() {
+		List<User> list = userService.selectAll();
+				
+		if(list == null || list.size() == 0)
+			return new ResponseEntity<List<User>>(HttpStatus.NO_CONTENT);
 		
-		return new ResponseEntity<Map<String,Object>>(result, status);
+		return new ResponseEntity<List<User>>(list, HttpStatus.OK);
 	}
+	
+	//로그인
+	@ApiOperation(value="로그인")
+	@PostMapping("/login")
+	public ResponseEntity<?> login(User user, HttpSession session){
+		User u = userService.selectById(user.getId());
+		
+		if(u != null && u.getPassword().equals(user.getPassword())) {
+			session.setAttribute("loginUser", u);
+			return new ResponseEntity<String>(u.getName(), HttpStatus.OK);
+		}else {
+			return new ResponseEntity<Void>(HttpStatus.UNAUTHORIZED);
+		}
+	}
+	
+	// 로그아웃
+	@ApiOperation(value="로그아웃")
+	@GetMapping("/logout")
+	public ResponseEntity<Void> logout(HttpSession session){
+		session.removeAttribute("loginUser");
+		
+		return new ResponseEntity<Void>(HttpStatus.OK);
+	}
+	
+	//회원가입
+	@ApiOperation(value="회원 가입")
+	@PostMapping("/signup")
+	public ResponseEntity<Integer> signup(User user){
+		int result = userService.insertUser(user);
+		
+		return new ResponseEntity<Integer>(result, HttpStatus.OK);
+	}
+	
+	//개인정보 수정
+	
 }
