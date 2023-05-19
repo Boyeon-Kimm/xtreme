@@ -2,9 +2,12 @@ package com.ssafy.xtreme.model.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.ssafy.xtreme.model.dao.UserDao;
 import com.ssafy.xtreme.model.dto.User;
 
+@Service
 public class UserServiceImpl implements UserService {
 	
 	private UserDao userDao;
@@ -23,6 +26,13 @@ public class UserServiceImpl implements UserService {
 	public int insertUser(User user) {
 		return userDao.insertUser(user);
 	}
+	
+	@Override
+	public boolean checkDuplicateId(String id) {
+		boolean checkUserId = userDao.checkDuplicateId(id);
+		return checkUserId;
+	}
+	
 
 	@Override
 	public int updateUser(User user) {
