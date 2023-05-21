@@ -28,12 +28,25 @@ public class ReviewRestController {
 	@Autowired
 	private ReviewService reviewService;
 	
-	//해당 대회에 대한 전체 리뷰 조회
+//	//해당 대회에 대한 전체 리뷰 조회
+//	@ApiOperation(value = "리뷰 조회")
+//	@GetMapping("/review")
+//	public ResponseEntity<List<Review>> list(int compId){
+//		List<Review> list = reviewService.selectByCompId(compId);
+//		
+//		//해당하는 리뷰 없거나 리스트 비어있을 때
+//		if(list == null || list.size() == 0) {
+//			return new ResponseEntity<List<Review>>(HttpStatus.NO_CONTENT);
+//		}
+//		//리뷰 존재하면 리스트 출력
+//		return new ResponseEntity<List<Review>>(list, HttpStatus.OK);
+//	}
+	
+	//리뷰 전체 조회
 	@ApiOperation(value = "리뷰 조회")
 	@GetMapping("/review")
-	public ResponseEntity<List<Review>> list(int compId){
-		List<Review> list = reviewService.selectByCompId(compId);
-		
+	public ResponseEntity<List<Review>> list(){
+		List<Review> list = reviewService.selectAll();
 		//해당하는 리뷰 없거나 리스트 비어있을 때
 		if(list == null || list.size() == 0) {
 			return new ResponseEntity<List<Review>>(HttpStatus.NO_CONTENT);

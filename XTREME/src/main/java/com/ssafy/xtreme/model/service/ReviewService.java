@@ -5,8 +5,11 @@ import java.util.List;
 import com.ssafy.xtreme.model.dto.Review;
 
 public interface ReviewService {
-	//해당 대회에 대한 전체 리뷰 조회
-	public List<Review> selectByCompId(int compId);
+//	//해당 대회에 대한 전체 리뷰 조회
+//	public List<Review> selectByCompId(int compId);
+	
+	//리뷰 전체 조회
+	public List<Review> selectAll();
 	
 	//리뷰 상세 조회
 	public Review selectByReviewId(int id);
