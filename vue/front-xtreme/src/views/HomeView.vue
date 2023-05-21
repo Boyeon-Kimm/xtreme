@@ -31,8 +31,12 @@ export default {
 
 .home {
   height: 55rem;
-  background-image: url(@/assets/main1.png);
-  background-size: cover;
+  background: url(@/assets/main1.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+  /* background-color: black; */
   display: flex;
   direction: column;
   justify-content: center;

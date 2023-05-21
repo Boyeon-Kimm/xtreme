@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import HomeView from '../views/HomeView.vue';
 import CompetitionView from '../views/CompetitionView.vue';
+import ParticipateView from '../views/ParticipateView.vue';
 import LoginView from '../views/LoginView.vue';
 import JoinUsView from '../views/JoinUsView.vue';
 // import MyPageView from '../views/MyPageView.vue';
@@ -10,9 +11,10 @@ import ReviewView from '../views/ReviewView.vue';
 import CompetitionDetail from '../components/competition/CompetitionDetail.vue';
 import CompetitionList from '../components/competition/CompetitionList.vue';
 
-// import ParticipateCreate from '../components/participate/ParticipateCreate.vue';
-// import ParticipateDetail from '../components/participate/ParticipateDetail.vue';
-// import ParticipateUpdate from '../components/participate/ParticipateUpdate.vue';
+import ParticipateCreate from '../components/participate/ParticipateCreate.vue';
+import ParticipateDetail from '../components/participate/ParticipateDetail.vue';
+import ParticipateUpdate from '../components/participate/ParticipateUpdate.vue';
+import ParticipateAgreement from '../components/participate/ParticipateAgreement.vue';
 
 import ReviewCreate from '../components/reviewComp/ReviewCreate.vue';
 import ReviewDetail from '../components/reviewComp/ReviewDetail.vue';
@@ -43,27 +45,32 @@ const routes = [
       },
     ],
   },
-  // {
-  //   path: "/participate",
-  //   component: ParticipateView,
-  //   children: [
-  //     {
-  //       path: "create",
-  //       name: "participateCreate",
-  //       component: ParticipateCreate,
-  //     },
-  //     {
-  //       path: "id",
-  //       name: "participateDetail",
-  //       component: ParticipateDetail,
-  //     },
-  //     {
-  //       path: "update",
-  //       name: "participateUpdate",
-  //       component: ParticipateUpdate,
-  //     },
-  //   ],
-  // },
+  {
+    path: "/participate",
+    component: ParticipateView,
+    children: [
+      {
+        path: "",
+        name: "participateCreate",
+        component: ParticipateCreate,
+      },
+      {
+        path: ":id",
+        name: "participateDetail",
+        component: ParticipateDetail,
+      },
+      {
+        path: "update",
+        name: "participateUpdate",
+        component: ParticipateUpdate,
+      },
+      {
+        path: "agreement",
+        name: "participateAgreement",
+        component: ParticipateAgreement,
+      },
+    ],
+  },
   {
     path: "/reviews",
     component: ReviewView,
@@ -110,7 +117,7 @@ const routes = [
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
+  routes,
 })
 
-export default router
+export default router;
