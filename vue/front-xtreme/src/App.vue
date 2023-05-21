@@ -13,7 +13,7 @@ import FooterNav from './components/commons/FooterNav.vue'
 export default {
   components: { 
     HeaderNav,
-    FooterNav
+    FooterNav,
   },
 };
 </script>

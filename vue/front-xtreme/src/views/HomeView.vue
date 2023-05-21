@@ -8,7 +8,7 @@
       <div class="home-btn">
         <b-button class="nav-b-btn3"><router-link :to="{ name: 'competitionList' }">Tournaments</router-link></b-button>
         <b-button class="nav-b-btn3"><router-link :to="{ name: 'reviewList' }">Reviews</router-link></b-button>
-        <b-button class="nav-b-btn3"><router-link :to="{ name: 'joinUs' }">Join Us</router-link></b-button>
+        <b-button class="nav-b-btn3"><router-link :to="{ name: 'joinus' }">Join Us</router-link></b-button>
         <b-button class="nav-b-btn3"><router-link :to="{ name: 'myPage' }">MyPage</router-link></b-button>
       </div>
     </div>

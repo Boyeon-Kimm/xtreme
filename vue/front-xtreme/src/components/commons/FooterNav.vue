@@ -41,7 +41,19 @@
 
 <script>
 export default {
+  name: 'FooterNav',
+  
+  data() {
+    return {};
+  },
+  
+  mounted() {
 
+  },
+
+  methods: {
+
+  },
 };
 </script>
 

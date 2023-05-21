@@ -1,6 +1,23 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import HomeView from '../views/HomeView.vue';
+// import CompetitionView from '../views/CompetitionView.vue';
+import LoginView from '../views/LoginView.vue';
+import JoinUsView from '../views/JoinUsView.vue';
+// import MyPageView from '../views/MyPageView.vue';
+// import ReviewView from '../views/ReviewView.vue';
+
+// import CompetitionDetail from '../components/competition/CompetitionDetail.vue';
+// import CompetitionList from '../components/competition/CompetitionList.vue';
+
+// import ParticipateCreate from '../components/participate/ParticipateCreate.vue';
+// import ParticipateDetail from '../components/participate/ParticipateDetail.vue';
+// import ParticipateUpdate from '../components/participate/ParticipateUpdate.vue';
+
+// import ReviewCreate from '../components/reviewComp/ReviewCreate.vue';
+// import ReviewDetail from '../components/reviewComp/ReviewDetail.vue';
+// import ReviewList from '../components/reviewComp/ReviewList.vue';
+// import ReviewUpdate from '../components/reviewComp/ReviewUpdate.vue';
 
 Vue.use(VueRouter)
 
@@ -11,12 +28,82 @@ const routes = [
     component: HomeView
   },
   // {
-  //   path: '/about',
-  //   name: 'about',
-  //   // route level code-splitting
-  //   // this generates a separate chunk (about.[hash].js) for this route
-  //   // which is lazy-loaded when the route is visited.
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+  //   path: "/competition",
+  //   component: CompetitionView,
+  //   children: [
+  //     {
+  //       path: "",
+  //       name: "competitionList",
+  //       component: CompetitionList,
+  //     },
+  //     {
+  //       path: "",
+  //       name: "competitionDetail",
+  //       component: CompetitionDetail,
+  //     },
+  //   ],
+  // },
+  // {
+  //   path: "/participate",
+  //   component: ParticipateView,
+  //   children: [
+  //     {
+  //       path: "create",
+  //       name: "participateCreate",
+  //       component: ParticipateCreate,
+  //     },
+  //     {
+  //       path: "id",
+  //       name: "participateDetail",
+  //       component: ParticipateDetail,
+  //     },
+  //     {
+  //       path: "update",
+  //       name: "participateUpdate",
+  //       component: ParticipateUpdate,
+  //     },
+  //   ],
+  // },
+  // {
+  //   path: "/reviewComp",
+  //   component: ReviewView,
+  //   childeren: [
+  //     {
+  //       path: "",
+  //       name: "reviewList",
+  //       component: ReviewList,
+  //     },
+  //     {
+  //       path: "create",
+  //       name: "reviewCreate",
+  //       component: ReviewCreate,
+  //     },
+  //     {
+  //       path: "id",
+  //       name: "reviewDetail",
+  //       component: ReviewDetail,
+  //     },
+  //     {
+  //       path: "update",
+  //       name: "reviewUpdate",
+  //       component: ReviewUpdate,
+  //     },
+  //   ],
+  // },
+  {
+    path: "/login",
+    name: "login",
+    component: LoginView,
+  },
+  {
+    path: "/joinus",
+    name: "joinus",
+    component: JoinUsView,
+  },
+  // {
+  //   path: "/mypage/:userId",
+  //   name: "myPage",
+  //   component: MyPageView,
   // }
 ]
 
