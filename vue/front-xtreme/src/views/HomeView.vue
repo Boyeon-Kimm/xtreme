@@ -47,11 +47,11 @@ export default {
 }
 
 .nav-b-btn3 {
-  width: 9.5rem;
+  width: 9.5rem !important;
   /* height: 3rem; */
-  border-radius: 0.7rem;
-  border: solid 1px rgba(251, 119, 24, 0.7);
-  background-color: rgba(251, 119, 24, 0.7);
+  border-radius: 0.7rem !important;
+  border: transparent !important;
+  background-color: rgba(251, 119, 24, 0.7) !important;
 }
 
 .nav-b-btn3 a {
