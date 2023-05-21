@@ -45,7 +45,7 @@ public class ReviewRestController {
 	
 	//리뷰 상세 조회
 	@ApiOperation(value="리뷰 상세 조회")
-	@GetMapping("/review/{id}")
+	@GetMapping("/review/detail/{id}")
 	public ResponseEntity<Review> detail(@PathVariable int id){
 		Review review = reviewService.selectByReviewId(id);
 		

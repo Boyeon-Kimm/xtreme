@@ -42,11 +42,11 @@ public class ReviewServiceImpl implements ReviewService{
 	//리뷰 수정
 	//여기서 만약 특정 부분만 수정하고 싶으면?
 	@Override
-	public int updateReview(Review review) {
+	public void updateReview(Review review) {
 		Review reviewBoard = reviewDao.selectByReviewId(review.getId());
 		reviewBoard.setTitle(review.getTitle());
-		reviewBoard.setTitle(review.getContent());
-		return reviewDao.updateReview(review);
+		reviewBoard.setContent(review.getContent());
+		reviewDao.updateReview(review);
 	}
 
 	//리뷰 삭제

@@ -2,6 +2,25 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ssafy.xtreme.model.dao.CompetitionDao">
+<mapper namespace="com.ssafy.xtreme.model.dao.ParticipateDao">
+	<!-- insertParticipate(Participate participate) : 참가신청서 작성 -->
+	<insert id="insertParticipate" parameterType="Participate">
+		INSERT INTO participate
+		VALUES (#{id}, #{playerId}, #{teamName}, #{birth}, #{phone}, #{playerEmail}, #{check}, #{compId})
+	</insert>
+	
+	<!-- selectByUser(String playerId) : 신청 대회 조회 -->
+	<select id="selectByUser" parameterType="String" resultType="Participate">
+		SELECT *
+		FROM participate
+		WHERE playerId = #{playerId}
+	</select>
+	
+	<!-- updateParticipate(Participate participate) : 신청 정보 수정 -->
+	<update id="updateParticipate" parameterType="Participate">
+		UPDATE participate
+		SET teamName = #{teamName}, phone = #{phone}, playerEmail = #{playerEmail}
+		WHERE id = #{id}
+	</update>
 	
 </mapper>
