@@ -31,7 +31,7 @@
         <div class="participate-form-radio">
         <div class="participate-radio">
           <b-form-group class="radio-group-title" label="Personal Information Collection and Usage Agreement" v-slot="{ ariaDescribedby }">
-            <a href="CompetitionAgreement" class="compAgree">More about Agreement...</a>
+            <router-link :to="{ name: 'participateAgreement' }" class="compAgree">More about Agreement...</router-link>
             <b-form-radio
               v-model="selected"
               :aria-describedby="ariaDescribedby"

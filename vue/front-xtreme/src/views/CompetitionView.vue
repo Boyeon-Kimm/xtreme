@@ -1,13 +1,14 @@
 <template>
   <div>
-    <competition-list></competition-list>
+    <!-- <competition-list></competition-list> -->
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import CompetitionList from '../components/competition/CompetitionList.vue';
+// import CompetitionList from '../components/competition/CompetitionList.vue';
 export default {
-  components: { CompetitionList },
+  // components: { CompetitionList },
   name: 'CompetitionView',
 };
 </script>

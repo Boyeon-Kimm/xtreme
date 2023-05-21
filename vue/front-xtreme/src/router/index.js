@@ -72,7 +72,7 @@ const routes = [
     ],
   },
   {
-    path: "/reviews",
+    path: "/review",
     component: ReviewView,
     childeren: [
       {

@@ -2,7 +2,7 @@
   <div>
       <!-- <participate-create></participate-create> -->
     <router-view />
-</div>
+  </div>
 </template>
 
 <script>
@@ -10,7 +10,7 @@
 // import ParticipateAgreement from '../components/participate/ParticipateAgreement.vue'
 export default {
 	// components: { ParticipateCreate },
-    name: 'ParticipateView',
+  name: 'ParticipateView',
 }
 </script>
 
