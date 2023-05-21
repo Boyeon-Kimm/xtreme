@@ -6,19 +6,19 @@ public class User {
 	private String email;		//사용자 email
 	private String name;		//사용자 이름
 	private int age;			//사용자 나이
-	private String profileImg;	//사용자 프사
+//	private String profileImg;	//사용자 프사
 	
 	public User() {
 	}
 
-	public User(String id, String password, String email, String name, int age, String profileImg) {
+	public User(String id, String password, String email, String name, int age) {
 		super();
 		this.id = id;
 		this.password = password;
 		this.email = email;
 		this.name = name;
 		this.age = age;
-		this.profileImg = profileImg;
+//		this.profileImg = profileImg;
 	}
 
 	public String getId() {
@@ -61,17 +61,17 @@ public class User {
 		this.age = age;
 	}
 
-	public String getProfileImg() {
-		return profileImg;
-	}
-
-	public void setProfileImg(String profileImg) {
-		this.profileImg = profileImg;
-	}
+//	public String getProfileImg() {
+//		return profileImg;
+//	}
+//
+//	public void setProfileImg(String profileImg) {
+//		this.profileImg = profileImg;
+//	}
 
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", password=" + password + ", email=" + email + ", name=" + name + ", age=" + age
-				+ ", profileImg=" + profileImg + "]";
+				+ "]";
 	}
 }

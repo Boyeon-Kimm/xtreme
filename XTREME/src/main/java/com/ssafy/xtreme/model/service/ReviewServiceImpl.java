@@ -14,10 +14,16 @@ public class ReviewServiceImpl implements ReviewService{
 	@Autowired
 	private ReviewDao reviewDao;
 	
-	//해당 대회에 대한 전체 리뷰 조회
+//	//해당 대회에 대한 전체 리뷰 조회
+//	@Override
+//	public List<Review> selectByCompId(int compId) {
+//		return reviewDao.selectByCompId(compId);
+//	}
+
+	//리뷰 전체 조회
 	@Override
-	public List<Review> selectByCompId(int compId) {
-		return reviewDao.selectByCompId(compId);
+	public List<Review> selectAll() {
+		return reviewDao.selectAll();
 	}
 
 	//리뷰 상세 조회
@@ -62,5 +68,6 @@ public class ReviewServiceImpl implements ReviewService{
 		review.setViewCnt(review.getViewCnt()+1);
 		reviewDao.updateViewCnt(id);
 	}
+
 
 }

@@ -53,7 +53,7 @@ public class UserServiceImpl implements UserService {
 		User userBoard = userDao.selectById(user.getId());
 		userBoard.setEmail(user.getEmail());
 		userBoard.setName(user.getName());
-		userBoard.setProfileImg(user.getProfileImg());
+//		userBoard.setProfileImg(user.getProfileImg());
 		return userDao.updateUser(user);
 	}
 
