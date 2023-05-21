@@ -5,7 +5,7 @@ import CompetitionView from '../views/CompetitionView.vue';
 import LoginView from '../views/LoginView.vue';
 import JoinUsView from '../views/JoinUsView.vue';
 // import MyPageView from '../views/MyPageView.vue';
-// import ReviewView from '../views/ReviewView.vue';
+import ReviewView from '../views/ReviewView.vue';
 
 import CompetitionDetail from '../components/competition/CompetitionDetail.vue';
 import CompetitionList from '../components/competition/CompetitionList.vue';
@@ -14,10 +14,10 @@ import CompetitionList from '../components/competition/CompetitionList.vue';
 // import ParticipateDetail from '../components/participate/ParticipateDetail.vue';
 // import ParticipateUpdate from '../components/participate/ParticipateUpdate.vue';
 
-// import ReviewCreate from '../components/reviewComp/ReviewCreate.vue';
-// import ReviewDetail from '../components/reviewComp/ReviewDetail.vue';
-// import ReviewList from '../components/reviewComp/ReviewList.vue';
-// import ReviewUpdate from '../components/reviewComp/ReviewUpdate.vue';
+import ReviewCreate from '../components/reviewComp/ReviewCreate.vue';
+import ReviewDetail from '../components/reviewComp/ReviewDetail.vue';
+import ReviewList from '../components/reviewComp/ReviewList.vue';
+import ReviewUpdate from '../components/reviewComp/ReviewUpdate.vue';
 
 Vue.use(VueRouter)
 
@@ -64,32 +64,32 @@ const routes = [
   //     },
   //   ],
   // },
-  // {
-  //   path: "/reviewComp",
-  //   component: ReviewView,
-  //   childeren: [
-  //     {
-  //       path: "",
-  //       name: "reviewList",
-  //       component: ReviewList,
-  //     },
-  //     {
-  //       path: "create",
-  //       name: "reviewCreate",
-  //       component: ReviewCreate,
-  //     },
-  //     {
-  //       path: "id",
-  //       name: "reviewDetail",
-  //       component: ReviewDetail,
-  //     },
-  //     {
-  //       path: "update",
-  //       name: "reviewUpdate",
-  //       component: ReviewUpdate,
-  //     },
-  //   ],
-  // },
+  {
+    path: "/reviews",
+    component: ReviewView,
+    childeren: [
+      {
+        path: "",
+        name: "reviewList",
+        component: ReviewList,
+      },
+      {
+        path: "create",
+        name: "reviewCreate",
+        component: ReviewCreate,
+      },
+      {
+        path: "id",
+        name: "reviewDetail",
+        component: ReviewDetail,
+      },
+      {
+        path: "update",
+        name: "reviewUpdate",
+        component: ReviewUpdate,
+      },
+    ],
+  },
   {
     path: "/login",
     name: "login",

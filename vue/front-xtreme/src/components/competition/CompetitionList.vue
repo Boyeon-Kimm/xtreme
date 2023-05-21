@@ -24,7 +24,7 @@
         <tbody>
           <tr>
             <th scope="row">테니스</th>
-            <td>2023 서울시 시니어 테니스 대회</td>
+            <td><a href="">2023 서울시 시니어 테니스 대회</a></td>
             <td class="comp-date">2023-03-25 09:00</td>
             <td class="comp-date">2023-03-09 10:00 ~ 2023-04-15 18:00</td>
           </tr>
@@ -39,6 +39,18 @@
             <td>제11회 안동하회탈배 전국오픈탁구대회</td>
             <td class="comp-date">2023-06-03 09:00</td>
             <td class="comp-date">2023-04-01 15:00 ~ 2023-05-22 13:00</td>
+          </tr>
+					<tr>
+            <th scope="row">테니스</th>
+            <td>제 2회 서울시 테니스 언더독 대회</td>
+            <td class="comp-date">2023-04-28 09:00</td>
+            <td class="comp-date">2023-04-10 07:00 ~ 2023-04-27 18:00</td>
+          </tr>
+					<tr>
+            <th scope="row">테니스</th>
+            <td>제 31회 도봉구청장배 테니스 대회</td>
+            <td class="comp-date">2023-05-14 09:00</td>
+            <td class="comp-date">2023-04-17 10:00 ~ 2023-05-10 19:00</td>
           </tr>
         </tbody>
       </table>
@@ -96,7 +108,7 @@ export default {
 }
 
 .compList-list {
-  margin: 1rem 4rem 3rem 4rem;
+  margin: 1rem 4rem 1rem 4rem;
 }
 
 .compList-list table {
