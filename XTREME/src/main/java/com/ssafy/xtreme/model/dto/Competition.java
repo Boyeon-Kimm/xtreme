@@ -9,17 +9,21 @@ public class Competition {
 	private String compDay;		//대회 날짜
 	private String registDate;	//대회 신청기간
 	private int fee;			//참가비용
-	private int compAge;		//참가 가능 연령
+//	private int compAge;		//참가 가능 연령
 	private String compUrl;		//대회 공식 사이트
 	private String compImg;		//관련 이미지
-	private boolean liked;		//찜하기 (내가 찜한 대회 목록)
-	private String userId;		//사용자 id
+//	private boolean liked;		//찜하기 (내가 찜한 대회 목록)
+//	private String userId;		//사용자 id
+	
+	
+	//주석처리는 일단 찜하기 기능 뺴둔것 
+	
 	
 	public Competition() {
 	}
 
 	public Competition(int id, String compSports, String compName, String host, String place, String compDay,
-			String registDate, int fee, int compAge, String compUrl, String compImg, boolean liked, String userId) {
+			String registDate, int fee,String compUrl, String compImg) {
 		super();
 		this.id = id;
 		this.compSports = compSports;
@@ -29,11 +33,11 @@ public class Competition {
 		this.compDay = compDay;
 		this.registDate = registDate;
 		this.fee = fee;
-		this.compAge = compAge;
+//		this.compAge = compAge;
 		this.compUrl = compUrl;
 		this.compImg = compImg;
-		this.liked = liked;
-		this.userId = userId;
+//		this.liked = liked;
+//		this.userId = userId;
 	}
 
 	public int getId() {
@@ -100,13 +104,13 @@ public class Competition {
 		this.fee = fee;
 	}
 
-	public int getCompAge() {
-		return compAge;
-	}
-
-	public void setCompAge(int compAge) {
-		this.compAge = compAge;
-	}
+//	public int getCompAge() {
+//		return compAge;
+//	}
+//
+//	public void setCompAge(int compAge) {
+//		this.compAge = compAge;
+//	}
 
 	public String getCompUrl() {
 		return compUrl;
@@ -124,28 +128,37 @@ public class Competition {
 		this.compImg = compImg;
 	}
 
-	public boolean isLiked() {
-		return liked;
-	}
-
-	public void setLiked(boolean liked) {
-		this.liked = liked;
-	}
-
-	public String getUserId() {
-		return userId;
-	}
-
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-
 	@Override
 	public String toString() {
 		return "Competition [id=" + id + ", compSports=" + compSports + ", compName=" + compName + ", host=" + host
 				+ ", place=" + place + ", compDay=" + compDay + ", registDate=" + registDate + ", fee=" + fee
-				+ ", compAge=" + compAge + ", compUrl=" + compUrl + ", compImg=" + compImg + ", liked=" + liked
-				+ ", userId=" + userId + "]";
+				+ ", compUrl=" + compUrl + ", compImg=" + compImg + "]";
 	}
+
+//	public boolean isLiked() {
+//		return liked;
+//	}
+//
+//	public void setLiked(boolean liked) {
+//		this.liked = liked;
+//	}
+//
+//	public String getUserId() {
+//		return userId;
+//	}
+//
+//	public void setUserId(String userId) {
+//		this.userId = userId;
+//	}
+
+//	@Override
+//	public String toString() {
+//		return "Competition [id=" + id + ", compSports=" + compSports + ", compName=" + compName + ", host=" + host
+//				+ ", place=" + place + ", compDay=" + compDay + ", registDate=" + registDate + ", fee=" + fee
+//				+ ", compAge=" + compAge + ", compUrl=" + compUrl + ", compImg=" + compImg + ", liked=" + liked
+//				+ ", userId=" + userId + "]";
+//	}
+	
+	
 
 }

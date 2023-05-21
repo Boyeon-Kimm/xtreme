@@ -37,31 +37,46 @@ public class UserRestController {
 	@Autowired
 	private UserService userService;
 	
-//	//전체 사용자 조회
-//	@ApiOperation(value="전체 사용자 목록 조회")
-//	@GetMapping("/users")
-//	public ResponseEntity<List<User>> userList() {
-//		List<User> list = userService.selectAll();
-//				
-//		if(list == null || list.size() == 0)
-//			return new ResponseEntity<List<User>>(HttpStatus.NO_CONTENT);
+	//전체 사용자 조회
+	@ApiOperation(value="전체 사용자 목록 조회")
+	@GetMapping("/users")
+	public ResponseEntity<List<User>> userList() {
+		List<User> userlist = userService.selectAll();
+		System.out.println(userlist.size());		
+		if(userlist == null || userlist.size() == 0)
+			return new ResponseEntity<List<User>>(HttpStatus.NO_CONTENT);
+		
+		return new ResponseEntity<List<User>>(userlist, HttpStatus.OK);
+	}
+	
+//	//로그인
+//	@ApiOperation(value="로그인")
+//	@PostMapping("/login")
+//	public ResponseEntity<?> login(User user, HttpSession session){
+//		User u = userService.selectById(user.getId());
 //		
-//		return new ResponseEntity<List<User>>(list, HttpStatus.OK);
+//		if(u != null && u.getPassword().equals(user.getPassword())) {
+//			session.setAttribute("loginUser", u);
+//			return new ResponseEntity<String>(u.getName(), HttpStatus.OK);
+//		}else {
+//			return new ResponseEntity<Void>(HttpStatus.UNAUTHORIZED);
+//		}
 //	}
 	
+	
 	//로그인
-	@ApiOperation(value="로그인")
+	@ApiOperation(value = "로그인")
 	@PostMapping("/login")
 	public ResponseEntity<?> login(User user, HttpSession session){
-		User u = userService.selectById(user.getId());
-		
-		if(u != null && u.getPassword().equals(user.getPassword())) {
-			session.setAttribute("loginUser", u);
-			return new ResponseEntity<String>(u.getName(), HttpStatus.OK);
-		}else {
+		User userA = userService.login(user.getId(), user.getPassword());
+		if(userA == null) {
 			return new ResponseEntity<Void>(HttpStatus.UNAUTHORIZED);
 		}
+		
+		session.setAttribute("loginUser", userA);
+		return new ResponseEntity<String>(userA.getName(), HttpStatus.OK);
 	}
+	
 	
 	// 로그아웃
 	@ApiOperation(value="로그아웃")

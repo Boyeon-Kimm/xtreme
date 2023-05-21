@@ -13,6 +13,6 @@ public interface CompetitionService {
 	public Competition selectById(int id);
 	
 	//condition으로 묶어서 처리
-	//계절별, 종목별, 지역별 목록 조회
+	//종목별, 이름별, 신청기간별, 대회일자별 목록 조회
 	public List<Competition> searchByCondition(SearchCondition con);
 }

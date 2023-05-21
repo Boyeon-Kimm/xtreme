@@ -18,7 +18,7 @@ public interface ReviewService {
 	public int insertReview(Review review);
 	
 	//리뷰 수정
-	public int updateReview(Review review);
+	public void updateReview(Review review);
 	
 	//리뷰 삭제
 	public int deleteReview(int id);
