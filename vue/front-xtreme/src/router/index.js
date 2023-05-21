@@ -1,14 +1,14 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import HomeView from '../views/HomeView.vue';
-// import CompetitionView from '../views/CompetitionView.vue';
+import CompetitionView from '../views/CompetitionView.vue';
 import LoginView from '../views/LoginView.vue';
 import JoinUsView from '../views/JoinUsView.vue';
 // import MyPageView from '../views/MyPageView.vue';
 // import ReviewView from '../views/ReviewView.vue';
 
-// import CompetitionDetail from '../components/competition/CompetitionDetail.vue';
-// import CompetitionList from '../components/competition/CompetitionList.vue';
+import CompetitionDetail from '../components/competition/CompetitionDetail.vue';
+import CompetitionList from '../components/competition/CompetitionList.vue';
 
 // import ParticipateCreate from '../components/participate/ParticipateCreate.vue';
 // import ParticipateDetail from '../components/participate/ParticipateDetail.vue';
@@ -27,22 +27,22 @@ const routes = [
     name: 'home',
     component: HomeView
   },
-  // {
-  //   path: "/competition",
-  //   component: CompetitionView,
-  //   children: [
-  //     {
-  //       path: "",
-  //       name: "competitionList",
-  //       component: CompetitionList,
-  //     },
-  //     {
-  //       path: "",
-  //       name: "competitionDetail",
-  //       component: CompetitionDetail,
-  //     },
-  //   ],
-  // },
+  {
+    path: "/competition",
+    component: CompetitionView,
+    children: [
+      {
+        path: "",
+        name: "competitionList",
+        component: CompetitionList,
+      },
+      {
+        path: "",
+        name: "competitionDetail",
+        component: CompetitionDetail,
+      },
+    ],
+  },
   // {
   //   path: "/participate",
   //   component: ParticipateView,
