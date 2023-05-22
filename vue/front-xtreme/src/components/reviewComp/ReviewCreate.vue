@@ -27,6 +27,7 @@
 </template>
 
 <script>
+// import { mapGetters } from 'vuex';
 export default {
   name: 'ReviewCreate',
   data() {
@@ -38,18 +39,31 @@ export default {
       content: '',
     };
   },
+  // computed: {
+  //   ...mapGetters(['getUser']),
+  //   userId() {
+  //     return this.getUser.id;
+  //   },
+  // }, 
   methods: {
     createReview() {
       let review = {
         id: 0,
         sports: this.sports,
-        compTItle: this.compTItle,
+        compTitle: this.compTitle,
         title: this.title,
         userId: this.userId,
         content: this.content,
       };
       
       this.$store.dispatch('createReview', review);
+      this.$router.push("/review");
+      // .then(() => {
+      //   router.push({ name: 'reviewList' });
+      // })
+      // .catch((err) => {
+      //   console.log(err);
+      // });
     },
   },
 };

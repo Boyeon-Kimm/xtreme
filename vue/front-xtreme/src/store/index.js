@@ -5,17 +5,18 @@ import router from '@/router';
 
 Vue.use(Vuex);
 
-const REST_API = `http://localhost:9999/api`;
+const REST_API_REVIEW = `http://localhost:9999/api-review`;
 
 export default new Vuex.Store({
   state: {
-    reviews: []
+    reviews: [],
+    review: {}
   },
   getters: {
   },
   mutations: {
-    CREATE_REVIEW(state, review) {
-      state.reviews.push(review)
+    CREATE_REVIEW(state, payload) {
+      state.reviews = payload;
     },
     GET_REVIEWS(state, reviews) {
       state.reviews = reviews
@@ -29,43 +30,43 @@ export default new Vuex.Store({
   },
   actions: {
     deleteReview({commit}, id){
-      const API_URL = `${REST_API}/review`
+      const API_URL = `${REST_API_REVIEW}/review`;
       axios({
         url: API_URL,
-        method: "DELETE"
+        method: "DELETE",
       }).then(() => {
-        commit
-        router.push({name: "reviewList"})
+        commit;
+        router.push({ name: "reviewList" });
       }).catch((err) => {
         console.log(err);
       })
     },
     updateBoard({commit}, review){
-      const API_URL = `${REST_API}/review`
+      const API_URL = `${REST_API_REVIEW}/review`
       axios({
         url: API_URL,
         method: "PUT",
         params: review,
-      }).then(() => {
+      })
+      .then(() => {
         commit("UPDATE_REVIEW", review);
         router.push({name: "reviewDetail", params: {id: review.id}})
       })
     },
 
-    getReview({commit}, id) {
-      const API_URL = `{REST_API}/review/${id}`
-      axios({
-        url: API_URL,
-        method: "GET"
-      }).then((res) => {
+    getReview({ commit }, id) {
+      const API_URL = `${REST_API_REVIEW}/review/${id}`;
+      axios
+        .get(API_URL)
+        .then((res) => {
         commit("GET_REVIEW", res.data);
       }).catch((err) => {
         console.log(err);
-      })
+      });
     },
 
     getReviews({commit}){
-      const API_URL = `${REST_API}/review`
+      const API_URL = `${REST_API_REVIEW}/review`;
       axios({
         url: API_URL,
         method: "GET",
@@ -77,21 +78,21 @@ export default new Vuex.Store({
         console.log(err)
       })
     },
-    createReview({commit}, review){
-      const API_URL = `${REST_API}/review`
+
+    createReview({ commit }, review) {
+      const API_URL = `${REST_API_REVIEW}/review`;
       axios({
         url: API_URL,
-        methods: "POST",
+        method: "POST",
         params: review,
       })
       .then(() => {
         commit("CREATE_REVIEW", review);
-        router.push("/review");
       })
       .catch((err) => {
         console.log(err);
-      })
-    }
+      });
+    },
   },
   modules: {
   }

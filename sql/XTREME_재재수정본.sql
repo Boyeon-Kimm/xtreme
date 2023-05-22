@@ -82,7 +82,7 @@ VALUES (0, "마라톤", "2023 대전맨몸마라톤", "(주)맥키스컴퍼니",
 SELECT * FROM Competition;
 
 
-CREATE TABLE `Review` (
+CREATE TABLE `review` (
 	`id` INT NOT NULL AUTO_INCREMENT,
     `title` VARCHAR(100) NOT NULL,
     `userId` VARCHAR(40) NOT NULL,
@@ -97,8 +97,11 @@ CREATE TABLE `Review` (
     FOREIGN KEY(userId) REFERENCES Users(id)
 )ENGINE=InnoDB DEFAULT CHARACTER SET = utf8mb4;
 
-SELECT * FROM Review;
+SELECT * FROM review;
 
+INSERT INTO `review`(id, title, userId, sports, compTitle, content)
+VALUES
+(0, "제발", "kahkaho", "테니스", "제 1회 어쩌고", "돼라 좀 ㅡㅡ;");
 
 CREATE TABLE `Participate` (
 	`id` INT NOT NULL AUTO_INCREMENT,

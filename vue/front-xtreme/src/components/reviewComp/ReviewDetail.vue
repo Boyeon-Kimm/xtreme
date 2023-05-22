@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div @submit.prevent="submitForm" class="login-form">
+    <div class="login-form">
       <div class="login-form-title">
         <p>Tournament Review</p>
       </div>
@@ -41,12 +41,12 @@
 </template>
 
 <script>
-import {mapState} from 'vuex';
+import { mapState } from 'vuex';
 
 export default {
     name: 'ReviewDetail',
     computed: {
-      ...mapState(['review']),
+      ...mapState(['review', 'reviews']),
     },
 
     created() {
@@ -57,7 +57,7 @@ export default {
 
     methods: {
       moveUpdate() {
-        this.$router.push({name: 'reviewUpdate'});
+        this.$router.push({ name: 'reviewUpdate'});
       },
 
       deleteReview() {

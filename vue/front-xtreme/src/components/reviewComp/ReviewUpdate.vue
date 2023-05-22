@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import {mapState} from 'vuex';
+import { mapState } from 'vuex';
 
 export default {
     name: 'ReviewUpdate',
@@ -43,7 +43,6 @@ export default {
           content: this.review.content,
         };
         this.$store.dispatch('updateReview', updateReview);
-
       },
     },
 };

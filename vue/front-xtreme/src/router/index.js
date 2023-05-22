@@ -74,7 +74,7 @@ const routes = [
   {
     path: "/review",
     component: ReviewView,
-    childeren: [
+    children: [
       {
         path: "",
         name: "reviewList",
@@ -91,7 +91,7 @@ const routes = [
         component: ReviewDetail,
       },
       {
-        path: "update",
+        path: "update/:id",
         name: "reviewUpdate",
         component: ReviewUpdate,
       },
