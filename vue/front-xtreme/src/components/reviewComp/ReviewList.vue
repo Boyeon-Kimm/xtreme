@@ -1,6 +1,5 @@
 <template>
   <div class="compList-main">
-    <!-- <header-nav-2></header-nav-2> -->
     <div class="compList-title">
       <h3>Participants Reviews</h3>
       <div class="compList-sub-title">

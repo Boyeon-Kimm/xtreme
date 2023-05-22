@@ -56,7 +56,7 @@ export default {
 .login-form {
   border: 4px solid rgba(251, 119, 24, 0.7);
   border-radius: 2rem;
-  height: 24rem;
+  height: auto;
   width: 40rem;
 }
 
@@ -65,7 +65,7 @@ export default {
   text-align: center;
   color: white;
   font-weight: 700;
-  margin: 2rem;
+  margin: 2rem 0 1.4rem 0;
 }
 
 .login-form-input {
@@ -82,6 +82,10 @@ export default {
   padding-left: 1rem;
   border: transparent;
   font-weight: 600;
+}
+
+.login-form-btn {
+  margin-bottom: 2rem;
 }
 
 .login-form-btn input{

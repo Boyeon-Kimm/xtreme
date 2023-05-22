@@ -17,7 +17,7 @@
         <p>보유 기간(Retention Period): 1년(1 year)</p>
       </div>
       <div class="agreement-content-detail">
-        <p>※ 위의 개인정보 수집‧이용에 대한 동의를 거부할 권리가 있습니다. 그러나 동의를 거부할 경우 공모전 신청에 제한을 받을 수 있습니다.</p>
+        <p>※ 위의 개인정보 수집‧이용에 대한 동의를 거부할 권리가 있습니다. 그러나 동의를 거부할 경우 대회 신청에 제한을 받을 수 있습니다.</p>
         <p>You have the right to refuse to accept the above agreement on the collection and use of personal in-formation. However, submission may be restricted if you do not consent to the agreement.</p>
       </div>
     </div>
