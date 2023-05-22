@@ -46,7 +46,7 @@ import { mapState } from 'vuex';
 export default {
     name: 'ReviewDetail',
     computed: {
-      ...mapState(['review', 'reviews']),
+      ...mapState(['review']),
     },
 
     created() {

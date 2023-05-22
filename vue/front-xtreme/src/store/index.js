@@ -21,8 +21,8 @@ export default new Vuex.Store({
     GET_REVIEWS(state, payload) {
       state.reviews = payload;
     },
-    GET_REVIEW(state, payload) {
-      state.review = payload;
+    GET_REVIEW(state, review) {
+      state.review = review;
     },
     UPDATE_REVIEW(state, payload) {
       state.review = payload;
@@ -57,7 +57,7 @@ export default new Vuex.Store({
     },
 
     getReview({ commit }, id) {
-      const API_URL = `${REST_API_REVIEW}/review/${id}`;
+      const API_URL = `${REST_API_REVIEW}/review/detail/${id}`;
       axios({
         url: API_URL,
         method: "GET",

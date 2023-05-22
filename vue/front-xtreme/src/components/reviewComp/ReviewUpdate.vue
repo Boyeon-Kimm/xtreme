@@ -19,7 +19,7 @@
         </div>
         <div class="login-form-btn">
           <input @click.prevent="updateReview" type="submit" value="Update"/>
-          <input type="button" value="Cancel"/>
+          <input @click="goList" type="button" value="List"/>
         </div>
       </div>
     </div>
@@ -44,6 +44,9 @@ export default {
         };
         this.$store.dispatch('updateReview', updateReview);
       },
+      goList() {
+        this.$router.push("/review");
+      }
     },
 };
 </script>

@@ -91,7 +91,7 @@ const routes = [
         component: ReviewDetail,
       },
       {
-        path: "update/:id",
+        path: "update",
         name: "reviewUpdate",
         component: ReviewUpdate,
       },
