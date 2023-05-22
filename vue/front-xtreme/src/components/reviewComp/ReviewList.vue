@@ -30,6 +30,7 @@
             <th scope="col">Title</th>
             <th scope="col" class="comp-date">Name</th>
             <th scope="col" class="comp-date">Post Date</th>
+            <th scope="col">View</th>
           </tr>
         </thead>
         <tbody>
@@ -39,6 +40,7 @@
             <td><router-link :to="`/review/${review.id}`">{{ review.title }}</router-link></td>
             <td>{{ review.userId }}</td>
             <td class="comp-date">{{ review.regDate }}</td>
+            <td>{{ review.viewCnt }}</td>
           </tr>
         </tbody>
       </table>
