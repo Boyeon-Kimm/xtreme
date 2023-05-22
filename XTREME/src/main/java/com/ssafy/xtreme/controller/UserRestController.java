@@ -93,7 +93,7 @@ public class UserRestController {
 	public ResponseEntity<Integer> signup(User user){
 		int result = userService.insertUser(user);
 		
-		return new ResponseEntity<Integer>(result, HttpStatus.OK);
+		return new ResponseEntity<Integer>(result, HttpStatus.CREATED);
 	}
 	
 	
@@ -138,8 +138,8 @@ public class UserRestController {
 	//개인정보 수정
 	@ApiOperation(value="개인정보 수정")
 	@PutMapping("/user")
-	public ResponseEntity<Void> update(@RequestBody User user){
-		userService.updateUser(user);
+	public ResponseEntity<Void> update(String id, String password, String email){
+		userService.updateUser(id, password, email);
 		
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}

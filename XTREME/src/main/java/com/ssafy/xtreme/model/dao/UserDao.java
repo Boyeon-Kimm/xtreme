@@ -18,5 +18,5 @@ public interface UserDao {
 	public boolean checkDuplicateId(String id);
 	
 	//개인정보 수정
-	public int updateUser(User user);
+	public int updateUser(String id, String password, String email);
 }

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ssafy.xtreme.model.dto.Review;
+import com.ssafy.xtreme.model.dto.SearchCondition;
 import com.ssafy.xtreme.model.service.ReviewService;
 
 import io.swagger.annotations.Api;
@@ -91,8 +92,8 @@ public class ReviewRestController {
 	//리뷰 수정
 	@ApiOperation(value="리뷰 수정")
 	@PutMapping("/review")
-	public ResponseEntity<Void> update(@RequestBody Review review){
-		reviewService.updateReview(review);
+	public ResponseEntity<Void> update(int id, String title, String content){
+		reviewService.updateReview(id, title, content);
 		
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
@@ -105,6 +106,15 @@ public class ReviewRestController {
 		int result = reviewService.deleteReview(id);
 		
 		return new ResponseEntity<Integer>(result, HttpStatus.CREATED);
+	}
+	
+	//세부항목별 목록 조회(검색)
+	@ApiOperation(value = "리뷰 검색")
+	@GetMapping("/sort")
+	public ResponseEntity<List<Review>> sortList(SearchCondition con){
+		List<Review> sortList = reviewService.searchByCondition(con);
+		
+		return new ResponseEntity<List<Review>>(sortList, HttpStatus.OK);
 	}
 
 }

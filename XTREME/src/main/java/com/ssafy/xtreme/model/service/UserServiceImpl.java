@@ -35,26 +35,28 @@ public class UserServiceImpl implements UserService {
 		
 		return null;
 	}
-
+	
+	//회원가입
 	@Override
 	public int insertUser(User user) {
 		return userDao.insertUser(user);
 	}
 	
+	//id 중복체크
 	@Override
 	public boolean checkDuplicateId(String id) {
 		boolean checkUserId = userDao.checkDuplicateId(id);
 		return checkUserId;
 	}
 	
-
+	//개인정보 수정
 	@Override
-	public int updateUser(User user) {
-		User userBoard = userDao.selectById(user.getId());
-		userBoard.setEmail(user.getEmail());
-		userBoard.setName(user.getName());
+	public int updateUser(String id, String password, String email) {
+		User userBoard = userDao.selectById(id);
+		userBoard.setPassword(password);
+		userBoard.setEmail(email);
 //		userBoard.setProfileImg(user.getProfileImg());
-		return userDao.updateUser(user);
+		return userDao.updateUser(id, password, email);
 	}
 
 	
