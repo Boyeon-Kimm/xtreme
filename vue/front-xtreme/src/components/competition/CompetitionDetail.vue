@@ -2,7 +2,7 @@
   <div class="compList-main">
     <div class="login-form">
       <div class="compList-title">
-        <h3>제11회 안동하회탈배 전국오픈탁구대회</h3>
+        <h3>{{ competition.compName }}</h3>
         <hr />
       </div>
       <div class="compDetail-content">
@@ -21,18 +21,18 @@
               <p>URL:</p>
             </div>
             <div class="compDetail-text-cont">
-              <p>테니스</p>
-              <p>동양생명</p>
-              <p>장충테니스장</p>
-              <p>2023-03-25 09:00</p>
-              <p>2023-03-09 10:00 ~ 2023-04-15 18:00</p>
-              <p>15,000원</p>
-              <p>https://www.myangel.co.kr/process/main</p>
+              <p>{{ competition.compSports }}</p>
+              <p>{{ competition.host }}</p>
+              <p>{{ competition.place }}</p>
+              <p>{{ competition.compDay }}</p>
+              <p>{{ competition.registDate }}</p>
+              <p>{{ competition.fee }}원</p>
+              <p>{{ competition.compUrl }}</p>
             </div>
           </div>
 					<div class="compDetail-btn">
-          	<button>Participate</button>
-          	<button>List</button>
+          	<button @click.prevent="moveParticipate">Participate</button>
+          	<button @click.prevent="moveCompList">List</button>
         	</div>
         </div>
       </div>
@@ -41,8 +41,27 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
   name: "CompetitionDetail",
+  computed: {
+    ...mapState(['competition']),
+  },
+  created(){
+    //console.log(new URL(document.location).pathname)
+    const pathName = new URL(document.location).pathname.split('/');
+    const id = pathName[pathName.length - 1];
+    this.$store.dispatch('getCompetition', id);
+  },
+  methods:{
+    moveParticipate(){
+      this.$router.push("/participate");
+    },
+    moveCompList(){
+      this.$router.push("/competition");
+    },
+  },
 };
 </script>
 

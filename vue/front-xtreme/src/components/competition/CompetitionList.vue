@@ -22,35 +22,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">테니스</th>
-            <td><a href="">2023 서울시 시니어 테니스 대회</a></td>
-            <td class="comp-date">2023-03-25 09:00</td>
-            <td class="comp-date">2023-03-09 10:00 ~ 2023-04-15 18:00</td>
-          </tr>
-          <tr>
-            <th scope="row">탁구</th>
-            <td><a href="">제15회 김제지평선배 전국탁구</a></td>
-            <td class="comp-date">2023-11-18 09:00</td>
-            <td class="comp-date">2023-10-20 20:00 ~ 2023-11-08 11:00</td>
-          </tr>
-          <tr>
-            <th scope="row">탁구</th>
-            <td><a href="">제11회 안동하회탈배 전국오픈탁구대회</a></td>
-            <td class="comp-date">2023-06-03 09:00</td>
-            <td class="comp-date">2023-04-01 15:00 ~ 2023-05-22 13:00</td>
-          </tr>
-					<tr>
-            <th scope="row">테니스</th>
-            <td><a href="">제 2회 서울시 테니스 언더독 대회</a></td>
-            <td class="comp-date">2023-04-28 09:00</td>
-            <td class="comp-date">2023-04-10 07:00 ~ 2023-04-27 18:00</td>
-          </tr>
-					<tr>
-            <th scope="row">테니스</th>
-            <td><a href="">제 31회 도봉구청장배 테니스 대회</a></td>
-            <td class="comp-date">2023-05-14 09:00</td>
-            <td class="comp-date">2023-04-17 10:00 ~ 2023-05-10 19:00</td>
+          <tr v-for="competition in competitions" :key="competition.compName">
+            <td scope="row">{{ competition.compSports }}</td>
+            <td>
+              <router-link :to="`/competition/${competition.id}`">
+                {{ competition.compName }}
+              </router-link>
+            </td>
+            
+            <td>{{ competition.compDay }}</td>
+            <td>{{ competition.registDate }}</td>
           </tr>
         </tbody>
       </table>
@@ -67,6 +48,8 @@
 </template>
 
 <script>
+import {mapState} from 'vuex';
+
 export default {
   name: "CompetitionList",
 
@@ -78,10 +61,23 @@ export default {
     };
   },
   computed: {
-    rows() {
-      return this.items.length;
-    },
+    // rows() {
+    //   return this.items.length;
+    // },
+    ...mapState(['competitions']),
   },
+  created(){
+    this.$store.dispatch('getCompetitions');
+  },
+  // methods: {
+  //   search(){
+  //     const payload = {
+  //       mode: this.mode,
+  //       keyword: this.keyword,
+  //     };
+  //     this.$store.dispatch('getCompetitions', payload);
+  //   },
+  // },
 };
 </script>
 
