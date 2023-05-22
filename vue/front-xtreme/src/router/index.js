@@ -21,7 +21,7 @@ import ReviewDetail from '../components/reviewComp/ReviewDetail.vue';
 import ReviewList from '../components/reviewComp/ReviewList.vue';
 import ReviewUpdate from '../components/reviewComp/ReviewUpdate.vue';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {

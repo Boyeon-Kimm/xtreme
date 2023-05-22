@@ -66,7 +66,7 @@ export default {
 
   data() {
     return {
-      perPage: 3,
+      perPage: 10,
       currentPage: 1,
       mode: 1,
       keyword: '',
@@ -100,6 +100,9 @@ export default {
 </script>
 
 <style>
+  .compList-main{
+    height: auto;
+  }
   .write-review {
     text-align: right;
     margin-right: 4rem;
