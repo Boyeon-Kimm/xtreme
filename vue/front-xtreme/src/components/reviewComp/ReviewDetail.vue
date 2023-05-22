@@ -15,35 +15,56 @@
 				<div class="review-form-content">
 					<div class="login-form-input">
             <div class="login-form-text">
-					    <span>테니스</span>
+					    <span>{{ review.sports }}</span>
             </div>
             <div class="login-form-text">
-              <span>제 2회 서울시 테니스 언더독 대회</span>
+              <span>{{ review.compTitle }}</span>
             </div>
             <div class="login-form-text">
-              <span>첫 대회 후기!!!🥎</span>
+              <span>{{ review.title }}</span>
             </div>
             <div class="login-form-text">
-              <span>춘식이</span>
+              <span>{{ review.userId }}</span>
             </div>
             <div class="login-form-textarea">
-              <span>sdfsdsdfdsfsdfsdfsdfdssdfsdfdsfsfsdfsdfsdfsdsdfsgsdgdfdsfglrsdanhgkjdfkvbadjfbvkajfsbvkdabkvjsnkjnfvkjasnbkfjbdfsdfsdfsdfsdfsdfsdfsdfsdfsdsfsdfssfsdfsfsf</span>
+              <span>{{ review.content }}</span>
             </div>
           </div>
 				</div>
 			</div>
       <div class="write-review">
-        <button class="write-review-btn">Write Review</button>
-        <button class="write-review-btn">Review List</button>
+        <button @click="moveUpdate" class="write-review-btn">Update</button>
+        <button @click="deleteReview" class="write-review-btn">Delete</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import {mapState} from 'vuex';
+
 export default {
     name: 'ReviewDetail',
-}
+    computed: {
+      ...mapState(['review']),
+    },
+
+    created() {
+      const pathName = new URL(document.location).pathname.split('/');
+      const id = pathName[pathName.length - 1];
+      this.$store.dispatch('getReview', id);
+    },
+
+    methods: {
+      moveUpdate() {
+        this.$router.push({name: 'reviewUpdate'});
+      },
+
+      deleteReview() {
+        this.$store.dispatch('deleteReview', this.review.id);
+      },
+    },
+};
 </script>
 
 <style scoped>

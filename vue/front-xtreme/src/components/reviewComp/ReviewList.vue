@@ -22,40 +22,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">테니스</th>
-            <td>2023 서울시 시니어 테니스 대회</td>
-            <td><a href="">시니어 테니스 대회 후기..!</a></td>
-            <td>김보연</td>
-            <td class="comp-date">2023-03-25 08:53:10</td>
-          </tr>
-          <tr>
-            <th scope="row">탁구</th>
-            <td>제15회 김제지평선배 전국탁구</td>
-            <td><a href="">1등해서 상탄 후기🥇</a></td>
-            <td>홍성민</td>
-            <td class="comp-date">2022-11-18 14:09:55</td>
-          </tr>
-          <tr>
-            <th scope="row">탁구</th>
-            <td>제11회 안동하회탈배 전국오픈탁구대회</td>
-            <td><a href="">재밌었던 탁구대회 :D</a></td>
-            <td>김뮝태</td>
-            <td class="comp-date">2023-05-03 23:11:09</td>
-          </tr>
-					<tr>
-            <th scope="row">테니스</th>
-            <td>제 2회 서울시 테니스 언더독 대회</td>
-            <td><a href="">테린이의 첫 대회 후기!!!🥎</a></td>
-            <td>춘식이</td>
-            <td class="comp-date">2023-04-28 22:40:23</td>
-          </tr>
-					<tr>
-            <th scope="row">테니스</th>
-            <td>제 31회 도봉구청장배 테니스 대회</td>
-            <td><a href="">이렇게만 따라하면 상위권! 꿀팁 여러가지</a></td>
-            <td>haley</td>
-            <td class="comp-date">2023-01-14 19:10:23</td>
+          <tr v-for="review in reviews" :key="review.id">
+            <th scope="row">{{ review.sports }}}</th>
+            <td>{{ review.compTitle }}</td>
+            <td><router-link :to="`/review/${review.id}`">{{ review.title }}</router-link></router-link></td>
+            <td>{{ review.userId }}</td>
+            <td class="comp-date">{{ review.regDate }}</td>
           </tr>
         </tbody>
       </table>
@@ -75,6 +47,8 @@
 </template>
 
 <script>
+import {mapState} from 'vuex';
+
 export default {
   name: "ReviewList",
 
@@ -86,10 +60,14 @@ export default {
     };
   },
   computed: {
+    ...mapState(['reviews']),
     rows() {
       return this.items.length;
     },
   },
+  created() {
+    this.$store.dispatch('getReviews');
+  }
 };
 </script>
 

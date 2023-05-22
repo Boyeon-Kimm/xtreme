@@ -86,7 +86,7 @@ const routes = [
         component: ReviewCreate,
       },
       {
-        path: "id",
+        path: ":id",
         name: "reviewDetail",
         component: ReviewDetail,
       },
