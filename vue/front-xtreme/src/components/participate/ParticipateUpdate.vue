@@ -23,16 +23,6 @@
         <div class="login-form-text">
           <input type="email" placeholder="email" id="email" v-model="email" />
         </div>
-        <div class="participate-form-radio">
-        <div class="participate-radio">
-          <b-form-group class="radio-group-title" label="Personal Information Collection and Usage Agreement" v-slot="{ ariaDescribedby }">
-            <router-link :to="{ name: 'participateAgreement' }" class="compAgree">More about Agreement...</router-link>
-            <b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="some-radios" value="Agree" >Agree</b-form-radio
-            >
-            <b-form-radio class="radio-group-content" v-model="selected" :aria-describedby="ariaDescribedby" name="some-radios" value="Disagree">Disagree</b-form-radio>
-          </b-form-group>
-        </div>
-      </div>
         <div class="login-form-btn">
           <input type="submit" value="Update" />
           <input type="button" value="Cancel" />
@@ -56,7 +46,7 @@ export default {
   .participate-form {
     border: 4px solid rgba(251, 119, 24, 0.7);
     border-radius: 2rem;
-    height: 50rem;
+    height: auto;
     width: 40rem;
   }
 

@@ -6,6 +6,9 @@
       </div>
       <div class="login-form-input">
         <div class="login-form-text">
+          <input type="text" placeholder="Tournament Name" id="compName" v-model="compName" />
+        </div>
+        <div class="login-form-text">
           <input type="text" placeholder="id" id="id" v-model="id" />
         </div>
         <div class="login-form-text">
