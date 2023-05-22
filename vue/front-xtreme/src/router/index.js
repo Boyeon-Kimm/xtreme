@@ -39,7 +39,7 @@ const routes = [
         component: CompetitionList,
       },
       {
-        path: "",
+        path: "detail",
         name: "competitionDetail",
         component: CompetitionDetail,
       },

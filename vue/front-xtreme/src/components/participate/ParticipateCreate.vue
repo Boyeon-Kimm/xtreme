@@ -18,12 +18,7 @@
           <input type="number" placeholder="birth" id="birth" v-model="birth" />
         </div>
         <div class="login-form-text">
-          <input
-            type="number"
-            placeholder="phone number"
-            id="phone"
-            v-model="phone"
-          />
+          <input type="number" placeholder="phone number" id="phone" v-model="phone"/>
         </div>
         <div class="login-form-text">
           <input type="email" placeholder="email" id="email" v-model="email" />
@@ -32,21 +27,9 @@
         <div class="participate-radio">
           <b-form-group class="radio-group-title" label="Personal Information Collection and Usage Agreement" v-slot="{ ariaDescribedby }">
             <router-link :to="{ name: 'participateAgreement' }" class="compAgree">More about Agreement...</router-link>
-            <b-form-radio
-              v-model="selected"
-              :aria-describedby="ariaDescribedby"
-              name="some-radios"
-              value="Agree"
-              >Agree</b-form-radio
+            <b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="some-radios" value="Agree" >Agree</b-form-radio
             >
-            <b-form-radio
-              class="radio-group-content"
-              v-model="selected"
-              :aria-describedby="ariaDescribedby"
-              name="some-radios"
-              value="Disagree"
-              >Disagree</b-form-radio
-            >
+            <b-form-radio class="radio-group-content" v-model="selected" :aria-describedby="ariaDescribedby" name="some-radios" value="Disagree">Disagree</b-form-radio>
           </b-form-group>
         </div>
       </div>
