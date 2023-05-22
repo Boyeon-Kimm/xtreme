@@ -3,6 +3,7 @@ package com.ssafy.xtreme.model.service;
 import java.util.List;
 
 import com.ssafy.xtreme.model.dto.Review;
+import com.ssafy.xtreme.model.dto.SearchCondition;
 
 public interface ReviewService {
 //	//해당 대회에 대한 전체 리뷰 조회
@@ -21,11 +22,14 @@ public interface ReviewService {
 	public int insertReview(Review review);
 	
 	//리뷰 수정
-	public void updateReview(Review review);
+	public int updateReview(int id, String title, String content);
 	
 	//리뷰 삭제
 	public int deleteReview(int id);
 	
 	//리뷰 조회수 증가
 	public void updateViewCnt(int id);
+	
+	//리뷰 세부 목록 조회
+	public List<Review> searchByCondition(SearchCondition con);
 }

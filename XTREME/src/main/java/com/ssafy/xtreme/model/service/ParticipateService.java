@@ -11,9 +11,12 @@ public interface ParticipateService {
 	//찜한 대회 목록 조회
 //	public List<Participate> selectByLiked(Boolean liked);
 	
-	//신청 대회 조회
+	//신청 대회 목록 조회
 	public List<Participate> selectByUser(String playerId);
 	
+	//신청서 상세 보기
+	public Participate selectById(int id);
+	
 	//신청 정보 수정
-	public void updateParticipate(Participate participate);
+	public int updateParticipate(int id, String teamName, String phone, String playerEmail);
 }

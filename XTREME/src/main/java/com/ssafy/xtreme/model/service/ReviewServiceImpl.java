@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.ssafy.xtreme.model.dao.ReviewDao;
 import com.ssafy.xtreme.model.dto.Review;
+import com.ssafy.xtreme.model.dto.SearchCondition;
 
 @Service
 public class ReviewServiceImpl implements ReviewService{
@@ -48,11 +49,11 @@ public class ReviewServiceImpl implements ReviewService{
 	//리뷰 수정
 	//여기서 만약 특정 부분만 수정하고 싶으면?
 	@Override
-	public void updateReview(Review review) {
-		Review reviewBoard = reviewDao.selectByReviewId(review.getId());
-		reviewBoard.setTitle(review.getTitle());
-		reviewBoard.setContent(review.getContent());
-		reviewDao.updateReview(review);
+	public int updateReview(int id, String title, String content) {
+		Review reviewBoard = reviewDao.selectByReviewId(id);
+		reviewBoard.setTitle(title);
+		reviewBoard.setContent(content);
+		return reviewDao.updateReview(id, title, content);
 	}
 
 	//리뷰 삭제
@@ -67,6 +68,12 @@ public class ReviewServiceImpl implements ReviewService{
 		Review review = reviewDao.selectByReviewId(id);
 		review.setViewCnt(review.getViewCnt()+1);
 		reviewDao.updateViewCnt(id);
+	}
+	
+	//세부 목록별 검색
+	@Override
+	public List<Review> searchByCondition(SearchCondition con) {
+		return reviewDao.searchByCondition(con);
 	}
 
 

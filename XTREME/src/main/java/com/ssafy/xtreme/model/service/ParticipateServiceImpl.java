@@ -26,11 +26,22 @@ public class ParticipateServiceImpl implements ParticipateService{
 		return participateDao.selectByUser(playerId);
 	}
 
+	
+	@Override
+	public Participate selectById(int id) {
+		return participateDao.selectById(id);
+	}
+
 	//신청 정보 수정
 	@Override
-	public void updateParticipate(Participate participate) {
+	public int updateParticipate(int id, String teamName, String phone, String playerEmail) {
+		Participate participateBoard = participateDao.selectById(id);
+		participateBoard.setTeamName(teamName);
+		participateBoard.setPhone(phone);
+		participateBoard.setPlayerEmail(playerEmail);
 		
-		participateDao.updateParticipate(participate);
+		return participateDao.updateParticipate(id, teamName, phone, playerEmail);
 	}
+
 
 }
