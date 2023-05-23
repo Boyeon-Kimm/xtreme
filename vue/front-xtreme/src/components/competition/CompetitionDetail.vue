@@ -54,7 +54,7 @@ export default {
     const id = pathName[pathName.length - 1];
     this.$store.dispatch('getCompetition', id);
   },
-  methods:{
+  methods:{ 
     moveParticipate(){
       this.$router.push("/participate");
     },

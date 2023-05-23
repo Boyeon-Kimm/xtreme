@@ -7,29 +7,29 @@
 			<div class="participate-detail-view">
       <div class="login-form-input">
 				<div class="login-form-text">
-					<span>제 2회 서울시 테니스 언더독 대회</span>
+					<span>{{ competition.compName }}</span>
         </div>
         <div class="login-form-text">
-					<span>choonsik</span>
+					<span>{{ participate.playerId }}</span>
         </div>
         <div class="login-form-text">
-					<span>춘식이</span>
+					<span>{{ participate.playerName }}</span>
         </div>
         <div class="login-form-text">
-					<span>팀 캏캏오</span>
+					<span>{{ participate.teamName }}</span>
         </div>
         <div class="login-form-text">
-					<span>210505</span>
+					<span>{{ participate.birth }}</span>
         </div>
         <div class="login-form-text">
-					<span>010-1234-5678</span>
+					<span>{{ participate.phone }}</span>
         </div>
         <div class="login-form-text">
-					<span>choonsik123@gmail.com</span>
+					<span>{{ participate.playerEmail }}</span>
         </div>
         <div class="login-form-btn">
-          <input type="submit" value="Update" />
-          <input type="button" value="Cancel" />
+          <input @click.prevent="updateParticipate" type="submit" value="Update" />
+          <input @click="goList" type="button" value="Cancel" />
         </div>
       </div>
 			</div>
@@ -38,8 +38,21 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
   name: 'ParticipateDetail',
+  computed: {
+    ...mapState(['competition', 'participate']),
+  },
+  // created(){
+  //   const pathName = new URL(document.location).pathname.split('/');
+  //   const id = pathName[pathName.length - 1];
+  //   this.$store.dispatch('getParticipate', id);
+  // },
+  methods:{
+
+  },
 };
 </script>
 
