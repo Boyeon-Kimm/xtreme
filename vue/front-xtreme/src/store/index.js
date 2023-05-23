@@ -16,8 +16,13 @@ export default new Vuex.Store({
     competition: {},
     reviews: [],
     review: {},
+    id: '',
   },
   getters: {
+    isLogin(state) {
+      // state.id 값의 유무에 따라 true 또는 false 리턴
+      return state.id !== '';
+    }
   },
   mutations: {
     CREATE_USER(state, payload){
@@ -47,6 +52,10 @@ export default new Vuex.Store({
     },
     UPDATE_REVIEW(state, payload) {
       state.review = payload;
+    },
+    // 로그아웃 id 값을 공백으로 처리
+    clearUsername(state){
+      state.id = '';
     },
   },
   actions: {
