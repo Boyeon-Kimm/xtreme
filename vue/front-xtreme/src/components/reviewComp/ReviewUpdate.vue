@@ -101,7 +101,7 @@ export default {
 }
 
 .header-class {
-  background-color: transparent !important;
+  background-image: none;
 }
 
 .nav-menu {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header class="header-class">
+    <header class="header-class" style="background-image: none;">
     <nav>
       <div class="nav-title">
         <router-link to="/">XTREME</router-link>
@@ -123,4 +123,8 @@ export default {
   border-radius: 1rem;
   margin: 0.5rem;
 }
+
+/* .header-class {
+  background-image: none !important;
+} */
 </style>

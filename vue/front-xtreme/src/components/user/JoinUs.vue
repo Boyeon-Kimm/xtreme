@@ -88,4 +88,8 @@ export default {
   .login-form-btn {
     margin: 1rem;
   }
+
+  .header-class {
+    background-image: none;
+  }
 </style>

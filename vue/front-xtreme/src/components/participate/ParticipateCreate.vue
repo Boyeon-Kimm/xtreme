@@ -231,8 +231,7 @@ export default {
 }
 
 .header-class {
-  background-image: url(@/assets/main1.png);
-  background-size: cover;
+  background-image: none;
 }
 .nav-menu {
   display: flex;

@@ -109,6 +109,10 @@ export default {
   justify-content: center;
 }
 
+.header-class {
+  background-image: none;
+}
+
 .nav-menu {
   display: flex;
   justify-content: center;
