@@ -25,12 +25,12 @@
       <table :items="reviews" class="table table-dark table-hover table-bordered">
         <thead>
           <tr>
-            <th scope="col">Sports</th>
-            <th scope="col">Tournaments Name</th>
-            <th scope="col">Title</th>
-            <th scope="col" class="comp-date">Name</th>
-            <th scope="col" class="comp-date">Post Date</th>
-            <th scope="col">View</th>
+            <th scope="col" class="first-td">Sports</th>
+            <th scope="col" class="second-td">Tournaments Name</th>
+            <th scope="col" class="second-td">Title</th>
+            <th scope="col" class="comp-date" id="name-td">Name</th>
+            <th scope="col" class="comp-date" id="fourth-td">Post Date</th>
+            <th scope="col" class="third-td">View</th>
           </tr>
         </thead>
         <tbody>
@@ -46,7 +46,7 @@
       </table>
     </div>
     <div class="write-review">
-      <button class="write-review-btn"><router-link :to="`/review/create`">Review</router-link></button>
+      <button class="write-review-btn"><router-link :to="`/review/create`">Write Review</router-link></button>
     </div>
     <div class="overflow-auto">
       <b-pagination
@@ -102,9 +102,15 @@ export default {
 </script>
 
 <style>
-  .compList-main{
+
+  .compList-main {
     height: auto;
   }
+
+  .compList-list {
+    margin-bottom: 0;
+  }
+  
   .write-review {
     text-align: right;
     margin-right: 4rem;
@@ -113,7 +119,7 @@ export default {
 
   .write-review-btn {
     background-color: #FB7718;
-    width: 7.3rem;
+    width: 8rem;
     height: 3rem;
     border: transparent;
     border-radius: 0.3rem;
@@ -143,5 +149,9 @@ export default {
     background-color: #FB7718 !important;
     border: #FB7718 !important;
     margin: 0.8rem 0 0 0;
+  }
+
+  #name-td {
+    width: 9rem;
   }
 </style>

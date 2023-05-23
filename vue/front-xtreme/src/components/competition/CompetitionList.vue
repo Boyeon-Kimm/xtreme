@@ -25,11 +25,11 @@
       <table :items="competitions" class="table table-dark table-hover table-bordered">
         <thead>
           <tr>
-            <th scope="col">Sports</th>
-            <th scope="col">Tournaments Name</th>
-            <th scope="col" class="comp-date">Tournaments Date</th>
-            <th scope="col" class="comp-date">Registration Period</th>
-            <th scope="col">View</th>
+            <th scope="col" class="first-td">Sports</th>
+            <th scope="col" class="second-td">Tournaments Name</th>
+            <th scope="col" class="comp-date" id="fourth-td">Tournaments Date</th>
+            <th scope="col" class="comp-date" id="fifth-td">Registration Period</th>
+            <th scope="col" class="third-td">View</th>
           </tr>
         </thead>
         <tbody>
@@ -134,6 +134,7 @@ export default {
 .overflow-auto{
 	display: flex;
 	justify-content: center;
+  margin-top: 3rem;
 }
 
 .page-item {
@@ -163,6 +164,26 @@ li button, li span {
 	background-color: #FB7718 !important;
 	border-color: #FB7718 !important;
 	color: white !important;
+}
+
+.first-td {
+  width: 7rem;
+}
+
+.second-td {
+  width: 30rem;
+}
+
+.third-td {
+  width: 5rem;
+}
+
+#fourth-td {
+  width: 15rem;
+}
+
+#fifth-td {
+  width: 25rem;
 }
 
 </style>
