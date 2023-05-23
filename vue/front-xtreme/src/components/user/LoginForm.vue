@@ -88,8 +88,7 @@ export default {
   width: 29.5rem;
   border-radius: 1rem;
   margin-bottom: 0.7rem;
-  background-color: white;
-  opacity: 0.65;
+  background-color: rgb(255, 255, 255, 0.65);
   padding-left: 1rem;
   border: transparent;
   font-weight: 600;

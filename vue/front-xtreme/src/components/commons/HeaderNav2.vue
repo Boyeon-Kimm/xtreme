@@ -4,12 +4,17 @@
       <div class="nav-title">
         <router-link to="/">XTREME</router-link>
       </div>
+      <!-- 로그인 했을 때 보여줄 nav menu -->
       <div class="nav-menu">
         <router-link :to="{ name: 'competitionList' }">Tournaments</router-link>
         <router-link :to="{ name: 'reviewList' }">Reviews</router-link>
         <router-link :to="{ name: 'myPage' }">MyPage</router-link>
         <a @click="logoutUser" class="logout-btn">Logout</a>
       </div>
+
+      <!-- 로그인 안했을 때 보여줄 버튼 -->
+      <!-- 코드 작성하기 -->
+
     </nav>
   </header>
 </template>
@@ -50,6 +55,7 @@ export default {
     margin-left: 1.3rem;
     display: flex;
 	  justify-content: center;
+    cursor: pointer;
   }
 
 </style>

@@ -6,8 +6,7 @@
       </div>
       <div class="login-form-input">
         <div class="login-form-text">
-          <!-- <input type="text" placeholder="Tournament Name" id="compName" v-model="compName" /> -->
-          <span>{{ competition.compName }}</span>
+          <input type="text" id="compName" v-model="competition.compName" readonly/>
         </div>
         <div class="login-form-text">
           <input type="text" placeholder="id" id="playerId" v-model="playerId" />
@@ -139,6 +138,17 @@ export default {
   .participate-form-radio {
     display: flex;
     justify-content: center;
+  }
+
+  .login-form-text-span {
+    height: 3.5rem;
+    width: 29.5rem;
+    border-radius: 1rem;
+    margin-bottom: 0.7rem;
+    background-color: rgb(255, 255, 255, 0.65);
+    border: transparent;
+    font-weight: 600;
+    margin-right: 0;
   }
 
 </style>

@@ -8,8 +8,8 @@
       <div class="home-btn">
         <b-button class="nav-b-btn3"><router-link :to="{ name: 'competitionList' }">Tournaments</router-link></b-button>
         <b-button class="nav-b-btn3"><router-link :to="{ name: 'reviewList' }">Reviews</router-link></b-button>
-        <b-button class="nav-b-btn3"><router-link :to="{ name: 'joinus' }">Join Us</router-link></b-button>
         <b-button class="nav-b-btn3"><router-link :to="{ name: 'myPage' }">MyPage</router-link></b-button>
+        <b-button class="nav-b-btn3"><router-link :to="{ name: 'logout' }">Logout</router-link></b-button>
       </div>
     </div>
   </div>
@@ -26,7 +26,6 @@ export default {
 
 * {
   font-family: 'Red Hat Display', sans-serif;
-
 }
 
 .home {
@@ -41,6 +40,8 @@ export default {
   direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
 }
 
 .home-btn {
