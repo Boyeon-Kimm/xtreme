@@ -68,13 +68,13 @@ public class UserRestController {
 	@ApiOperation(value = "로그인")
 	@PostMapping("/login")
 	public ResponseEntity<?> login(User user, HttpSession session){
-		User userA = userService.login(user.getId(), user.getPassword());
-		if(userA == null) {
+		User loginUser = userService.login(user.getId(), user.getPassword());
+		if(loginUser == null) {
 			return new ResponseEntity<Void>(HttpStatus.UNAUTHORIZED);
 		}
 		
-		session.setAttribute("loginUser", userA);
-		return new ResponseEntity<String>(userA.getName(), HttpStatus.OK);
+		session.setAttribute("loginUser", loginUser);
+		return new ResponseEntity<String>(loginUser.getName(), HttpStatus.OK);
 	}
 	
 	
@@ -88,14 +88,46 @@ public class UserRestController {
 	}
 	
 	//회원가입
+//	@ApiOperation(value="회원 가입")
+//	@PostMapping("/signup")
+//	public ResponseEntity<Integer> signup(User user){
+//		System.out.println(user.toString());
+//		int result = userService.insertUser(user);
+//		
+//		return new ResponseEntity<Integer>(result, HttpStatus.CREATED);
+//	}
+	
+	
 	@ApiOperation(value="회원 가입")
 	@PostMapping("/signup")
-	public ResponseEntity<Integer> signup(User user){
-		System.out.println(user.toString());
-		int result = userService.insertUser(user);
-		
-		return new ResponseEntity<Integer>(result, HttpStatus.CREATED);
+	public ResponseEntity<Integer> signup(@RequestBody User user) throws IOException {
+	    if (userService.selectById(user.getId()) != null) {
+	        return new ResponseEntity<Integer>(-1, HttpStatus.BAD_REQUEST);
+	    }
+	    
+//	    if (file != null && !file.isEmpty()) {
+//	        String uploadPath = "path/to/upload/directory";
+//	        String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
+//	        Path filePath = Paths.get(uploadPath, fileName);
+//
+//	        try {
+//	            Files.createDirectories(filePath.getParent());
+//	            Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
+//	            user.setImg(fileName);
+//	            user.setOrgImg(file.getOriginalFilename());
+//	        } catch (IOException e) {
+//	            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("파일 업로드 실패");
+//	        }
+//	    }
+
+	    int result = userService.insertUser(user);
+
+//	    if (from.equals("userList")) {
+//	        return ResponseEntity.ok(1);
+//	    }
+	    return new ResponseEntity<Integer>(result, HttpStatus.CREATED);
 	}
+
 	
 	
 	//회원가입에 프사 넣기 잠정 보류
