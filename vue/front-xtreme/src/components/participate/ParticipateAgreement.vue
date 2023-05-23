@@ -21,6 +21,10 @@
         <p>You have the right to refuse to accept the above agreement on the collection and use of personal in-formation. However, submission may be restricted if you do not consent to the agreement.</p>
       </div>
     </div>
+    <div class="continue-fill">
+      <a @click="$router.back()" class="click-btn">Click Here!</a><br>
+      <a>Continue to fill out the application form.</a>
+    </div>
     <div class="xtreme-logo">
       <h3>XTREME</h3>
     </div>
@@ -81,4 +85,15 @@ export default {
     color: rgb(79, 77, 77);
   }
 
+  .continue-fill {
+    color: gray;
+    font-weight: 900;
+    
+  }
+
+  .click-btn {
+    color: rgb(0, 0, 0);
+    text-shadow: -1px 0 #FB7718, 0 1px #FB7718, 1px 0 #FB7718, 0 -1px #FB7718;
+    font-size: 2rem;
+  }
 </style>

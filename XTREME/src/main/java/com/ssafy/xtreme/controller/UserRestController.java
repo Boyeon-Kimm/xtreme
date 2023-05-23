@@ -91,6 +91,7 @@ public class UserRestController {
 	@ApiOperation(value="회원 가입")
 	@PostMapping("/signup")
 	public ResponseEntity<Integer> signup(User user){
+		System.out.println(user.toString());
 		int result = userService.insertUser(user);
 		
 		return new ResponseEntity<Integer>(result, HttpStatus.CREATED);

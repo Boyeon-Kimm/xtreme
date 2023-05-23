@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <form @submit.prevent="submitForm" class="join-form">
+    <form class="join-form">
       <div class="login-form-title">
         <p>Personal Details</p>
       </div>
@@ -22,8 +22,8 @@
           <input type="number" placeholder="age" id="age" v-model="age" />
         </div>
         <div class="login-form-btn">
-          <input type="submit" value="Submit"/>
-          <input type="button" value="Sign In"/>
+          <input @click.prevent="createUser" type="submit" value="Submit"/>
+          <input @click.prevent="goSign" type="button" value="Sign In"/>
         </div>
       </div>
     </form>
@@ -33,6 +33,33 @@
 <script>
 export default {
   name: "JoinUs",
+  data(){
+    return {
+      name: '',
+      id: '',
+      email: '',
+      password: '',
+      age: '',
+    };
+  },
+  methods: {
+    createUser(){
+      let user = {
+        id: this.id,
+        password: this.password,
+        email: this.email,
+        name: this.name,
+        age: this.age,
+      };
+
+      this.$store.dispatch('createUser', user);
+      this.$router.push("/login");
+    },
+
+    goSign(){
+      this.$router.push("/login");
+    }
+  }
 };
 </script>
 

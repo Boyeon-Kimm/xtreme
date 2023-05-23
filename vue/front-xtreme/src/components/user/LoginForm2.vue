@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <form class="login-form" @submit="login()">
+    <form class="login-form" @submit="submitForm">
       <div class="login-form-title">
         <p>Sign In</p>
       </div>
@@ -13,7 +13,7 @@
         </div>
         <div class="login-form-btn">
           <input type="submit" value="Sign In"/>
-          <input @click.prevent="goJoinUs" type="button" value="Join Us"/>
+          <input type="button" value="Join Us"/>
         </div>
       </div>
     </form>
@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import { loginUser } from '@/api/index';
 export default {
   name: "LoginForm",
 
@@ -28,37 +29,36 @@ export default {
     return {
       id: '',
       password: '',
+      logMessage: '',
     };
   },
 
   methods: {
-    goJoinUs() {
-      this.$router.push("/joinus");
+    async submitForm() {
+      try{
+        const userData = {
+          id: this.id,
+          password: this.password,
+        };
+        // API 함수 loginUser 호출
+        const { data } = await loginUser(userData);
+        this.$store.commit('setUsername', data.user.id);
+        // 메인페이지 이동
+        this.$router.push('/main');
+        alert(`Welcome, ${data.user.id} !`);
+      } catch (err) {
+        console.log(err);
+      } finally {
+        // 입력칸 비우기
+        this.initForm();
+      }
     },
-    login() {
-      if(this.id === ''){
-        alert("Please enter your ID.");
-        return;
-      }
-      if(this.password === ''){
-        alert("Please enter your password.");
-        return;
-      }
-      const id = this.id;
-      const password = this.password;
-
-      const payload = {
-        id,
-        password,
-      };
-
-      this.$store.dispatch("login", payload);
-      this.$router.push("/");
+    initForm() {
+      this.id = '';
+      this.password = '';
     },
   },
-  mounted() {
-    this.$refs.idInput.focus();
-  }
+
 };
 </script>
 

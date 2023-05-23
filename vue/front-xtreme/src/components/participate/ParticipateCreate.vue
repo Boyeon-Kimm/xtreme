@@ -1,21 +1,22 @@
 <template>
   <div class="home">
-    <form @submit.prevent="submitForm" class="participate-form">
+    <form class="participate-form">
       <div class="login-form-title">
         <p>Participation Application</p>
       </div>
       <div class="login-form-input">
         <div class="login-form-text">
-          <input type="text" placeholder="Tournament Name" id="compName" v-model="compName" />
+          <!-- <input type="text" placeholder="Tournament Name" id="compName" v-model="compName" /> -->
+          <span>{{ competition.compName }}</span>
         </div>
         <div class="login-form-text">
-          <input type="text" placeholder="id" id="id" v-model="id" />
+          <input type="text" placeholder="id" id="playerId" v-model="playerId" />
         </div>
         <div class="login-form-text">
-          <input type="text" placeholder="name" id="name" v-model="name" />
+          <input type="text" placeholder="name" id="playerName" v-model="playerName" />
         </div>
         <div class="login-form-text">
-          <input type="text" placeholder="team" id="team" v-model="team" />
+          <input type="text" placeholder="team" id="teamName" v-model="teamName" />
         </div>
         <div class="login-form-text">
           <input type="number" placeholder="birth" id="birth" v-model="birth" />
@@ -24,7 +25,7 @@
           <input type="number" placeholder="phone number" id="phone" v-model="phone"/>
         </div>
         <div class="login-form-text">
-          <input type="email" placeholder="email" id="email" v-model="email" />
+          <input type="email" placeholder="email" id="playerEmail" v-model="playerEmail" />
         </div>
         <div class="participate-form-radio">
         <div class="participate-radio">
@@ -37,8 +38,8 @@
         </div>
       </div>
         <div class="login-form-btn">
-          <input type="submit" value="Submit" />
-          <input type="button" value="Cancel" />
+          <input @click.prevent="createParticipate" type="submit" value="Submit" />
+          <input @click.prevent="$router.back()" type="button" value="Cancel" />
         </div>
       </div>
     </form>
@@ -46,21 +47,70 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
   name: 'ParticipateCreate',
+  computed: {
+    ...mapState(['competition']),
+  },
+  data(){
+    return {
+      // compName: '',
+      playerId: '',
+      playerName: '',
+      teamName: '',
+      birth: '',
+      phone: '',
+      playerEmail: '',
+    };
+  },
+
+  // computed: {
+  //   ...mapState(['competitions']),
+  //   compId(){
+  //     return this.$route.params.compId;
+  //   },
+  //   competitionName(){
+  //     const competition = this.competitions.find(c => c.compId === this.compId);
+  //     return competition ? competition.compName : '';
+  //   },
+  // },
+
+  methods: {
+    createParticipate(){
+      let participate = {
+        
+        playerId: this.playerId,
+        playerName: this.playerName,
+        teamName: this.teamName,
+        birth: this.birth,
+        phone: this.phone,
+        playerEmail: this.playerEmail,
+      };
+
+      this.$store.dispatch('createParticipate', participate);
+      this.$router.push({ name: "participateDetail", params: { id: participate.id }});
+    },
+    moveCompList(){
+
+    },
+  },
 };
 </script>
 
 <style scoped>
-.home {
-  height: 70rem;
-}
+  .home {
+    height: auto;
+  }
+
   .participate-form {
     border: 4px solid rgba(251, 119, 24, 0.7);
     border-radius: 2rem;
-    height: 50rem;
+    height: auto;
     width: 40rem;
   }
+  
   .participate-radio {
     background-color:  rgb(255, 255, 255, 0.65);
     height: 9.3rem;

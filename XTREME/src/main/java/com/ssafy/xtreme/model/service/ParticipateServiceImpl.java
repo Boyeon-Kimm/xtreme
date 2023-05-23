@@ -17,6 +17,8 @@ public class ParticipateServiceImpl implements ParticipateService{
 	//참가 신청 (신청서 작성)
 	@Override
 	public int insertParticipate(Participate participate) {
+//		participateDao.insertParticipate(participate);
+//		return participate.getId();
 		return participateDao.insertParticipate(participate);
 	}
 
@@ -42,6 +44,4 @@ public class ParticipateServiceImpl implements ParticipateService{
 		
 		return participateDao.updateParticipate(id, teamName, phone, playerEmail);
 	}
-
-
 }

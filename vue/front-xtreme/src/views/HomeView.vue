@@ -52,7 +52,7 @@ export default {
 
 .nav-b-btn3 {
   width: 9.5rem !important;
-  /* height: 3rem; */
+  height: 3rem;
   border-radius: 0.7rem !important;
   border: transparent !important;
   background-color: rgba(251, 119, 24, 0.7) !important;
@@ -61,6 +61,7 @@ export default {
 .nav-b-btn3 a {
   color: white;
   font-size: 1.2rem;
+  /* text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000; */
 }
 
 .sub-describe p {
@@ -69,5 +70,6 @@ export default {
   font-size: 3.5rem;
   text-align: center;
   margin-bottom: -1rem;
+  text-shadow: 4px 4px 4px #393838;
 }
 </style>

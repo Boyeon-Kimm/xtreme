@@ -18,8 +18,8 @@
           <textarea placeholder="Content" v-model="review.content" />
         </div>
         <div class="login-form-btn">
-          <input @click.prevent="" type="submit" value="Update"/>
-          <input @click="$router.back()" type="button" value="Cancel"/>
+          <input @click.prevent="updateReview" type="submit" value="Update"/>
+          <input @click.prevent="$router.back()" type="button" value="Cancel"/>
         </div>
       </div>
     </div>
@@ -38,25 +38,19 @@ export default {
       content: '',
     }),
     computed: {
-      // ...mapState(['review']),
+      ...mapState(['review']),
 
     },
     methods: {
-      // updateReview() {
-        // let updateReview = {
-        //   compTitle: this.review.compTitle,
-        //   title: this.review.title,
-        //   userId: this.review.userId,
-        //   content: this.review.content,
-        // };
-        // this.$store.dispatch('updateReview', updateReview);
-      
-      
-      // },
-     
-      // goList() {
-      //   this.$router.push("/review");
-      // }
+      updateReview() {
+        let updateReview = {
+          compTitle: this.review.compTitle,
+          title: this.review.title,
+          userId: this.review.userId,
+          content: this.review.content,
+        };
+        this.$store.dispatch('updateReview', updateReview);
+      },
     },
 };
 </script>

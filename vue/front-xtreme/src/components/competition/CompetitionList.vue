@@ -1,6 +1,5 @@
 <template>
   <div class="compList-main">
-    <!-- <header-nav-2></header-nav-2> -->
     <div class="compList-title">
       <h3>Tournaments List</h3>
       <div class="compList-sub-title">
@@ -11,46 +10,39 @@
         <p>Take a closer look at the tournaments we have in store for you:</p>
       </div>
     </div>
+    <div>
+      <b-form inline>
+        <b-form-select v-model="mode">
+          <b-form-select-option value="1">Sports</b-form-select-option>
+          <b-form-select-option value="2">Tournament Name</b-form-select-option>
+          <b-form-select-option value="3">Sports+Tournament Name</b-form-select-option>
+        </b-form-select>
+        <b-form-input type="text" v-model="keyword" />
+        <b-button @click="search" class="search-btn">Search</b-button>
+      </b-form>
+    </div>
     <div class="compList-list">
-      <table class="table table-dark table-hover table-bordered">
+      <table :items="competitions" class="table table-dark table-hover table-bordered">
         <thead>
           <tr>
             <th scope="col">Sports</th>
             <th scope="col">Tournaments Name</th>
             <th scope="col" class="comp-date">Tournaments Date</th>
             <th scope="col" class="comp-date">Registration Period</th>
+            <th scope="col">View</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">테니스</th>
-            <td><a href="">2023 서울시 시니어 테니스 대회</a></td>
-            <td class="comp-date">2023-03-25 09:00</td>
-            <td class="comp-date">2023-03-09 10:00 ~ 2023-04-15 18:00</td>
-          </tr>
-          <tr>
-            <th scope="row">탁구</th>
-            <td><a href="">제15회 김제지평선배 전국탁구</a></td>
-            <td class="comp-date">2023-11-18 09:00</td>
-            <td class="comp-date">2023-10-20 20:00 ~ 2023-11-08 11:00</td>
-          </tr>
-          <tr>
-            <th scope="row">탁구</th>
-            <td><a href="">제11회 안동하회탈배 전국오픈탁구대회</a></td>
-            <td class="comp-date">2023-06-03 09:00</td>
-            <td class="comp-date">2023-04-01 15:00 ~ 2023-05-22 13:00</td>
-          </tr>
-					<tr>
-            <th scope="row">테니스</th>
-            <td><a href="">제 2회 서울시 테니스 언더독 대회</a></td>
-            <td class="comp-date">2023-04-28 09:00</td>
-            <td class="comp-date">2023-04-10 07:00 ~ 2023-04-27 18:00</td>
-          </tr>
-					<tr>
-            <th scope="row">테니스</th>
-            <td><a href="">제 31회 도봉구청장배 테니스 대회</a></td>
-            <td class="comp-date">2023-05-14 09:00</td>
-            <td class="comp-date">2023-04-17 10:00 ~ 2023-05-10 19:00</td>
+          <tr v-for="competition in pageCompetitionList" :key="competition.compName">
+            <td scope="row">{{ competition.compSports }}</td>
+            <td>
+              <router-link :to="`/competition/${competition.id}`">
+                {{ competition.compName }}
+              </router-link>
+            </td>
+            <td>{{ competition.compDay }}</td>
+            <td>{{ competition.registDate }}</td>
+            <td>{{ competition.viewCnt }}</td>
           </tr>
         </tbody>
       </table>
@@ -58,28 +50,51 @@
     <div class="overflow-auto">
       <b-pagination
         v-model="currentPage"
-        :total-rows="rows"
+        :total-rows="competitionCount"
         :per-page="perPage"
         aria-controls="my-table"
+        align="center"
       ></b-pagination>
     </div>
   </div>
 </template>
 
 <script>
+import {mapState} from 'vuex';
+
 export default {
   name: "CompetitionList",
 
   data() {
     return {
-			rows: 10,
-      perPage: 2,
+			perPage: 10,
       currentPage: 1,
+      mode: 1,
+      keyword: '',
     };
   },
   computed: {
-    rows() {
-      return this.items.length;
+    ...mapState(['competitions']),
+    competitionCount() {
+      return this.competitions.length;
+    },
+    pageCompetitionList() {
+      return this.competitions.slice(
+        (this.currentPage - 1) * this.perPage,
+        this.currentPage * this.perPage
+      )
+    }
+  },
+  created(){
+    this.$store.dispatch('getCompetitions');
+  },
+  methods: {
+    search(){
+      const payload = {
+        mode: this.mode,
+        keyword: this.keyword,
+      };
+      this.$store.dispatch('getCompetitions', payload);
     },
   },
 };
@@ -87,12 +102,13 @@ export default {
 
 <style>
 .compList-main {
-  height: 55rem;
+  padding-top: 8rem;
+  padding-bottom: 6rem;
   background-color: black;
 }
 
 .compList-title {
-  padding: 8rem 0 0 4rem;
+  padding: 0 0 0 4rem;
 }
 
 .compList-title h3 {
@@ -108,7 +124,7 @@ export default {
 }
 
 .compList-list {
-  margin: 1rem 4rem 1rem 4rem;
+  margin: 1rem 4rem 3rem 4rem;
 }
 
 .compList-list table {
