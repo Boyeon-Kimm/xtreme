@@ -6,7 +6,7 @@
       </div>
       <div class="nav-btn">
         <b-button class="nav-b-btn" id="nav-b-btn1"><router-link :to="{ name: 'login' }">Sign in</router-link></b-button>
-        <b-button class="nav-b-btn" id="nav-b-btn2"><router-link :to="{ name: 'joinUs' }">Join us</router-link></b-button>
+        <b-button class="nav-b-btn" id="nav-b-btn2"><router-link :to="{ name: 'joinus' }">Join us</router-link></b-button>
       </div>
     </nav>
   </header>
