@@ -8,6 +8,7 @@ Vue.use(Vuex);
 const REST_API_USER = `http://localhost:9999/api-user`;
 const REST_API_COMPETITION = `http://localhost:9999/api-competition`;
 const REST_API_REVIEW = `http://localhost:9999/api-review`;
+const REST_API_PARTICIPATE = `http://localhost:9999/api-participate`;
 
 export default new Vuex.Store({
   state: {
@@ -16,6 +17,8 @@ export default new Vuex.Store({
     competition: {},
     reviews: [],
     review: {},
+    participates: [],
+    participate: {},
   },
   getters: {
   },
@@ -45,8 +48,17 @@ export default new Vuex.Store({
     UPDATE_REVIEW(state, payload) {
       state.review = payload;
     },
+
+
+    CREATE_PARTICIPATE(state, participate){
+      state.participate = participate;
+    },
+    GET_PARTICIPATE(state, participate){
+      state.participate = participate;
+    },
   },
   actions: {
+    //유저
     createUser({commit}, user){
       const API_URL = `${REST_API_USER}/signup`;
       axios({
@@ -63,8 +75,7 @@ export default new Vuex.Store({
     },
 
 
-    
-
+    //대회 정보
     getCompetitions({commit}){
 
       const API_URL = `${REST_API_COMPETITION}/comp`;
@@ -96,7 +107,7 @@ export default new Vuex.Store({
     },
 
 
-
+    //후기
     deleteReview({ commit }, id){
       const API_URL = `${REST_API_REVIEW}/review/${id}`;
       axios({
@@ -170,6 +181,38 @@ export default new Vuex.Store({
       .catch((err) => {
         console.log(err);
       });
+    },
+
+
+    // 참가신청
+    createParticipate({ commit }, participate){
+      const API_URL = `${REST_API_PARTICIPATE}/write`;
+      axios({
+        url: API_URL,
+        method: "POST",
+        params: participate,
+      })
+        .then(({data}) => {
+          // data = participate.id
+          commit("CREATE_PARTICIPATE", participate);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+
+    getParticipate({commit}, id){
+      const API_URL = `${REST_API_PARTICIPATE}/detail`;
+      axios({
+        url: API_URL,
+        method: "GET",
+      })
+        .then((res) => {
+          commit("GET_PARTICIPATE", res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
   },
   modules: {
