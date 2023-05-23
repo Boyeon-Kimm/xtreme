@@ -1,6 +1,5 @@
 <template>
   <div class="compList-main">
-    <!-- <header-nav-2></header-nav-2> -->
     <div class="compList-title">
       <h3>Tournaments List</h3>
       <div class="compList-sub-title">
@@ -11,27 +10,39 @@
         <p>Take a closer look at the tournaments we have in store for you:</p>
       </div>
     </div>
+    <div>
+      <b-form inline>
+        <b-form-select v-model="mode">
+          <b-form-select-option value="1">Sports</b-form-select-option>
+          <b-form-select-option value="2">Tournament Name</b-form-select-option>
+          <b-form-select-option value="3">Sports+Tournament Name</b-form-select-option>
+        </b-form-select>
+        <b-form-input type="text" v-model="keyword" />
+        <b-button @click="search" class="search-btn">Search</b-button>
+      </b-form>
+    </div>
     <div class="compList-list">
-      <table class="table table-dark table-hover table-bordered">
+      <table :items="competitions" class="table table-dark table-hover table-bordered">
         <thead>
           <tr>
             <th scope="col">Sports</th>
             <th scope="col">Tournaments Name</th>
             <th scope="col" class="comp-date">Tournaments Date</th>
             <th scope="col" class="comp-date">Registration Period</th>
+            <th scope="col">View</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="competition in competitions" :key="competition.compName">
+          <tr v-for="competition in pageCompetitionList" :key="competition.compName">
             <td scope="row">{{ competition.compSports }}</td>
             <td>
               <router-link :to="`/competition/${competition.id}`">
                 {{ competition.compName }}
               </router-link>
             </td>
-            
             <td>{{ competition.compDay }}</td>
             <td>{{ competition.registDate }}</td>
+            <td>{{ competition.viewCnt }}</td>
           </tr>
         </tbody>
       </table>
@@ -39,9 +50,10 @@
     <div class="overflow-auto">
       <b-pagination
         v-model="currentPage"
-        :total-rows="rows"
+        :total-rows="competitionCount"
         :per-page="perPage"
         aria-controls="my-table"
+        align="center"
       ></b-pagination>
     </div>
   </div>
@@ -55,40 +67,48 @@ export default {
 
   data() {
     return {
-			rows: 10,
-      perPage: 2,
+			perPage: 10,
       currentPage: 1,
+      mode: 1,
+      keyword: '',
     };
   },
   computed: {
-    // rows() {
-    //   return this.items.length;
-    // },
     ...mapState(['competitions']),
+    competitionCount() {
+      return this.competitions.length;
+    },
+    pageCompetitionList() {
+      return this.competitions.slice(
+        (this.currentPage - 1) * this.perPage,
+        this.currentPage * this.perPage
+      )
+    }
   },
   created(){
     this.$store.dispatch('getCompetitions');
   },
-  // methods: {
-  //   search(){
-  //     const payload = {
-  //       mode: this.mode,
-  //       keyword: this.keyword,
-  //     };
-  //     this.$store.dispatch('getCompetitions', payload);
-  //   },
-  // },
+  methods: {
+    search(){
+      const payload = {
+        mode: this.mode,
+        keyword: this.keyword,
+      };
+      this.$store.dispatch('getCompetitions', payload);
+    },
+  },
 };
 </script>
 
 <style>
 .compList-main {
-  height: 55rem;
+  padding-top: 8rem;
+  padding-bottom: 6rem;
   background-color: black;
 }
 
 .compList-title {
-  padding: 8rem 0 0 4rem;
+  padding: 0 0 0 4rem;
 }
 
 .compList-title h3 {
@@ -104,7 +124,7 @@ export default {
 }
 
 .compList-list {
-  margin: 1rem 4rem 1rem 4rem;
+  margin: 1rem 4rem 3rem 4rem;
 }
 
 .compList-list table {

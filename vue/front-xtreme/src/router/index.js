@@ -5,7 +5,7 @@ import CompetitionView from '../views/CompetitionView.vue';
 import ParticipateView from '../views/ParticipateView.vue';
 import LoginView from '../views/LoginView.vue';
 import JoinUsView from '../views/JoinUsView.vue';
-// import MyPageView from '../views/MyPageView.vue';
+import MyPageView from '../views/MyPageView.vue';
 import ReviewView from '../views/ReviewView.vue';
 
 import CompetitionDetail from '../components/competition/CompetitionDetail.vue';
@@ -20,6 +20,9 @@ import ReviewCreate from '../components/reviewComp/ReviewCreate.vue';
 import ReviewDetail from '../components/reviewComp/ReviewDetail.vue';
 import ReviewList from '../components/reviewComp/ReviewList.vue';
 import ReviewUpdate from '../components/reviewComp/ReviewUpdate.vue';
+
+import UserUpdate from '../components/user/UserUpdate.vue';
+import MyPage from '../components/user/UserUpdate.vue';
 
 Vue.use(VueRouter);
 
@@ -107,11 +110,23 @@ const routes = [
     name: "joinus",
     component: JoinUsView,
   },
-  // {
-  //   path: "/mypage/:userId",
-  //   name: "myPage",
-  //   component: MyPageView,
-  // }
+  {
+    path: "/user",
+    name: "userUpdate",
+    component: UserUpdate,
+  },
+  {
+    // path: "/mypage/:userId",
+    path: "/mypage",
+    component: MyPageView,
+    children: [
+      {
+        path: "",
+        name: "myPage",
+        component: MyPage,
+      },
+    ],
+  },
 ]
 
 const router = new VueRouter({

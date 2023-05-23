@@ -100,15 +100,17 @@ export default {
 </script>
 
 <style scoped>
-.home {
-  height: 70rem;
-}
+  .home {
+    height: auto;
+  }
+
   .participate-form {
     border: 4px solid rgba(251, 119, 24, 0.7);
     border-radius: 2rem;
-    height: 50rem;
+    height: auto;
     width: 40rem;
   }
+  
   .participate-radio {
     background-color:  rgb(255, 255, 255, 0.65);
     height: 9.3rem;

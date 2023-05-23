@@ -17,13 +17,21 @@ export default new Vuex.Store({
     competition: {},
     reviews: [],
     review: {},
+
     participates: [],
     participate: {},
   },
   getters: {
+    isLogin(state) {
+      // state.id 값의 유무에 따라 true 또는 false 리턴
+      return state.id !== '';
+    }
   },
   mutations: {
     CREATE_USER(state, payload){
+      state.user = payload;
+    },
+    UPDATE_USER(state, payload){
       state.user = payload;
     },
 
@@ -49,12 +57,12 @@ export default new Vuex.Store({
       state.review = payload;
     },
 
-
     CREATE_PARTICIPATE(state, participate){
       state.participate = participate;
     },
     GET_PARTICIPATE(state, participate){
       state.participate = participate;
+
     },
   },
   actions: {
@@ -74,10 +82,22 @@ export default new Vuex.Store({
         });
     },
 
-
     //대회 정보
-    getCompetitions({commit}){
 
+    updateUser({ commit }, user){
+      const API_URL = `${REST_API_USER}/user`;
+      axios({
+        url: API_URL,
+        method: "PUT",
+        params: user,
+      })
+      .then(() => {
+        commit("UPDATE_USER", user);
+        // router.push({ name: "myPage", params: { id: user.id }});
+      });
+    },
+
+    getCompetitions({commit}){
       const API_URL = `${REST_API_COMPETITION}/comp`;
       axios({
         url: API_URL,
@@ -106,8 +126,6 @@ export default new Vuex.Store({
         });
     },
 
-
-    //후기
     deleteReview({ commit }, id){
       const API_URL = `${REST_API_REVIEW}/review/${id}`;
       axios({
@@ -122,7 +140,7 @@ export default new Vuex.Store({
         console.log(err);
       });
     },
-    updateBoard({ commit }, review){
+    updateReview({ commit }, review){
       const API_URL = `${REST_API_REVIEW}/review`;
       axios({
         url: API_URL,
