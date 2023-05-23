@@ -1,6 +1,5 @@
 <template>
   <div class="compList-main">
-    <!-- <header-nav-2></header-nav-2> -->
     <div class="compList-title">
       <h3>Tournaments List</h3>
       <div class="compList-sub-title">
@@ -56,14 +55,14 @@ export default {
   data() {
     return {
 			rows: 10,
-      perPage: 2,
+      perPage: 1,
       currentPage: 1,
     };
   },
   computed: {
-    // rows() {
-    //   return this.items.length;
-    // },
+    rows() {
+      return this.items.length;
+    },
     ...mapState(['competitions']),
   },
   created(){
@@ -83,12 +82,13 @@ export default {
 
 <style>
 .compList-main {
-  height: 55rem;
+  padding-top: 8rem;
+  padding-bottom: 6rem;
   background-color: black;
 }
 
 .compList-title {
-  padding: 8rem 0 0 4rem;
+  padding: 0 0 0 4rem;
 }
 
 .compList-title h3 {
