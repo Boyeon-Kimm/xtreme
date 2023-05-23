@@ -23,7 +23,11 @@ export default new Vuex.Store({
     CREATE_USER(state, payload){
       state.user = payload;
     },
-    
+    UPDATE_USER(state, payload){
+      state.user = payload;
+    },
+
+
     GET_COMPETITIONS(state, competitions){
       state.competitions = competitions;
     },
@@ -60,12 +64,20 @@ export default new Vuex.Store({
           console.log(err);
         });
     },
-
-
-    
+    updateUser({ commit }, user){
+      const API_URL = `${REST_API_USER}/user`;
+      axios({
+        url: API_URL,
+        method: "PUT",
+        params: user,
+      })
+      .then(() => {
+        commit("UPDATE_USER", user);
+        // router.push({ name: "myPage", params: { id: user.id }});
+      });
+    },
 
     getCompetitions({commit}){
-
       const API_URL = `${REST_API_COMPETITION}/comp`;
       axios({
         url: API_URL,
@@ -95,7 +107,6 @@ export default new Vuex.Store({
     },
 
 
-
     deleteReview({ commit }, id){
       const API_URL = `${REST_API_REVIEW}/review/${id}`;
       axios({
@@ -110,7 +121,7 @@ export default new Vuex.Store({
         console.log(err);
       });
     },
-    updateBoard({ commit }, review){
+    updateReview({ commit }, review){
       const API_URL = `${REST_API_REVIEW}/review`;
       axios({
         url: API_URL,

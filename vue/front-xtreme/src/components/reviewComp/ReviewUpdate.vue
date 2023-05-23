@@ -19,7 +19,7 @@
         </div>
         <div class="login-form-btn">
           <input @click.prevent="updateReview" type="submit" value="Update"/>
-          <input @click="$router.back()" type="button" value="List"/>
+          <input @click.prevent="$router.back()" type="button" value="List"/>
         </div>
       </div>
     </div>

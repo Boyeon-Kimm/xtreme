@@ -21,8 +21,8 @@ import ReviewDetail from '../components/reviewComp/ReviewDetail.vue';
 import ReviewList from '../components/reviewComp/ReviewList.vue';
 import ReviewUpdate from '../components/reviewComp/ReviewUpdate.vue';
 
-import MyPageUpdate from '../components/user/MyPage.vue';
-import MyPage from '../components/user/MyPageUpdate.vue';
+import UserUpdate from '../components/user/UserUpdate.vue';
+import MyPage from '../components/user/UserUpdate.vue';
 
 Vue.use(VueRouter);
 
@@ -111,6 +111,11 @@ const routes = [
     component: JoinUsView,
   },
   {
+    path: "/user",
+    name: "userUpdate",
+    component: UserUpdate,
+  },
+  {
     // path: "/mypage/:userId",
     path: "/mypage",
     component: MyPageView,
@@ -119,11 +124,6 @@ const routes = [
         path: "",
         name: "myPage",
         component: MyPage,
-      },
-      {
-        path: "update",
-        name: "myPageUpdate",
-        component: MyPageUpdate,
       },
     ],
   },

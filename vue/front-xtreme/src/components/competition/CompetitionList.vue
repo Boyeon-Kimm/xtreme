@@ -13,9 +13,9 @@
     <div>
       <b-form inline>
         <b-form-select v-model="mode">
-          <b-form-select-option value="1">Title</b-form-select-option>
-          <b-form-select-option value="2">Content</b-form-select-option>
-          <b-form-select-option value="3">Title+Content</b-form-select-option>
+          <b-form-select-option value="1">Sports</b-form-select-option>
+          <b-form-select-option value="2">Tournament Name</b-form-select-option>
+          <b-form-select-option value="3">Sports+Tournament Name</b-form-select-option>
         </b-form-select>
         <b-form-input type="text" v-model="keyword" />
         <b-button @click="search" class="search-btn">Search</b-button>
@@ -124,7 +124,7 @@ export default {
 }
 
 .compList-list {
-  margin: 1rem 4rem 1rem 4rem;
+  margin: 1rem 4rem 3rem 4rem;
 }
 
 .compList-list table {
