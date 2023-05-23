@@ -21,7 +21,7 @@
           <input type="number" placeholder="age" id="age" v-model="age" />
         </div>
         <div class="login-form-btn">
-          <input @click.prevent="updateUser" type="submit" value="Submit"/>
+          <input @click.prevent="updateUser" type="submit" value="Update"/>
           <input @click.prevent="$router.back()" type="button" value="Cancel"/>
         </div>
       </div>

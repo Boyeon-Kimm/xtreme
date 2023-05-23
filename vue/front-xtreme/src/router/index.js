@@ -21,6 +21,9 @@ import ReviewDetail from '../components/reviewComp/ReviewDetail.vue';
 import ReviewList from '../components/reviewComp/ReviewList.vue';
 import ReviewUpdate from '../components/reviewComp/ReviewUpdate.vue';
 
+import MyPageUpdate from '../components/user/MyPage.vue';
+import MyPage from '../components/user/MyPageUpdate.vue';
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -109,9 +112,20 @@ const routes = [
   },
   {
     // path: "/mypage/:userId",
-    path: "/myPage",
-    name: "myPage",
+    path: "/mypage",
     component: MyPageView,
+    children: [
+      {
+        path: "",
+        name: "myPage",
+        component: MyPage,
+      },
+      {
+        path: "update",
+        name: "myPageUpdate",
+        component: MyPageUpdate,
+      },
+    ],
   },
 ]
 

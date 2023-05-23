@@ -1,7 +1,7 @@
 <template>
   <div class="compList-main">
     <div class="compList-title">
-      <h3>MyPage</h3>
+      <h3>My Page</h3>
       <div class="compList-sub-title">
         <p>Welcome to your personal dashboard - MyPage!</p>
         <p>
@@ -31,7 +31,7 @@
 					</div>
 				</div>
 				<div class="my-info-btn">
-					<button class="btn btn-light">Update</button>
+					<button @click="moveUpdate" class="btn btn-light">Update</button>
 					<button class="btn btn-outline-danger">Deactivate</button>
 				</div>
       </div>
@@ -88,6 +88,11 @@ export default {
       ],
     };
   },
+	methods: {
+		moveUpdate(){
+			this.$router.push({name: 'myPageUpdate'});
+		},
+	},
 };
 </script>
 

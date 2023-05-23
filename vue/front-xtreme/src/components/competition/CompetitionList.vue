@@ -10,27 +10,39 @@
         <p>Take a closer look at the tournaments we have in store for you:</p>
       </div>
     </div>
+    <div>
+      <b-form inline>
+        <b-form-select v-model="mode">
+          <b-form-select-option value="1">Title</b-form-select-option>
+          <b-form-select-option value="2">Content</b-form-select-option>
+          <b-form-select-option value="3">Title+Content</b-form-select-option>
+        </b-form-select>
+        <b-form-input type="text" v-model="keyword" />
+        <b-button @click="search" class="search-btn">Search</b-button>
+      </b-form>
+    </div>
     <div class="compList-list">
-      <table class="table table-dark table-hover table-bordered">
+      <table :items="competitions" class="table table-dark table-hover table-bordered">
         <thead>
           <tr>
             <th scope="col">Sports</th>
             <th scope="col">Tournaments Name</th>
             <th scope="col" class="comp-date">Tournaments Date</th>
             <th scope="col" class="comp-date">Registration Period</th>
+            <th scope="col">View</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="competition in competitions" :key="competition.compName">
+          <tr v-for="competition in pageCompetitionList" :key="competition.compName">
             <td scope="row">{{ competition.compSports }}</td>
             <td>
               <router-link :to="`/competition/${competition.id}`">
                 {{ competition.compName }}
               </router-link>
             </td>
-            
             <td>{{ competition.compDay }}</td>
             <td>{{ competition.registDate }}</td>
+            <td>{{ competition.viewCnt }}</td>
           </tr>
         </tbody>
       </table>
@@ -38,9 +50,10 @@
     <div class="overflow-auto">
       <b-pagination
         v-model="currentPage"
-        :total-rows="rows"
+        :total-rows="competitionCount"
         :per-page="perPage"
         aria-controls="my-table"
+        align="center"
       ></b-pagination>
     </div>
   </div>
@@ -54,29 +67,36 @@ export default {
 
   data() {
     return {
-			rows: 10,
-      perPage: 1,
+			perPage: 10,
       currentPage: 1,
+      mode: 1,
+      keyword: '',
     };
   },
   computed: {
-    rows() {
-      return this.items.length;
-    },
     ...mapState(['competitions']),
+    competitionCount() {
+      return this.competitions.length;
+    },
+    pageCompetitionList() {
+      return this.competitions.slice(
+        (this.currentPage - 1) * this.perPage,
+        this.currentPage * this.perPage
+      )
+    }
   },
   created(){
     this.$store.dispatch('getCompetitions');
   },
-  // methods: {
-  //   search(){
-  //     const payload = {
-  //       mode: this.mode,
-  //       keyword: this.keyword,
-  //     };
-  //     this.$store.dispatch('getCompetitions', payload);
-  //   },
-  // },
+  methods: {
+    search(){
+      const payload = {
+        mode: this.mode,
+        keyword: this.keyword,
+      };
+      this.$store.dispatch('getCompetitions', payload);
+    },
+  },
 };
 </script>
 

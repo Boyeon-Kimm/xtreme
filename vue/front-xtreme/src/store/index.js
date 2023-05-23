@@ -23,8 +23,7 @@ export default new Vuex.Store({
     CREATE_USER(state, payload){
       state.user = payload;
     },
-
-
+    
     GET_COMPETITIONS(state, competitions){
       state.competitions = competitions;
     },
