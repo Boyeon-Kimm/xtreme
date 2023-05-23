@@ -19,10 +19,10 @@ public class UserServiceImpl implements UserService {
 		return userDao.selectAll();
 	}
 
-//	@Override
-//	public User selectById(String id) {
-//		return userDao.selectById(id);
-//	}
+	@Override
+	public User selectById(String id) {
+		return userDao.selectById(id);
+	}
 	
 	//로그인
 	@Override

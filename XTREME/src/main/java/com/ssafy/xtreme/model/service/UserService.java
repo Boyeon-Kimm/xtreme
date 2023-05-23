@@ -8,8 +8,8 @@ public interface UserService {
 	//전체 사용자 조회
 	public List<User> selectAll();
 	
-//	//로그인(id로 불러오기)
-//	public User selectById(String id);
+	//로그인(id로 불러오기)
+	public User selectById(String id);
 	
 	//로그인
 	public User login(String id, String password);
