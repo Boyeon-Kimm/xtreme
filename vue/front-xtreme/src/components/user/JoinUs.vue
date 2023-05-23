@@ -1,4 +1,17 @@
 <template>
+  <div>
+    <header class="header-class">
+    <nav>
+      <div class="nav-title">
+        <router-link to="/">XTREME</router-link>
+      </div>
+			<!-- 로그인 안했을 때 -->
+      <div class="nav-btn">
+        <b-button class="nav-b-btn" id="nav-b-btn1"><router-link :to="{ name: 'login' }">Sign in</router-link></b-button>
+        <b-button class="nav-b-btn" id="nav-b-btn2"><router-link :to="{ name: 'joinus' }">Join us</router-link></b-button>
+      </div>
+    </nav>
+  </header>
   <div class="home">
     <form class="join-form">
       <div class="login-form-title">
@@ -27,6 +40,7 @@
         </div>
       </div>
     </form>
+  </div>
   </div>
 </template>
 

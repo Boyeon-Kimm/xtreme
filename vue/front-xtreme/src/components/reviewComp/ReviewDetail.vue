@@ -1,90 +1,108 @@
 <template>
-  <div class="home">
-    <div class="login-form">
-      <div class="login-form-title">
-        <p>Tournament Review</p>
-      </div>
-      <div class="review-form">
-				<div class="review-form-title">
-					<p>Sports: </p>
-					<p>Tournament Name: </p>
-					<p>Title: </p>
-					<p>Writer: </p>
-					<p>Content: </p>
-				</div>
-				<div class="review-form-content">
-					<div class="login-form-input">
-            <div class="login-form-text">
-					    <span>{{ review.sports }}</span>
-            </div>
-            <div class="login-form-text">
-              <span>{{ review.compTitle }}</span>
-            </div>
-            <div class="login-form-text">
-              <span>{{ review.title }}</span>
-            </div>
-            <div class="login-form-text">
-              <span>{{ review.userId }}</span>
-            </div>
-            <div class="login-form-textarea">
-              <span>{{ review.content }}</span>
+  <div>
+    <header class="header-class">
+      <nav>
+        <div class="nav-title">
+          <router-link :to="`/`">XTREME</router-link>
+        </div>
+        <!-- 로그인 했을 때 보여줄 nav menu -->
+        <div class="nav-menu">
+          <router-link :to="`/competition`">Tournaments</router-link>
+          <router-link :to="`/review`">Reviews</router-link>
+          <router-link :to="`/mypage`">MyPage</router-link>
+          <a class="logout-btn">Logout</a>
+        </div>
+      </nav>
+    </header>
+    <div class="home">
+      <div class="login-form">
+        <div class="login-form-title">
+          <p>Tournament Review</p>
+        </div>
+        <div class="review-form">
+          <div class="review-form-title">
+            <p>Sports:</p>
+            <p>Tournament Name:</p>
+            <p>Title:</p>
+            <p>Writer:</p>
+            <p>Content:</p>
+          </div>
+          <div class="review-form-content">
+            <div class="login-form-input">
+              <div class="login-form-text">
+                <span>{{ review.sports }}</span>
+              </div>
+              <div class="login-form-text">
+                <span>{{ review.compTitle }}</span>
+              </div>
+              <div class="login-form-text">
+                <span>{{ review.title }}</span>
+              </div>
+              <div class="login-form-text">
+                <span>{{ review.userId }}</span>
+              </div>
+              <div class="login-form-textarea">
+                <span>{{ review.content }}</span>
+              </div>
             </div>
           </div>
-				</div>
-			</div>
-      <div class="write-review">
-        <button @click="moveUpdate" class="write-review-btn">Update</button>
-        <button @click="deleteReview" class="write-review-btn">Delete</button>
-        <button @click="$router.back()" class="write-review-btn">Cancel</button>
+        </div>
+        <div class="write-review">
+          <button @click="moveUpdate" class="write-review-btn">Update</button>
+          <button @click="deleteReview" class="write-review-btn">Delete</button>
+          <button @click="$router.back()" class="write-review-btn">
+            Cancel
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState } from "vuex";
 
 export default {
-    name: 'ReviewDetail',
-    computed: {
-      ...mapState(['review']),
+  name: "ReviewDetail",
+  computed: {
+    ...mapState(["review"]),
+  },
+
+  created() {
+    const pathName = new URL(document.location).pathname.split("/");
+    const id = pathName[pathName.length - 1];
+    this.$store.dispatch("getReview", id);
+  },
+
+  methods: {
+    moveUpdate() {
+      this.$router.push({ name: "reviewUpdate" });
     },
 
-    created() {
-      const pathName = new URL(document.location).pathname.split('/');
-      const id = pathName[pathName.length - 1];
-      this.$store.dispatch('getReview', id);
+    deleteReview() {
+      this.$store.dispatch("deleteReview", this.review.id);
     },
-
-    methods: {
-      moveUpdate() {
-        this.$router.push({ name: 'reviewUpdate'});
-      },
-
-      deleteReview() {
-        this.$store.dispatch('deleteReview', this.review.id);
-      },
-    },
+  },
 };
 </script>
 
 <style scoped>
 .review-form {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   padding: 0 1.5rem 0.7rem 1.5rem;
 }
 
 .login-form {
-    height: auto;
-    width: 50rem;
+  height: auto;
+  width: 50rem;
 }
 
 .login-form-text {
-	height: 2rem;
+  height: 2rem;
   width: 34rem;
-	border-radius: 0.3rem;
+  border-radius: 0.3rem;
   margin-bottom: 0.4rem;
   background-color: rgb(255, 255, 255, 0.65);
   text-align: left;
@@ -108,7 +126,7 @@ export default {
 .login-form-textarea {
   height: 15rem;
   width: 34rem;
-	border-radius: 0.3rem;
+  border-radius: 0.3rem;
   margin-bottom: 0.5rem;
   padding: 0.7rem 1rem;
   background-color: white;
@@ -139,4 +157,16 @@ export default {
   margin: 0.5rem;
 }
 
+.nav-menu {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-menu a {
+  color: white;
+  margin-left: 1.3rem;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
 </style>

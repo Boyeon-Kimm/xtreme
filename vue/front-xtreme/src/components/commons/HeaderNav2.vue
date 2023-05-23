@@ -11,10 +11,6 @@
         <router-link :to="{ name: 'myPage' }">MyPage</router-link>
         <a @click="logoutUser" class="logout-btn">Logout</a>
       </div>
-
-      <!-- 로그인 안했을 때 보여줄 버튼 -->
-      <!-- 코드 작성하기 -->
-
     </nav>
   </header>
 </template>
@@ -32,9 +28,9 @@ export default {
     // 로그아웃
     logoutUser() {
       this.$store.commit('clearUsername');
+      // this.$store.push('/login');
       alert("Logout Completed");
       // 로그인 페이지로 이동
-      this.$store.push('/login');
     }
   }
 };

@@ -52,7 +52,7 @@ export default {
         this.$router.push("/login");
         alert("Your account information has been successfully updated. Please log in again.");
         // 로그아웃 시키는 기능 구현
-
+        
       })
       .catch((err) => {
         console.log(err);
