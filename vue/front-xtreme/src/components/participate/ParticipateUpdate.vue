@@ -15,7 +15,7 @@
       </nav>
     </header>
     <div class="home">
-      <form @submit.prevent="submitForm" class="participate-form">
+      <form class="participate-form">
         <div class="sect01">
           <div class="line-box" @click.prevent="goList()">
             <span class="line-01"></span>
@@ -27,26 +27,26 @@
         </div>
         <div class="login-form-input">
           <div class="login-form-text">
-            <input type="text" placeholder="id" id="id" v-model="id" disabled />
+            <input type="text" placeholder="id" id="id" v-model="participate.playerId" disabled />
           </div>
           <div class="login-form-text">
             <input
               type="text"
               placeholder="name"
               id="name"
-              v-model="name"
+              v-model="participate.playerName"
               disabled
             />
           </div>
           <div class="login-form-text">
-            <input type="text" placeholder="team" id="team" v-model="team" />
+            <input type="text" placeholder="team" id="team" v-model="participate.teamName" />
           </div>
           <div class="login-form-text">
             <input
               type="number"
               placeholder="birth"
               id="birth"
-              v-model="birth"
+              v-model="participate.birth"
               disabled
             />
           </div>
@@ -55,7 +55,7 @@
               type="number"
               placeholder="phone number"
               id="phone"
-              v-model="phone"
+              v-model="participate.phone"
             />
           </div>
           <div class="login-form-text">
@@ -63,11 +63,11 @@
               type="email"
               placeholder="email"
               id="email"
-              v-model="email"
+              v-model="participate.playerEmail"
             />
           </div>
           <div class="login-form-btn">
-            <input type="submit" value="Update" />
+            <input @click.prevent="updateParticipate" type="submit" value="Update" />
             <input @click.prevent="participateDetail" type="button" value="Cancel" />
           </div>
         </div>
@@ -81,6 +81,19 @@ import { mapState } from "vuex";
 
 export default {
   name: "ParticipateUpdate",
+  data(){
+    return {
+      playerId: "",
+      teamName: "",
+      playerName: "",
+      birth: "",
+      phone: "",
+      playerEmail: "",
+    };
+  },
+  computed: {
+    ...mapState(['participate']),
+  },
   methods: {
     participateDetail() {
       this.$router.back();
@@ -90,6 +103,25 @@ export default {
       this.$store.dispatch("logoutUser");
       // 로그인 페이지로 이동
       this.$router.push('/login');
+    },
+
+    updateParticipate() {
+      // if(this.participate.playerId === '' || this.participate.teamName === '' || this.participate.playerName === '' || this.participate.birth === '' || this.participate.phone === '' || this.participate.playerEmail === ''){
+      //   alert("Please fill in all fields.");
+      //   return;
+      // }
+      let updateParticipate = {
+        id: this.participate.id,
+        playerId: this.participate.playerId,
+        teamName: this.participate.teamName,
+        playerName: this.participate.playerName,
+        birth: this.participate.birth,
+        phone: this.participate.phone,
+        playerEmail: this.participate.playerEmail,
+        compId: this.participate.compId,
+      };
+      this.$store.dispatch("updateParticipate", updateParticipate);
+      this.$router.push({ name: "participateDetail", params: { id: this.participate.id }});
     },
   },
 };

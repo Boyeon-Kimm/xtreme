@@ -72,7 +72,7 @@ export default {
   },
   methods:{ 
     moveParticipate(){
-      this.$router.push("/participate");
+      this.$router.push("/participate/create/${id}");
     },
     moveCompList(){
       this.$router.push("/competition");

@@ -147,27 +147,25 @@ export default {
       birth: '',
       phone: '',
       playerEmail: '',
-      compId: this.competition.id,
-      // selected: null,
+      selected: null,
     };
   },
-
+  
   methods: {
     createParticipate() {
       let participate = {
+        id: 0,
         playerId: this.playerId,
         playerName: this.playerName,
         teamName: this.teamName,
         birth: this.birth,
         phone: this.phone,
         playerEmail: this.playerEmail,
+        compId: this.competition.id,
       };
 
       this.$store.dispatch("createParticipate", participate);
-      this.$router.push({
-        name: "participateDetail",
-        params: { id: this.participate.id },
-      });
+      this.$router.push("/participate/${participateId}");
     },
     // 로그아웃
     logoutUser() {
