@@ -99,8 +99,6 @@ export default new Vuex.Store({
         // router.push({ name: "myPage", params: { id: user.id }});
       });
     },
-
-
     
     login({commit}, loginUser){
       const API_URL = `${REST_API_USER}/login`;
@@ -118,6 +116,22 @@ export default new Vuex.Store({
         console.log(err);
         alert("Login Failed... Please try again.");
         router.back();
+      });
+    },
+
+    logoutUser({ commit }){
+      const API_URL = `${REST_API_USER}/logout`;
+      axios({
+        url: API_URL,
+        method: "GET",
+      })
+      .then(() => {
+        localStorage.removeItem("loginUser");
+        commit("LOGIN", null);
+        alert("Logout Completed");
+      })
+      .catch((err) => {
+        console.log(err);
       });
     },
 
@@ -155,11 +169,7 @@ export default new Vuex.Store({
 
 
 
-    //review 관련
-
-
     //리뷰
-
     deleteReview({ commit }, id){
       const API_URL = `${REST_API_REVIEW}/review/${id}`;
       axios({

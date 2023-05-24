@@ -10,7 +10,7 @@
           <router-link :to="`/competition`">Tournaments</router-link>
           <router-link :to="`/review`">Reviews</router-link>
           <router-link :to="`/mypage`">MyPage</router-link>
-          <a class="logout-btn">Logout</a>
+          <a @click="logoutUser" class="logout-btn">Logout</a>
         </div>
       </nav>
     </header>
@@ -112,6 +112,12 @@ export default {
         keyword: this.keyword,
       };
       this.$store.dispatch("getCompetitions", payload);
+    },
+    // 로그아웃
+    logoutUser() {
+      this.$store.dispatch("logoutUser");
+      // 로그인 페이지로 이동
+      this.$router.push('/login');
     },
   },
 };
