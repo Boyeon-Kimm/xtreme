@@ -58,6 +58,15 @@ export default {
         alert("Please enter your password.");
         return;
       }
+      var loginCheck = false; // 로그인 여부 확인할 boolean 변수
+      if(this.id === 'ssafy' && this.password === '1234'){
+        alert("Login Success!");
+        loginCheck = true;
+      } else {
+        loginCheck = false;
+        alert("Login Failed... Please try again.");
+        $router.back();
+      }
       const id = this.id;
       const password = this.password;
 
@@ -70,9 +79,6 @@ export default {
       this.$router.push("/");
     },
   },
-  mounted() {
-    this.$refs.idInput.focus();
-  }
 };
 </script>
 
@@ -105,7 +111,7 @@ export default {
   background-color: rgb(255, 255, 255, 0.65);
   padding-left: 1rem;
   border: transparent;
-  font-weight: 600;
+  /* font-weight: 600; */
 }
 
 .login-form-btn {

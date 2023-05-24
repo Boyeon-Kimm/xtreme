@@ -25,7 +25,7 @@
               type="text"
               id="compName"
               v-model="competition.compName"
-              readonly
+              class="fnt-kr" readonly
             />
           </div>
           <div class="login-form-text">

@@ -25,16 +25,17 @@
               type="text"
               placeholder="Tournament Name"
               v-model="review.compTitle"
+              class="fnt-kr"
             />
           </div>
           <div class="login-form-text">
-            <input type="text" placeholder="Title" v-model="review.title" />
+            <input type="text" placeholder="Title" v-model="review.title" class="fnt-kr"/>
           </div>
           <div class="login-form-text">
             <input type="text" v-model="review.userId" readonly />
           </div>
           <div class="login-form-text">
-            <textarea placeholder="Content" v-model="review.content" />
+            <textarea placeholder="Content" v-model="review.content" class="fnt-kr"/>
           </div>
           <div class="login-form-btn">
             <input @click.prevent="updateReview" type="submit" value="Update" />

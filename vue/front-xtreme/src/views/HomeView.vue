@@ -1,4 +1,23 @@
 <template>
+<div>
+    <header class="header-class" style="background-image: none;">
+    <nav>
+      <div class="nav-title">
+        <router-link to="/">XTREME</router-link>
+      </div>
+			<!-- 로그인 안했을 때 -->
+      <div class="nav-btn">
+        <b-button class="nav-b-btn" id="nav-b-btn1"><router-link :to="{ name: 'login' }">Sign in</router-link></b-button>
+        <b-button class="nav-b-btn" id="nav-b-btn2"><router-link :to="{ name: 'joinus' }">Join us</router-link></b-button>
+      </div>
+      <!-- <div class="nav-menu">
+        <router-link :to="{ name: 'competitionList' }">Tournaments</router-link>
+        <router-link :to="{ name: 'reviewList' }">Reviews</router-link>
+        <router-link :to="{ name: 'myPage' }">MyPage</router-link>
+        <a @click="logoutUser" class="logout-btn">Logout</a>
+      </div> -->
+    </nav>
+  </header>
   <div class="home">
     <div class="home-content">
       <div class="sub-describe">
@@ -13,6 +32,7 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -22,7 +42,7 @@ export default {
 </script>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900family=IBM+Plex+Sans+KR:wght@200;300;400;500&display=swap');
 
 * {
   font-family: 'Red Hat Display', sans-serif;
@@ -35,7 +55,6 @@ export default {
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-  /* background-color: black; */
   display: flex;
   direction: column;
   justify-content: center;
@@ -71,6 +90,6 @@ export default {
   font-size: 3.5rem;
   text-align: center;
   margin-bottom: -1rem;
-  text-shadow: 4px 4px 4px #393838;
+  text-shadow: 4px 4px 4px #443022;
 }
 </style>

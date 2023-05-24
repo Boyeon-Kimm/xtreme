@@ -64,9 +64,9 @@
               v-for="competition in pageCompetitionList"
               :key="competition.compName"
             >
-              <td scope="row">{{ competition.compSports }}</td>
+              <td scope="row" class="fnt-kr" style="font-weight: 400">{{ competition.compSports }}</td>
               <td>
-                <router-link :to="`/competition/${competition.id}`">
+                <router-link :to="`/competition/${competition.id}`" class="fnt-kr">
                   {{ competition.compName }}
                 </router-link>
               </td>
@@ -132,10 +132,12 @@ export default {
 </script>
 
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@200;300;400;500&display=swap');
 .compList-main {
   padding-top: 8rem;
   padding-bottom: 6rem;
   background-color: black;
+  min-height: 60rem;
 }
 
 .compList-title {
@@ -233,5 +235,9 @@ li span {
   display: flex;
   justify-content: center;
   cursor: pointer;
+}
+
+.fnt-kr {
+  font-family: 'IBM Plex Sans KR', sans-serif;
 }
 </style>

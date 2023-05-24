@@ -30,19 +30,19 @@
           <div class="review-form-content">
             <div class="login-form-input">
               <div class="login-form-text">
-                <span>{{ review.sports }}</span>
+                <span class="fnt-kr">{{ review.sports }}</span>
               </div>
               <div class="login-form-text">
-                <span>{{ review.compTitle }}</span>
+                <span class="fnt-kr">{{ review.compTitle }}</span>
               </div>
               <div class="login-form-text">
-                <span>{{ review.title }}</span>
+                <span class="fnt-kr">{{ review.title }}</span>
               </div>
               <div class="login-form-text">
                 <span>{{ review.userId }}</span>
               </div>
               <div class="login-form-textarea">
-                <span>{{ review.content }}</span>
+                <span class="fnt-kr">{{ review.content }}</span>
               </div>
             </div>
           </div>

@@ -39,7 +39,7 @@
               <h5>Age :</h5>
             </div>
             <div class="my-info-content">
-              <h6>춘식이</h6>
+              <h6 class="fnt-kr">춘식이</h6>
               <h6>choonsik</h6>
               <h6>choonsik@gmail.com</h6>
               <h6>4</h6>
@@ -192,7 +192,6 @@ export default {
 }
 
 .about-my-info {
-  /* border: solid pink; */
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -201,7 +200,6 @@ export default {
 }
 
 .my-info-img {
-  /* border: solid red; */
   width: 14rem;
   height: 10rem;
   margin-left: 2rem;
@@ -214,7 +212,6 @@ export default {
 }
 
 .my-info-title {
-  /* border: solid green; */
   width: 10rem;
   height: 10rem;
   display: flex;
@@ -226,7 +223,6 @@ export default {
 }
 
 .my-info-content {
-  /* border: solid yellow; */
   width: 100%;
   height: 9.7rem;
   display: flex;
@@ -257,6 +253,7 @@ export default {
   background-image: url(@/assets/main1.png);
   background-size: cover;
 }
+
 .nav-menu {
   display: flex;
   justify-content: center;
