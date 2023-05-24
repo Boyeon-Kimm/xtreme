@@ -28,7 +28,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="updateParticipate" parameterType="Participate">
 		UPDATE participate
 		SET teamName = #{teamName}, phone = #{phone}, playerEmail = #{playerEmail}
-		WHERE id = #{id}
+		WHERE compId = #{compId}
 	</update>
 	
 </mapper>

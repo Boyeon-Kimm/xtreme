@@ -269,9 +269,9 @@ export default new Vuex.Store({
         method: "POST",
         params: participate,
       })
-        .then((res) => {
+        .then(() => {
           // data = participate.id
-          const participateId = res.id;
+          //const participateId = res.id;
           commit("CREATE_PARTICIPATE", participate);
         })
         .catch((err) => {
@@ -305,6 +305,9 @@ export default new Vuex.Store({
       .then(() => {
         commit("UPDATE_PARTICIPATE", participate);
         // router.push({ name: "reviewParticipate", params: { id: review.id }});
+      })
+      .catch((err) => {
+        console.log(err);
       });
     },
 

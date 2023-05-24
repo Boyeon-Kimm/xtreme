@@ -53,12 +53,12 @@ const routes = [
     component: ParticipateView,
     children: [
       {
-        path: "create/:compId",
+        path: ":id",
         name: "participateCreate",
         component: ParticipateCreate,
       },
       {
-        path: ":id",
+        path: "detail/:id/:user",
         name: "participateDetail",
         component: ParticipateDetail,
       },
