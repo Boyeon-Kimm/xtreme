@@ -274,4 +274,10 @@ export default {
   justify-content: center;
   cursor: pointer;
 }
+
+.nav-menu a:hover {
+  color: #3D1D06;
+  text-decoration: none;
+  text-shadow: -1px 0 #fb7718, 0 1px #fb7718, 1px 0 #fb7718, 0 -1px #fb7718;
+}
 </style>
