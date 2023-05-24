@@ -1,21 +1,25 @@
 <template>
 <div>
-    <header class="header-class" style="background-image: none;">
+  <header class="header-class" style="background-image: none;">
     <nav>
       <div class="nav-title">
         <router-link to="/">XTREME</router-link>
       </div>
 			<!-- 로그인 안했을 때 -->
+      <div v-if="!isLoggedIn">
       <div class="nav-btn">
         <b-button class="nav-b-btn" id="nav-b-btn1"><router-link :to="{ name: 'login' }">Sign in</router-link></b-button>
         <b-button class="nav-b-btn" id="nav-b-btn2"><router-link :to="{ name: 'joinus' }">Join us</router-link></b-button>
       </div>
-      <!-- <div class="nav-menu">
+    </div>
+    <div v-else>
+      <div class="nav-menu">
         <router-link :to="{ name: 'competitionList' }">Tournaments</router-link>
         <router-link :to="{ name: 'reviewList' }">Reviews</router-link>
         <router-link :to="{ name: 'myPage' }">MyPage</router-link>
         <a @click="logoutUser" class="logout-btn">Logout</a>
-      </div> -->
+      </div>
+    </div>
     </nav>
   </header>
   <div class="home">
@@ -36,8 +40,19 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex';
+
 export default {
   name: "HomeView",
+  computed: {
+    ...mapState(['isLoggedIn'])
+  },
+  created() {
+    this.checkLoginStatus();
+  },
+  methods: {
+    ...mapActions(['checkLoginStatus'])
+  }
 };
 </script>
 

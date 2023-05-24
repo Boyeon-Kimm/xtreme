@@ -187,4 +187,8 @@ button:hover {
   justify-content: center;
   cursor: pointer;
 }
+
+.sect01 {
+  margin: 0.5rem 0 0 45rem !important; 
+}
 </style>

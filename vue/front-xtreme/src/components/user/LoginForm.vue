@@ -46,7 +46,6 @@
     </div>
   </div>
 </template>
-
 <script>
 export default {
   name: "LoginForm",
@@ -61,6 +60,10 @@ export default {
   methods: {
     goJoinUs() {
       this.$router.push("/joinus");
+    },
+
+    goMain() {
+      this.$router.push("/");
     },
     
     login() {
@@ -88,9 +91,6 @@ export default {
       }
 
       this.$store.dispatch("login", loginUser);
-    
-    goMain() {
-
       this.$router.push("/");
     },
   },
@@ -156,9 +156,7 @@ export default {
 .sect01 {
   position: relative;
   width: 2.6rem;
-  /* 세로정렬 */
   height: 64px;
-  /* 가운데 정렬 */
   margin: 0.5rem 36rem 0 35rem; 
 }
 

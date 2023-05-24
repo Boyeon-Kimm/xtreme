@@ -109,6 +109,7 @@ export default {
 	flex-direction: column;
 	justify-content: space-around;
 	width: 100%;
+  margin-left: 2rem;
 }
 
 .compDetail-content {
@@ -151,8 +152,8 @@ button {
   color: white;
   font-weight: 600;
   border: transparent;
-  height: 2.5rem;
-  width: 7rem;
+  height: 3rem;
+  width: 8rem;
   margin-right: 0.5rem;
   border-radius: 0.5rem;
 }
