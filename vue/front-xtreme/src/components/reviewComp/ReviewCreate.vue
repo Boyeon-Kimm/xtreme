@@ -23,7 +23,7 @@
           </div>
         </div>
         <div class="login-form-title">
-          <p class="fnt-title">Review</p>
+          <p>Review</p>
         </div>
         <div class="login-form-input">
           <div class="login-form-text">
@@ -147,4 +147,5 @@ export default {
   justify-content: center;
   cursor: pointer;
 }
+
 </style>

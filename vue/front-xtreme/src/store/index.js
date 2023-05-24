@@ -20,12 +20,11 @@ export default new Vuex.Store({
 
     participates: [],
     participate: {},
+
+    isLoggedIn: false,
   },
   getters: {
-    isLogin(state) {
-      // state.id 값의 유무에 따라 true 또는 false 리턴
-      return state.id !== '';
-    }
+    
   },
   mutations: {
     CREATE_USER(state, payload){
@@ -65,8 +64,11 @@ export default new Vuex.Store({
     },
     GET_PARTICIPATE(state, participate){
       state.participate = participate;
-
     },
+
+    setLoggedIn(state, isLoggedIn) {
+      state.isLoggedIn = isLoggedIn;
+    }
   },
   actions: {
     //유저
@@ -273,6 +275,13 @@ export default new Vuex.Store({
         .catch((err) => {
           console.log(err);
         });
+    },
+
+    // 로그인 여부 확인
+    checkLoginStatus({ commit }) {
+      const userData = localStorage.getItem('userData');
+      const isLoggedIn = !userData;
+      commit('setLoggedIn', isLoggedIn);
     },
   },
   modules: {
