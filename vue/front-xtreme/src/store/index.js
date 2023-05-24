@@ -82,8 +82,7 @@ export default new Vuex.Store({
         });
     },
 
-    //대회 정보
-
+    
     updateUser({ commit }, user){
       const API_URL = `${REST_API_USER}/user`;
       axios({
@@ -97,6 +96,8 @@ export default new Vuex.Store({
       });
     },
 
+
+    //대회 정보
     getCompetitions({commit}){
       const API_URL = `${REST_API_COMPETITION}/comp`;
       axios({
@@ -126,6 +127,9 @@ export default new Vuex.Store({
         });
     },
 
+
+
+    //리뷰
     deleteReview({ commit }, id){
       const API_URL = `${REST_API_REVIEW}/review/${id}`;
       axios({
@@ -220,7 +224,7 @@ export default new Vuex.Store({
     },
 
     getParticipate({commit}, id){
-      const API_URL = `${REST_API_PARTICIPATE}/detail`;
+      const API_URL = `${REST_API_PARTICIPATE}/detail/${id}`;
       axios({
         url: API_URL,
         method: "GET",
