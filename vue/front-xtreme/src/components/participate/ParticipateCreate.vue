@@ -154,6 +154,10 @@ export default {
 
   methods: {
     createParticipate() {
+      // if(this.playerId === '' ){
+      //   alert("Please fill in all fields");
+      //   retrun;
+      // }
       let participate = {
         playerId: this.playerId,
         playerName: this.playerName,

@@ -81,6 +81,20 @@ import { mapState } from "vuex";
 
 export default {
   name: "ParticipateUpdate",
+  data(){
+    return {
+      playerId: "",
+      teamName: "",
+      playerName: "",
+      birth: "",
+      phone: "",
+      playerEmail: "",
+    };
+  },
+
+  computed: {
+    ...mapState(['participate']),
+  },
   methods: {
     participateDetail() {
       this.$router.back();
@@ -90,6 +104,22 @@ export default {
       this.$store.dispatch("logoutUser");
       // 로그인 페이지로 이동
       this.$router.push('/login');
+    },
+    updateParticipate() {
+      if(this.participate.playerId === '' || this.participate.teamName === '' || this.participate.playerName === '' || this.participate.birth === '' || this.participate.phone === '' || this.participate.playerEmail === ''){
+        alert("Please fill in all fields.");
+        return;
+      }
+      let updateReview = {
+        playerId: this.participate.playerId,
+        teamName: this.participate.teamName,
+        playerName: this.participate.playerName,
+        birth: this.participate.birth,
+        phone: this.participate.phone,
+        playerEmail: this.participate.playerEmail,
+      };
+      this.$store.dispatch("updateParticipate", this.updateParticipate);
+      this.$router.push({ name: "participateDetail", params: { id: this.participate.id }});
     },
   },
 };

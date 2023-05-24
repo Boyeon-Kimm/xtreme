@@ -29,9 +29,19 @@
           <div class="login-form-text">
             <input
               type="text"
+              placeholder="Sports"
+              v-model="review.sports"
+              class="fnt-kr"
+              readonly
+            />
+          </div>
+          <div class="login-form-text">
+            <input
+              type="text"
               placeholder="Tournament Name"
               v-model="review.compTitle"
               class="fnt-kr"
+              readonly
             />
           </div>
           <div class="login-form-text">
@@ -73,6 +83,7 @@ export default {
   name: "ReviewUpdate",
   data(){
     return {
+      sports: "",
       compTitle: "",
       title: "",
       userId: "",
@@ -85,7 +96,12 @@ export default {
   },
   methods: {
     updateReview() {
+      if(this.review.sports === '' || this.review.compTitle === '' || this.review.title === '' || this.review.userId === '' || this.review.content === ''){
+        alert("Please fill in all fields.");
+        return;
+      }
       let updateReview = {
+        sports: this.review.sports,
         id: this.review.id,
         compTitle: this.review.compTitle,
         title: this.review.title,
@@ -102,6 +118,10 @@ export default {
       // 로그인 페이지로 이동
       this.$router.push('/login');
     },
+
+    goList() {
+      this.$store.push({name: "reviewList"});
+    }
   },
 };
 </script>

@@ -27,7 +27,7 @@
         </div>
         <div class="login-form-input">
           <div class="login-form-text">
-            <input type="text" placeholder="Sports" v-model="sports" />
+            <input type="text" placeholder="Sports" v-model="sports"/>
           </div>
           <div class="login-form-text">
             <input
@@ -76,6 +76,10 @@ export default {
   // },
   methods: {
     createReview() {
+      if(this.sports === '' || this.compTitle === '' || this.title === '' || this.userId === '' || this.content === ''){
+        alert("Please fill in all fields.");
+        return;
+      }
       let review = {
         id: 0,
         sports: this.sports,

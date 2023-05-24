@@ -17,7 +17,7 @@
     <div class="home">
       <div class="login-form">
         <div class="sect01">
-          <div class="line-box" @click.prevent="$router.back()">
+          <div class="line-box" @click.prevent="goList()">
             <span class="line-01"></span>
             <span class="line-02"></span>
           </div>
@@ -94,6 +94,10 @@ export default {
       this.$store.dispatch("logoutUser");
       // 로그인 페이지로 이동
       this.$router.push('/login');
+    },
+
+    goList() {
+      this.$router.push("/review");
     },
   },
 };
