@@ -32,7 +32,7 @@
         <b-button class="nav-b-btn3"><router-link :to="{ name: 'competitionList' }">Tournaments</router-link></b-button>
         <b-button class="nav-b-btn3"><router-link :to="{ name: 'reviewList' }">Reviews</router-link></b-button>
         <b-button class="nav-b-btn3"><router-link :to="{ name: 'myPage' }">MyPage</router-link></b-button>
-        <b-button class="nav-b-btn3"><router-link :to="{ name: 'logout' }">Logout</router-link></b-button>
+        <b-button class="nav-b-btn3" @click="logoutUser">Logout</b-button>
       </div>
     </div>
   </div>
@@ -51,7 +51,7 @@ export default {
     this.checkLoginStatus();
   },
   methods: {
-    ...mapActions(['checkLoginStatus'])
+    ...mapActions(['checkLoginStatus', 'logoutUser']),
   }
 };
 </script>

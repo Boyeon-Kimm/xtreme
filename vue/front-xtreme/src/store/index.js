@@ -66,7 +66,7 @@ export default new Vuex.Store({
       state.participate = participate;
     },
 
-    setLoggedIn(state, isLoggedIn) {
+    SET_LOGGED_IN(state, isLoggedIn) {
       state.isLoggedIn = isLoggedIn;
     }
   },
@@ -128,13 +128,22 @@ export default new Vuex.Store({
       .then(() => {
         localStorage.removeItem("loginUser");
         commit("LOGIN", null);
+        commit("SET_LOGGED_IN", false),
+        // this.checkLoginStatus();
         alert("Logout Completed");
       })
       .catch((err) => {
         console.log(err);
+        alert("Logout Failed... Please try again.");
       });
     },
 
+    // 로그인 여부 확인
+    checkLoginStatus({ commit }) {
+      const loginUser = localStorage.getItem('loginUser');
+      const isLoggedIn = !!loginUser;
+      commit('SET_LOGGED_IN', isLoggedIn);
+    },
     
     
     //대회 정보
@@ -277,12 +286,6 @@ export default new Vuex.Store({
         });
     },
 
-    // 로그인 여부 확인
-    checkLoginStatus({ commit }) {
-      const userData = localStorage.getItem('userData');
-      const isLoggedIn = !userData;
-      commit('setLoggedIn', isLoggedIn);
-    },
   },
   modules: {
   }
