@@ -27,12 +27,13 @@ export default {
   methods: {
     // 로그아웃
     logoutUser() {
-      this.$store.commit('clearUsername');
-      // this.$store.push('/login');
-      alert("Logout Completed");
+      this.$store.dispatch("logoutUser");
+      // this.$store.commit('clearUsername');
+      
       // 로그인 페이지로 이동
-    }
-  }
+      this.$router.push('/login');
+    },
+  },
 };
 </script>
 
