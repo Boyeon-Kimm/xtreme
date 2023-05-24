@@ -120,6 +120,7 @@ export default {
   data() {
     return {
       // compName: '',
+      //id:'',
       playerId: '',
       playerName: '',
       teamName: '',
@@ -146,9 +147,17 @@ export default {
         playerEmail: this.playerEmail,
         compId: this.competition.id,
       };
-
+      
       this.$store.dispatch("createParticipate", participate);
-      this.$router.push("/participate/${participateId}");
+      this.$router.push({ name: "participateDetail", params: { id: this.competition.id, user: this.playerId }});
+      //this.$store.dispatch("createParticipate", participate)
+      //  .then(() => {
+      //    const participateId = data.id;
+      //    this.$router.push({ name: "participateDetail", params: { id: participateId }});
+      //  })
+      //  .catch((err) => {
+      //    console.log(err);
+      //  });
     },
     // 로그아웃
     logoutUser() {

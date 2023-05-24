@@ -72,7 +72,9 @@ export default {
   },
   methods:{ 
     moveParticipate(){
-      this.$router.push("/participate");
+
+      this.$router.push({ name: "participateCreate", params: { id: this.competition.id }});
+
     },
     moveCompList(){
       this.$router.push("/competition");
