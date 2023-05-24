@@ -17,7 +17,7 @@
   <div class="compList-main">
     <div class="login-form">
       <div class="compList-title">
-        <h3 class="fnt-kr" style="color: #3D1D06;">{{ competition.compName }}</h3>
+        <h3 class="fnt-kr">{{ competition.compName }}</h3>
         <hr />
       </div>
       <div class="compDetail-content">
@@ -72,7 +72,9 @@ export default {
   },
   methods:{ 
     moveParticipate(){
+
       this.$router.push({ name: "participateCreate", params: { id: this.competition.id }});
+
     },
     moveCompList(){
       this.$router.push("/competition");

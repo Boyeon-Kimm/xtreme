@@ -58,9 +58,14 @@
         </div>
       </div>
       <div class="continue-fill">
-        <a @click="$router.back()" class="click-btn">Click Here!</a><br />
-        <a>Continue to fill out the application form.</a>
+        <div class="continue-fill-btn">
+          <button @click="$router.back()" class="agree-btn">Agree</button>
+          <button @click="clickAgree()" class="dis-btn">Disagree</button><br>
+        </div>
+        <div class="continue-fill-a">
+        <a>Click "agree" button to fill out the application form.</a>
       </div>
+    </div>
       <div class="xtreme-logo">
         <h3>XTREME</h3>
       </div>
@@ -78,6 +83,9 @@ export default {
       // 로그인 페이지로 이동
       this.$router.push('/login');
     },
+    clickAgree(){
+      alert("Click 👉Agree button👈 to continue to fill out the application form.");
+    }
   },
 };
 </script>
@@ -134,6 +142,11 @@ export default {
 .continue-fill {
   color: gray;
   font-weight: 900;
+  height: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 2rem;
 }
 
 .click-btn {
@@ -158,4 +171,29 @@ export default {
   justify-content: center;
   cursor: pointer;
 }
+
+.agree-radio {
+  color: white;
+}
+
+
+.continue-fill-btn button {
+  border-radius: 3rem;
+  width: 6rem;
+  height: 2.3rem;
+  background-color: white;
+  color: black;
+  margin-right: 1rem;
+}
+
+.agree-btn {
+  box-shadow: 0px 0px 10px 4px #0f0;
+  border: transparent;
+}
+
+.agree-btn:hover {
+  color: black;
+  background-color: #0f0;
+}
+
 </style>

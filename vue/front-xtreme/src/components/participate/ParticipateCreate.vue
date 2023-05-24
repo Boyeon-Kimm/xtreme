@@ -86,29 +86,8 @@
             <div class="participate-radio">
               <b-form-group
                 class="radio-group-title"
-                label="Personal Information Collection and Usage Agreement"
-                v-slot="{ ariaDescribedby }"
-              >
-                <router-link
-                  :to="{ name: 'participateAgreement' }"
-                  class="compAgree"
-                  >More about Agreement...</router-link
-                >
-                <b-form-radio
-                  v-model="selected"
-                  :aria-describedby="ariaDescribedby"
-                  name="some-radios"
-                  value="Agree"
-                  >Agree</b-form-radio
-                >
-                <b-form-radio
-                  class="radio-group-content"
-                  v-model="selected"
-                  :aria-describedby="ariaDescribedby"
-                  name="some-radios"
-                  value="Disagree"
-                  >Disagree</b-form-radio
-                >
+                label="Personal Information Collection and Usage Agreement">
+                <router-link :to="{ name: 'participateAgreement' }" class="compAgree">More about Required Agreement...✅</router-link>
               </b-form-group>
             </div>
           </div>
@@ -117,7 +96,7 @@
               @click.prevent="createParticipate"
               type="submit"
               value="Submit"
-            />
+            />  
             <input
               @click.prevent="$router.back()"
               type="button"
@@ -206,7 +185,7 @@ export default {
 
 .participate-radio {
   background-color: rgb(255, 255, 255, 0.65);
-  height: 9.3rem;
+  height: 8rem;
   width: 29.5rem;
   border-radius: 1rem;
   display: flex;
