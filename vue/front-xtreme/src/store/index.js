@@ -34,6 +34,9 @@ export default new Vuex.Store({
     UPDATE_USER(state, payload){
       state.user = payload;
     },
+    LOGIN(state, loginUser){
+      state.loginUser = loginUser;
+    },
 
 
     GET_COMPETITIONS(state, competitions){
@@ -81,9 +84,7 @@ export default new Vuex.Store({
           console.log(err);
         });
     },
-
-    //대회 정보
-
+    
     updateUser({ commit }, user){
       const API_URL = `${REST_API_USER}/user`;
       axios({
@@ -97,6 +98,28 @@ export default new Vuex.Store({
       });
     },
 
+    login({commit}, loginUser){
+      const API_URL = `${REST_API_USER}/login`;
+      axios({
+        url: API_URL,
+        method: "POST",
+        params: loginUser,
+      })
+      .then((res) => {
+        localStorage.setItem('loginUser', JSON.stringify(loginUser));
+        commit("LOGIN", loginUser);
+        alert("Login Success!");
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("Login Failed... Please try again.");
+        router.back();
+      });
+    },
+
+
+    
+    //대회 정보
     getCompetitions({commit}){
       const API_URL = `${REST_API_COMPETITION}/comp`;
       axios({
@@ -126,6 +149,8 @@ export default new Vuex.Store({
         });
     },
 
+
+    //review 관련
     deleteReview({ commit }, id){
       const API_URL = `${REST_API_REVIEW}/review/${id}`;
       axios({
@@ -149,7 +174,7 @@ export default new Vuex.Store({
       })
       .then(() => {
         commit("UPDATE_REVIEW", review);
-        router.push({ name: "reviewDetail", params: { id: review.id }});
+        // router.push({ name: "reviewDetail", params: { id: review.id }});
       });
     },
 
@@ -194,7 +219,7 @@ export default new Vuex.Store({
       })
       .then(() => {
         commit("CREATE_REVIEW", review);
-        router.push("/review");
+        // router.push("/review");
       })
       .catch((err) => {
         console.log(err);
@@ -220,7 +245,7 @@ export default new Vuex.Store({
     },
 
     getParticipate({commit}, id){
-      const API_URL = `${REST_API_PARTICIPATE}/detail`;
+      const API_URL = `${REST_API_PARTICIPATE}/detail/${id}`;
       axios({
         url: API_URL,
         method: "GET",

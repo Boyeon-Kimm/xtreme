@@ -50,23 +50,30 @@ export default {
       this.$router.push("/joinus");
     },
     login() {
-      if(this.id === ''){
-        alert("Please enter your ID.");
-        return;
-      }
-      if(this.password === ''){
-        alert("Please enter your password.");
-        return;
-      }
-      const id = this.id;
-      const password = this.password;
+      // if(this.id === ''){
+      //   alert("Please enter your ID.");
+      //   return;
+      // }
+      // if(this.password === ''){
+      //   alert("Please enter your password.");
+      //   return;
+      // }
+      // const id = this.id;
+      // const password = this.password;
 
-      const payload = {
-        id,
-        password,
-      };
+      // const payload = {
+      //   id,
+      //   password,
+      // };
+      // this.$store.dispatch("login", payload);
+      // this.$router.push("/");
+      
+      let loginUser = {
+        id: this.id,
+        password: this.password,
+      }
 
-      this.$store.dispatch("login", payload);
+      this.$store.dispatch("login", loginUser);
       this.$router.push("/");
     },
   },

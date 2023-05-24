@@ -34,6 +34,9 @@
             <input type="text" placeholder="Title" v-model="title" />
           </div>
           <div class="login-form-text">
+            <input type="text" placeholder="Id" v-model="userId" />
+          </div>
+          <div class="login-form-text">
             <textarea placeholder="Content" v-model="content" />
           </div>
           <div class="login-form-btn">
@@ -52,11 +55,11 @@ export default {
   name: "ReviewCreate",
   data() {
     return {
-      sports: "",
-      compTitle: "",
-      title: "",
-      // userId: '',
-      content: "",
+      sports: '',
+      compTitle: '',
+      title: '',
+      userId: '',
+      content: '',
     };
   },
   // computed: {
@@ -72,7 +75,7 @@ export default {
         sports: this.sports,
         compTitle: this.compTitle,
         title: this.title,
-        // userId: this.userId,
+        userId: this.userId,
         content: this.content,
       };
 
