@@ -106,8 +106,9 @@ export default {
   height: 3rem;
   border-radius: 0.7rem !important;
   border: transparent !important;
-  background-color: rgba(251, 119, 24, 0.7) !important;
+  background-color: rgba(251, 119, 24) !important;
   font-size: 1.2rem !important;
+  font-weight: 600 !important;
 } 
 
 .nav-b-btn3:hover {
@@ -123,9 +124,10 @@ export default {
 .nav-b-btn3 a {
   color: white;
   font-size: 1.2rem;
+  font-weight: 600;
 }
 
-.nav-b-btn3 a:hover {
+.nav-b-btn3 a:hover, .nav-menu a:hover {
   color: #3D1D06;
   text-decoration: none;
   text-shadow: -1px 0 #fb7718, 0 1px #fb7718, 1px 0 #fb7718, 0 -1px #fb7718;
@@ -140,4 +142,8 @@ export default {
   text-shadow: 4px 4px 4px #443022;
 }
 
+.nav-menu a {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
 </style>

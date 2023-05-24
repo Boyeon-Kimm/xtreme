@@ -84,6 +84,7 @@ export default new Vuex.Store({
       })
         .then(() =>{
           commit("CREATE_USER", user);
+          alert("Registration completed!!🎉 Welcome to our Website!");
         })
         .catch((err) => {
           console.log(err);
@@ -114,7 +115,7 @@ export default new Vuex.Store({
         localStorage.setItem('loginUser', JSON.stringify(loginUser));
         commit("LOGIN", loginUser);
         commit("SET_LOGGED_IN", true);
-        alert("Login Success!");
+        alert("Login completed!!🎉 Welcome to our Website!");
       })
       .catch((err) => {
         console.log(err);
@@ -133,7 +134,7 @@ export default new Vuex.Store({
         localStorage.removeItem("loginUser");
         commit("LOGIN", null);
         commit("SET_LOGGED_IN", false);
-        alert("Logout Completed");
+        alert("Logout Completed 🐾");
       })
       .catch((err) => {
         console.log(err);

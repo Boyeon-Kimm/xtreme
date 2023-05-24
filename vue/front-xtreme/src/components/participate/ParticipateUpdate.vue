@@ -99,14 +99,12 @@ export default {
     participateDetail() {
       this.$router.back();
     },
-
     // 로그아웃
     logoutUser() {
       this.$store.dispatch("logoutUser");
       // 로그인 페이지로 이동
       this.$router.push('/login');
     },
-    
     updateParticipate() {
       if(this.participate.playerId === '' || this.participate.teamName === '' || this.participate.playerName === '' || this.participate.birth === '' || this.participate.phone === '' || this.participate.playerEmail === ''){
         alert("Please fill in all fields.");
