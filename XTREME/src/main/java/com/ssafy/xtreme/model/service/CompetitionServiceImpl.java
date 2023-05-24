@@ -33,4 +33,15 @@ public class CompetitionServiceImpl implements CompetitionService {
 		return competitionDao.searchByCondition(con);
 	}
 
+	@Override
+	public Competition searchByName(String compName) {
+		return competitionDao.searchByName(compName);
+	}
+	
+	@Override
+	public int findCompId(String CompName) {
+		return competitionDao.findCompId(CompName);
+	}
+
+
 }
