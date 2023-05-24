@@ -74,12 +74,16 @@ export default {
     goList() {
       this.$router.push("/competition");
     },
+    updateParticipate() {
+      this.$router.push({ name: "participateUpdate" });
+    }
   },
 };
 </script>
 
 <style scoped>
 .home {
+  padding-top: 5rem;
   height: 70rem;
 }
 

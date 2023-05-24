@@ -62,7 +62,7 @@
           </div>
           <div class="login-form-btn">
             <input type="submit" value="Update" />
-            <input type="button" value="Cancel" />
+            <input @click.prevent="participateDetail" type="button" value="Cancel" />
           </div>
         </div>
       </form>
@@ -75,12 +75,18 @@ import { mapState } from "vuex";
 
 export default {
   name: "ParticipateUpdate",
+  methods: {
+    participateDetail() {
+      this.$router.back();
+    }
+  }
 };
 </script>
 
 <style scoped>
 .home {
   height: 70rem;
+    padding-top: 2rem;
 }
 
 .participate-form {

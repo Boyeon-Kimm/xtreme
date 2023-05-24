@@ -130,6 +130,13 @@ export default {
   margin: 0.5rem;
 }
 
+.login-form-btn input:hover {
+  background-color: transparent;
+  transition: 0.7s;
+  color: black;
+  text-shadow: -1px 0 #fb7718, 0 1px #fb7718, 1px 0 #fb7718, 0 -1px #fb7718;
+}
+
 /* .header-class {
   background-image: none !important;
 } */

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="submit-page">
     <header class="header-class">
       <nav>
         <div class="nav-title">
@@ -34,6 +34,9 @@
             <input type="text" placeholder="Title" v-model="title" />
           </div>
           <div class="login-form-text">
+            <input type="text" placeholder="Id" v-model="userId" />
+          </div>
+          <div class="login-form-text">
             <textarea placeholder="Content" v-model="content" />
           </div>
           <div class="login-form-btn">
@@ -55,7 +58,7 @@ export default {
       sports: "",
       compTitle: "",
       title: "",
-      // userId: '',
+      userId: '',
       content: "",
     };
   },
@@ -72,7 +75,7 @@ export default {
         sports: this.sports,
         compTitle: this.compTitle,
         title: this.title,
-        // userId: this.userId,
+        userId: this.userId,
         content: this.content,
       };
 
@@ -90,8 +93,13 @@ export default {
 </script>
 
 <style scoped>
+.submit-page {
+  height: auto;
+}
+
 .login-form {
   height: auto;
+  /* margin-top: 13rem; */
 }
 
 .login-form-text textarea {
@@ -110,10 +118,11 @@ export default {
 .login-form-btn {
   margin-bottom: 2.6rem;
 }
+
 .header-class {
-  background-image: url(@/assets/main1.png);
-  background-size: cover;
+  background-image: none;
 }
+
 .nav-menu {
   display: flex;
   justify-content: center;

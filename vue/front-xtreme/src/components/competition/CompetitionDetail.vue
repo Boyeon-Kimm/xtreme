@@ -157,6 +157,14 @@ button {
   border-radius: 0.5rem;
 }
 
+button:hover {
+  background-color: transparent;
+  transition: 0.5s;
+  color: black;
+  font-weight: 800;
+  text-shadow: -1px 0 #fb7718, 0 1px #fb7718, 1px 0 #fb7718, 0 -1px #fb7718;
+}
+
 .header-class {
   background-image: url(@/assets/main1.png);
   background-size: cover;

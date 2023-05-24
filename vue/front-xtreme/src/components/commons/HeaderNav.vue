@@ -68,6 +68,13 @@ header nav {
 	color: white;
 }
 
+.nav-title a:hover {
+	text-decoration: none;
+	/* color: white; */
+	color: rgb(0, 0, 0);
+  	text-shadow: -1px 0 #fb7718, 0 1px #fb7718, 1px 0 #fb7718, 0 -1px #fb7718;
+}
+
 .nav-b-btn a {
   font-size: 0.9rem;
 }

@@ -157,6 +157,14 @@ export default {
   margin: 0.5rem;
 }
 
+button:hover {
+  background-color: transparent;
+  transition: 0.7s;
+  color: black;
+  font-weight: 800;
+  text-shadow: -1px 0 #fb7718, 0 1px #fb7718, 1px 0 #fb7718, 0 -1px #fb7718;
+}
+
 .header-class {
   background-image: none;
 }
