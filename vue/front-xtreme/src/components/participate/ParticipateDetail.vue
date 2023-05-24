@@ -17,7 +17,7 @@
     <div class="home">
       <form class="participate-form">
         <div class="sect01">
-          <div class="line-box" @click.prevent="$router.back()">
+          <div class="line-box" @click.prevent="goList()">
             <span class="line-01"></span>
             <span class="line-02"></span>
           </div>
@@ -83,7 +83,7 @@ export default {
     },
     updateParticipate() {
       this.$router.push({ name: "participateUpdate" });
-    }
+    },
   },
 };
 </script>

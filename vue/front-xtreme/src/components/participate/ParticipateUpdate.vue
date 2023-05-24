@@ -16,8 +16,14 @@
     </header>
     <div class="home">
       <form @submit.prevent="submitForm" class="participate-form">
+        <div class="sect01">
+          <div class="line-box" @click.prevent="goList()">
+            <span class="line-01"></span>
+            <span class="line-02"></span>
+          </div>
+        </div>
         <div class="login-form-title">
-          <p class="fnt-title">Update Application</p>
+          <p>Update Application</p>
         </div>
         <div class="login-form-input">
           <div class="login-form-text">

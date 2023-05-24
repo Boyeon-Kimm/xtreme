@@ -151,14 +151,15 @@ export default {
   width: 50%;
   height: 22.5rem;
   margin-right: 2rem;
-  border: 2px solid rgba(251, 119, 24, 0.65);
+  border: 2px solid rgba(251, 119, 24);
+  background-color: rgb(228, 225, 225);
   border-radius: 0.4rem;
 }
 
 .my-info > h3,
 .my-parti > h3,
 .my-review > h3 {
-  color: rgb(204, 204, 204);
+  color:#3D1D06;
   margin: 1.5rem 0 0 2rem;
   display: inline-block;
 }
@@ -175,7 +176,8 @@ export default {
 .my-parti,
 .my-review {
   height: auto;
-  border: 2px solid rgba(251, 119, 24, 0.7);
+  border: 2px solid rgba(251, 119, 24);
+  background-color: rgb(228, 225, 225);
   border-radius: 0.4rem;
 }
 
@@ -217,7 +219,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  color: white;
+  color: #3D1D06;
   text-align: right;
   margin-right: 0.6rem;
 }
@@ -230,7 +232,7 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   text-align: left;
-  color: white;
+  color: #3D1D06;
 }
 
 .my-info-btn {
