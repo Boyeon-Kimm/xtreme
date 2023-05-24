@@ -110,6 +110,7 @@ export default new Vuex.Store({
       .then((res) => {
         localStorage.setItem('loginUser', JSON.stringify(loginUser));
         commit("LOGIN", loginUser);
+        commit("SET_LOGGED_IN", true);
         alert("Login Success!");
       })
       .catch((err) => {
@@ -128,8 +129,7 @@ export default new Vuex.Store({
       .then(() => {
         localStorage.removeItem("loginUser");
         commit("LOGIN", null);
-        commit("SET_LOGGED_IN", false),
-        // this.checkLoginStatus();
+        commit("SET_LOGGED_IN", false);
         alert("Logout Completed");
       })
       .catch((err) => {
