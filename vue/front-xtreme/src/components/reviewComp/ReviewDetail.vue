@@ -16,6 +16,12 @@
     </header>
     <div class="home">
       <div class="login-form">
+        <div class="sect01">
+          <div class="line-box" @click.prevent="$router.back()">
+            <span class="line-01"></span>
+            <span class="line-02"></span>
+          </div>
+        </div>
         <div class="login-form-title">
           <p>Tournament Review</p>
         </div>
@@ -50,9 +56,9 @@
         <div class="write-review">
           <button @click="moveUpdate" class="write-review-btn">Update</button>
           <button @click="deleteReview" class="write-review-btn">Delete</button>
-          <button @click="$router.back()" class="write-review-btn">
+          <!-- <button @click="$router.back()" class="write-review-btn">
             Cancel
-          </button>
+          </button> -->
         </div>
       </div>
     </div>
@@ -113,7 +119,7 @@ export default {
 
 .review-form-title {
   width: 10rem;
-  color: rgb(207, 207, 207);
+  color: #3D1D06;
   font-weight: 700;
   text-align: right;
   margin-right: 1rem;
@@ -121,6 +127,7 @@ export default {
 
 .login-form-text > span {
   margin-left: 1rem;
+    color: #3D1D06;
 }
 
 .login-form-textarea {
@@ -129,15 +136,14 @@ export default {
   border-radius: 0.3rem;
   margin-bottom: 0.5rem;
   padding: 0.7rem 1rem;
-  background-color: white;
-  opacity: 0.65;
+  background-color: rgb(255, 255, 255, 0.65);
   border: transparent;
-  font-weight: 600;
   text-align: left;
 }
 
 .login-form-textarea > span {
   word-wrap: break-word;
+    color: #3D1D06;
 }
 
 .write-review {
@@ -147,7 +153,7 @@ export default {
 }
 
 .write-review-btn {
-  background-color: rgba(251, 119, 24, 0.7);
+  background-color: rgba(251, 119, 24);
   color: white;
   font-weight: 700;
   border: transparent;

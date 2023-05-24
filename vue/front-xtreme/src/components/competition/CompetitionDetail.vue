@@ -17,7 +17,7 @@
   <div class="compList-main">
     <div class="login-form">
       <div class="compList-title">
-        <h3 class="fnt-kr">{{ competition.compName }}</h3>
+        <h3 class="fnt-kr" style="color: #3D1D06;">{{ competition.compName }}</h3>
         <hr />
       </div>
       <div class="compDetail-content">
@@ -131,7 +131,7 @@ export default {
   align-items: center;
 	height: auto;
 	width: 100%;
-	color: rgb(205, 205, 205);
+	color: #3D1D06;
 	font-size: 1.1rem;
 }
 

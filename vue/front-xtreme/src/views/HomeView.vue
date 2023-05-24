@@ -48,6 +48,11 @@ export default {
   font-family: 'Red Hat Display', sans-serif;
 }
 
+.fnt-title {
+  font-family: 'Bree Serif', serif;
+  color: #3D1D06;
+}
+
 .home {
   height: auto;
   min-height: 55rem;
@@ -83,7 +88,7 @@ export default {
   background-color: transparent !important;
   text-decoration: none;
   transition: 0.4s;
-  color: black;
+  color: #3D1D06;
   font-weight: 800;
   text-shadow: -1px 0 #fb7718, 0 1px #fb7718, 1px 0 #fb7718, 0 -1px #fb7718;
 }
@@ -94,7 +99,7 @@ export default {
 }
 
 .nav-b-btn3 a:hover {
-  color: black;
+  color: #3D1D06;
   text-decoration: none;
   text-shadow: -1px 0 #fb7718, 0 1px #fb7718, 1px 0 #fb7718, 0 -1px #fb7718;
 }

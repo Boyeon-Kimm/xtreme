@@ -14,6 +14,12 @@
   </header>
   <div class="home">
     <form class="join-form">
+      <div class="sect01">
+        <div class="line-box" @click.prevent="goMain()">
+          <span class="line-01"></span>
+          <span class="line-02"></span>
+        </div>
+      </div>
       <div class="login-form-title">
         <p>Personal Details</p>
       </div>
@@ -34,7 +40,7 @@
         <div class="login-form-text">
           <input type="number" placeholder="age" id="age" v-model="age" />
         </div>
-        <div class="login-form-btn">
+        <div class="login-form-btn" style="margin-bottom: 2.3rem;">
           <input @click.prevent="createUser" type="submit" value="Submit"/>
           <input @click.prevent="goSign" type="button" value="Sign In"/>
         </div>
@@ -72,6 +78,10 @@ export default {
 
     goSign(){
       this.$router.push("/login");
+    },
+
+    goMain() {
+      this.$router.push("/");
     }
   }
 };
@@ -80,8 +90,9 @@ export default {
 <style scoped>
   .join-form {
     border: 4px solid rgba(251, 119, 24, 0.7);
+    background-color: rgb(228, 225, 225);
     border-radius: 2rem;
-    height: 37.5rem;
+    height: auto;
     width: 40rem;
   }
 

@@ -16,8 +16,14 @@
     </header>
     <div class="home">
       <div class="login-form">
+        <div class="sect01">
+          <div class="line-box" @click.prevent="$router.back()">
+            <span class="line-01"></span>
+            <span class="line-02"></span>
+          </div>
+        </div>
         <div class="login-form-title">
-          <p>Review</p>
+          <p class="fnt-title">Review</p>
         </div>
         <div class="login-form-input">
           <div class="login-form-text">
@@ -99,7 +105,6 @@ export default {
 
 .login-form {
   height: auto;
-  /* margin-top: 13rem; */
 }
 
 .login-form-text textarea {

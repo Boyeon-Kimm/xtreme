@@ -16,6 +16,12 @@
     </header>
     <div class="home">
       <form class="participate-form">
+        <div class="sect01">
+          <div class="line-box" @click.prevent="$router.back()">
+            <span class="line-01"></span>
+            <span class="line-02"></span>
+          </div>
+        </div>
         <div class="login-form-title">
           <p>Participation Application</p>
         </div>
@@ -62,11 +68,7 @@ import { mapState } from "vuex";
 
 export default {
   name: "ParticipateDetail",
-  data(){
-    return{
-      participate: null,
-    };
-  },
+
   computed: {
     ...mapState(["competition", "participate"]),
   },
@@ -97,7 +99,7 @@ export default {
   width: 29.5rem;
   border-radius: 1rem;
   margin: 0.7rem;
-  background-color: rgb(255, 255, 255, 0.65);
+  background-color: rgba(255, 255, 255, 0.65);
   padding: 0;
   border: transparent;
   font-weight: 600;
@@ -107,7 +109,8 @@ export default {
 }
 
 .participate-form {
-  border: 4px solid rgba(251, 119, 24, 0.7);
+  border: 4px solid rgba(251, 119, 24);
+  background-color: rgb(228, 225, 225);
   border-radius: 2rem;
   height: auto;
   width: 40rem;
