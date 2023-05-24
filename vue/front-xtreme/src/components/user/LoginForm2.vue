@@ -2,7 +2,7 @@
   <div class="home">
     <form class="login-form" @submit="submitForm">
       <div class="login-form-title">
-        <p>Sign In</p>
+        <p class="fnt-title">Sign In</p>
       </div>
       <div class="login-form-input">
         <div class="login-form-text">

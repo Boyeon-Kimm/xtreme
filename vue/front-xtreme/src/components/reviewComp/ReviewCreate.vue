@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="submit-page">
     <header class="header-class">
       <nav>
         <div class="nav-title">
@@ -16,8 +16,14 @@
     </header>
     <div class="home">
       <div class="login-form">
+        <div class="sect01">
+          <div class="line-box" @click.prevent="$router.back()">
+            <span class="line-01"></span>
+            <span class="line-02"></span>
+          </div>
+        </div>
         <div class="login-form-title">
-          <p>Review</p>
+          <p class="fnt-title">Review</p>
         </div>
         <div class="login-form-input">
           <div class="login-form-text">
@@ -93,6 +99,10 @@ export default {
 </script>
 
 <style scoped>
+.submit-page {
+  height: auto;
+}
+
 .login-form {
   height: auto;
 }
@@ -113,10 +123,11 @@ export default {
 .login-form-btn {
   margin-bottom: 2.6rem;
 }
+
 .header-class {
-  background-image: url(@/assets/main1.png);
-  background-size: cover;
+  background-image: none;
 }
+
 .nav-menu {
   display: flex;
   justify-content: center;

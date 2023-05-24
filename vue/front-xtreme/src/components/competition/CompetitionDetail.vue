@@ -17,7 +17,7 @@
   <div class="compList-main">
     <div class="login-form">
       <div class="compList-title">
-        <h3>{{ competition.compName }}</h3>
+        <h3 class="fnt-kr" style="color: #3D1D06;">{{ competition.compName }}</h3>
         <hr />
       </div>
       <div class="compDetail-content">
@@ -36,13 +36,13 @@
               <p>URL:</p>
             </div>
             <div class="compDetail-text-cont">
-              <p>{{ competition.compSports }}</p>
-              <p>{{ competition.host }}</p>
-              <p>{{ competition.place }}</p>
-              <p>{{ competition.compDay }}</p>
-              <p>{{ competition.registDate }}</p>
-              <p>{{ competition.fee }}원</p>
-              <p>{{ competition.compUrl }}</p>
+              <p class="fnt-kr">{{ competition.compSports }}</p>
+              <p class="fnt-kr">{{ competition.host }}</p>
+              <p class="fnt-kr">{{ competition.place }}</p>
+              <p class="fnt-kr">{{ competition.compDay }}</p>
+              <p class="fnt-kr">{{ competition.registDate }}</p>
+              <p class="fnt-kr">{{ competition.fee }}원</p>
+              <p class="fnt-kr">{{ competition.compUrl }}</p>
             </div>
           </div>
 					<div class="compDetail-btn">
@@ -82,6 +82,7 @@ export default {
 </script>
 
 <style scoped>
+
 .compList-main {
   display: flex;
   justify-content: center;
@@ -130,7 +131,7 @@ export default {
   align-items: center;
 	height: auto;
 	width: 100%;
-	color: rgb(205, 205, 205);
+	color: #3D1D06;
 	font-size: 1.1rem;
 }
 
@@ -154,6 +155,14 @@ button {
   width: 7rem;
   margin-right: 0.5rem;
   border-radius: 0.5rem;
+}
+
+button:hover {
+  background-color: transparent;
+  transition: 0.5s;
+  color: black;
+  font-weight: 800;
+  text-shadow: -1px 0 #fb7718, 0 1px #fb7718, 1px 0 #fb7718, 0 -1px #fb7718;
 }
 
 .header-class {

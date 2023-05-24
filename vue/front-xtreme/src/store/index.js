@@ -98,6 +98,8 @@ export default new Vuex.Store({
       });
     },
 
+
+    
     login({commit}, loginUser){
       const API_URL = `${REST_API_USER}/login`;
       axios({
@@ -117,7 +119,7 @@ export default new Vuex.Store({
       });
     },
 
-
+    
     
     //대회 정보
     getCompetitions({commit}){
@@ -150,7 +152,12 @@ export default new Vuex.Store({
     },
 
 
+
     //review 관련
+
+
+    //리뷰
+
     deleteReview({ commit }, id){
       const API_URL = `${REST_API_REVIEW}/review/${id}`;
       axios({

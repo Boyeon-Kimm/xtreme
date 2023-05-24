@@ -16,6 +16,12 @@
     </header>
     <div class="home">
       <form class="participate-form">
+        <div class="sect01">
+          <div class="line-box" @click.prevent="$router.back()">
+            <span class="line-01"></span>
+            <span class="line-02"></span>
+          </div>
+        </div>
         <div class="login-form-title">
           <p>Participation Application</p>
         </div>
@@ -25,7 +31,7 @@
               type="text"
               id="compName"
               v-model="competition.compName"
-              readonly
+              class="fnt-kr" readonly
             />
           </div>
           <div class="login-form-text">
@@ -135,25 +141,15 @@ export default {
   data() {
     return {
       // compName: '',
-      playerId: "",
-      playerName: "",
-      teamName: "",
-      birth: "",
-      phone: "",
-      playerEmail: "",
+      playerId: '',
+      playerName: '',
+      teamName: '',
+      birth: '',
+      phone: '',
+      playerEmail: '',
+      // selected: null,
     };
   },
-
-  // computed: {
-  //   ...mapState(['competitions']),
-  //   compId(){
-  //     return this.$route.params.compId;
-  //   },
-  //   competitionName(){
-  //     const competition = this.competitions.find(c => c.compId === this.compId);
-  //     return competition ? competition.compName : '';
-  //   },
-  // },
 
   methods: {
     createParticipate() {
@@ -172,21 +168,22 @@ export default {
         params: { id: participate.id },
       });
     },
-    moveCompList() {},
   },
 };
 </script>
 
 <style scoped>
+
 .home {
   height: auto;
 }
 
 .participate-form {
-  border: 4px solid rgba(251, 119, 24, 0.7);
+  border: 4px solid rgba(251, 119, 24);
   border-radius: 2rem;
   height: auto;
   width: 40rem;
+  background-color: rgb(228, 225, 225);
 }
 
 .participate-radio {

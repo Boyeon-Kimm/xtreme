@@ -48,8 +48,8 @@
           <thead>
             <tr>
               <th scope="col" class="first-td">Sports</th>
-              <th scope="col" class="second-td">Tournaments Name</th>
               <th scope="col" class="second-td">Title</th>
+              <th scope="col" class="second-td">Tournaments Name</th>
               <th scope="col" class="comp-date" id="name-td">Name</th>
               <th scope="col" class="comp-date" id="fourth-td">Post Date</th>
               <th scope="col" class="third-td">View</th>
@@ -57,13 +57,13 @@
           </thead>
           <tbody>
             <tr v-for="review in pageReviewList" :key="review.id">
-              <th scope="row">{{ review.sports }}</th>
-              <td>{{ review.compTitle }}</td>
+              <th scope="row" class="fnt-kr" style="font-weight: 400">{{ review.sports }}</th>
               <td>
-                <router-link :to="`/review/${review.id}`">{{
+                <router-link :to="`/review/${review.id}`" class="fnt-kr">{{
                   review.title
                 }}</router-link>
               </td>
+              <td class="fnt-kr">{{ review.compTitle }}</td>
               <td>{{ review.userId }}</td>
               <td class="comp-date">{{ review.regDate }}</td>
               <td>{{ review.viewCnt }}</td>
@@ -153,6 +153,14 @@ export default {
   border-radius: 0.3rem;
 }
 
+.write-review-btn:hover {
+  background-color: transparent;
+  transition: 0.7s;
+  color: black;
+  font-weight: 800;
+  text-shadow: -1px 0 #fb7718, 0 1px #fb7718, 1px 0 #fb7718, 0 -1px #fb7718;
+}
+
 .write-review-btn a {
   color: white;
   font-weight: 600;
@@ -182,10 +190,12 @@ export default {
 #name-td {
   width: 9rem;
 }
+
 .header-class {
   background-image: url(@/assets/main1.png);
   background-size: cover;
 }
+
 .nav-menu {
   display: flex;
   justify-content: center;
