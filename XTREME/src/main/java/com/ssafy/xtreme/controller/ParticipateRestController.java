@@ -51,7 +51,7 @@ public class ParticipateRestController {
 	
 	//신청 대회 상세 조회
 	@ApiOperation(value = "신청 정보 상세 조회")
-	@GetMapping("/detail")
+	@GetMapping("/detail/{id}")
 	public ResponseEntity<Participate> detail(@PathVariable int id){
 		Participate participate = participateService.selectById(id);
 		

@@ -8,7 +8,7 @@ public interface ParticipateService {
 	//참가 신청 (신청서 작성)
 	public int insertParticipate(Participate participate);
 	
-	//찜한 대회 목록 조회
+//	//찜한 대회 목록 조회
 //	public List<Participate> selectByLiked(Boolean liked);
 	
 	//신청 대회 목록 조회

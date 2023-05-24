@@ -4,10 +4,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssafy.xtreme.model.dao.ParticipateDao">
 	<!-- insertParticipate(Participate participate) : 참가신청서 작성 -->
-	<!--<insert id="insertParticipate" parameterType="Participate" keyProperty="id" useGeneratedKeys="true">-->
-	<insert id="insertParticipate" parameterType="Participate">
+	<!-- <insert id="insertParticipate" parameterType="Participate"> -->
+	<insert id="insertParticipate" parameterType="Participate" keyProperty="id" useGeneratedKeys="true">
 		INSERT INTO participate
-		VALUES (#{id}, #{playerId}, #{teamName}, #{birth}, #{phone}, #{playerEmail}, #{check}, #{compId})
+		VALUES (#{id}, #{playerId}, #{teamName}, #{playerName}, #{birth}, #{phone}, #{playerEmail}, #{check}, #{compId})
 	</insert>
 	
 	<!-- selectByUser(String playerId) : 신청 대회 조회 -->
@@ -15,6 +15,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT *
 		FROM participate
 		WHERE playerId = #{playerId}
+	</select>
+	
+	<!-- selectById(int id) : 신청서 상세보기 -->
+	<select id="selectById" parameterType="int" resultType="Participate">
+		SELECT *
+		FROM participate
+		WHERE id = #{id}
 	</select>
 	
 	<!-- updateParticipate(Participate participate) : 신청 정보 수정 -->
