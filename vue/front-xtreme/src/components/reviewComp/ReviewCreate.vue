@@ -61,11 +61,11 @@ export default {
   name: "ReviewCreate",
   data() {
     return {
-      sports: "",
-      compTitle: "",
-      title: "",
+      sports: '',
+      compTitle: '',
+      title: '',
       userId: '',
-      content: "",
+      content: '',
     };
   },
   // computed: {

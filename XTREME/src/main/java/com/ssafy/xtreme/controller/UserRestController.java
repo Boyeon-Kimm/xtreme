@@ -70,11 +70,12 @@ public class UserRestController {
 	public ResponseEntity<?> login(User user, HttpSession session){
 		User loginUser = userService.login(user.getId(), user.getPassword());
 		if(loginUser == null) {
-			return new ResponseEntity<Void>(HttpStatus.UNAUTHORIZED);
+			return new ResponseEntity<Boolean>(false, HttpStatus.UNAUTHORIZED);
 		}
 		
 		session.setAttribute("loginUser", loginUser);
-		return new ResponseEntity<String>(loginUser.getName(), HttpStatus.OK);
+//		return new ResponseEntity<String>(loginUser.getName(), HttpStatus.OK);
+		return new ResponseEntity<Boolean>(true, HttpStatus.OK);
 	}
 	
 	

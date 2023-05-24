@@ -71,24 +71,29 @@ import { mapState } from "vuex";
 
 export default {
   name: "ReviewUpdate",
-  data: () => ({
-    compTitle: "",
-    title: "",
-    userId: "",
-    content: "",
-  }),
+  data(){
+    return {
+      compTitle: "",
+      title: "",
+      userId: "",
+      content: "",
+    };
+  },
+
   computed: {
-    ...mapState(["review"]),
+    ...mapState(['review']),
   },
   methods: {
     updateReview() {
       let updateReview = {
+        id: this.review.id,
         compTitle: this.review.compTitle,
         title: this.review.title,
         userId: this.review.userId,
         content: this.review.content,
       };
       this.$store.dispatch("updateReview", updateReview);
+      this.$router.push({ name: "reviewDetail", params: { id: this.review.id }});
     },
   },
 };

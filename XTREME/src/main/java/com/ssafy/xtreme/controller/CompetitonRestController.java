@@ -56,4 +56,14 @@ public class CompetitonRestController {
 		
 		return new ResponseEntity<List<Competition>>(sortList, HttpStatus.OK);
 	}
+	
+		
+	//대회 이름으로 대회 id 뽑아오기
+	@ApiOperation(value = "대회 id 찾기")
+	@GetMapping("/comp/find/{compName}")
+	public ResponseEntity<Integer> findCompId(String compName){
+		Competition comp = competitionService.searchByName(compName);
+		
+		return new ResponseEntity<Integer>(comp.getId(), HttpStatus.OK);
+	}
 }

@@ -72,11 +72,11 @@ export default {
   computed: {
     ...mapState(["competition", "participate"]),
   },
-  // created(){
-  //   const pathName = new URL(document.location).pathname.split('/');
-  //   const id = pathName[pathName.length - 1];
-  //   this.$store.dispatch('getParticipate', id);
-  // },
+  created(){
+    const pathName = new URL(document.location).pathname.split('/');
+    const id = pathName[pathName.length - 1];
+    this.$store.dispatch('getParticipate', id);
+  },
   methods: {
     goList() {
       this.$router.push("/competition");
