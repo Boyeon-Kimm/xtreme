@@ -91,6 +91,8 @@ export default {
       playerEmail: "",
     };
   },
+
+
   computed: {
     ...mapState(['participate']),
   },
@@ -105,6 +107,7 @@ export default {
       this.$router.push('/login');
     },
 
+
     updateParticipate() {
       // if(this.participate.playerId === '' || this.participate.teamName === '' || this.participate.playerName === '' || this.participate.birth === '' || this.participate.phone === '' || this.participate.playerEmail === ''){
       //   alert("Please fill in all fields.");
@@ -112,15 +115,20 @@ export default {
       // }
       let updateParticipate = {
         id: this.participate.id,
+
+
         playerId: this.participate.playerId,
         teamName: this.participate.teamName,
         playerName: this.participate.playerName,
         birth: this.participate.birth,
         phone: this.participate.phone,
         playerEmail: this.participate.playerEmail,
+
         compId: this.participate.compId,
       };
       this.$store.dispatch("updateParticipate", updateParticipate);
+
+
       this.$router.push({ name: "participateDetail", params: { id: this.participate.id }});
     },
   },

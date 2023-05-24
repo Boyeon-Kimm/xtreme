@@ -65,8 +65,10 @@ export default new Vuex.Store({
     GET_PARTICIPATE(state, participate){
       state.participate = participate;
     },
+
     UPDATE_PARTICIPATE(state, payload) {
       state.participate = payload;
+
     },
 
     SET_LOGGED_IN(state, isLoggedIn) {
@@ -84,6 +86,7 @@ export default new Vuex.Store({
       })
         .then(() =>{
           commit("CREATE_USER", user);
+          alert("Registration completed!!🎉 Welcome to our Website!");
         })
         .catch((err) => {
           console.log(err);
@@ -114,7 +117,7 @@ export default new Vuex.Store({
         localStorage.setItem('loginUser', JSON.stringify(loginUser));
         commit("LOGIN", loginUser);
         commit("SET_LOGGED_IN", true);
-        alert("Login Success!");
+        alert("Login completed!!🎉 Welcome to our Website!");
       })
       .catch((err) => {
         console.log(err);
@@ -133,7 +136,7 @@ export default new Vuex.Store({
         localStorage.removeItem("loginUser");
         commit("LOGIN", null);
         commit("SET_LOGGED_IN", false);
-        alert("Logout Completed");
+        alert("Logout Completed 🐾");
       })
       .catch((err) => {
         console.log(err);
@@ -291,7 +294,9 @@ export default new Vuex.Store({
     },
 
     updateParticipate({ commit }, participate){
+
       const API_URL = `${REST_API_PARTICIPATE}/write`;
+
       axios({
         url: API_URL,
         method: "PUT",
@@ -302,6 +307,7 @@ export default new Vuex.Store({
         // router.push({ name: "reviewParticipate", params: { id: review.id }});
       });
     },
+
   },
   modules: {
   }

@@ -6,13 +6,13 @@
         <router-link to="/">XTREME</router-link>
       </div>
 			<!-- 로그인 안했을 때 -->
-      <div v-if="!isLoggedIn">
+      <!-- <div v-if="!isLoggedIn">
       <div class="nav-btn">
         <b-button class="nav-b-btn" id="nav-b-btn1"><router-link :to="{ name: 'login' }">Sign in</router-link></b-button>
         <b-button class="nav-b-btn" id="nav-b-btn2"><router-link :to="{ name: 'joinus' }">Join us</router-link></b-button>
       </div>
-    </div>
-    <div v-else>
+    </div> -->
+    <div v-if="isLoggedIn">
       <div class="nav-menu">
         <router-link :to="{ name: 'competitionList' }">Tournaments</router-link>
         <router-link :to="{ name: 'reviewList' }">Reviews</router-link>
@@ -28,11 +28,15 @@
         <p>Explore the Excitement of</p>
         <p>Sports Tournaments</p>
       </div>
-      <div class="home-btn">
+      <div class="home-btn" v-if="isLoggedIn">
         <b-button class="nav-b-btn3"><router-link :to="{ name: 'competitionList' }">Tournaments</router-link></b-button>
         <b-button class="nav-b-btn3"><router-link :to="{ name: 'reviewList' }">Reviews</router-link></b-button>
         <b-button class="nav-b-btn3"><router-link :to="{ name: 'myPage' }">MyPage</router-link></b-button>
         <b-button class="nav-b-btn3" @click="logoutUser">Logout</b-button>
+      </div>
+      <div class="home-btn2" v-else>
+        <b-button class="nav-b-btn3" style="margin-right: 2rem;"><router-link :to="{ name: 'login' }">Sign in</router-link></b-button>
+        <b-button class="nav-b-btn3"><router-link :to="{ name: 'joinus' }">Join us</router-link></b-button>
       </div>
     </div>
   </div>
@@ -91,13 +95,21 @@ export default {
   width: 52rem;
 }
 
+.home-btn2 {
+  display: flex;
+  justify-content: center;
+  margin-top: 3.5rem;
+}
+
 .nav-b-btn3 {
   width: 9.5rem !important;
   height: 3rem;
   border-radius: 0.7rem !important;
   border: transparent !important;
-  background-color: rgba(251, 119, 24, 0.7) !important;
-}
+  background-color: rgba(251, 119, 24) !important;
+  font-size: 1.2rem !important;
+  font-weight: 600 !important;
+} 
 
 .nav-b-btn3:hover {
   background-color: transparent !important;
@@ -108,12 +120,14 @@ export default {
   text-shadow: -1px 0 #fb7718, 0 1px #fb7718, 1px 0 #fb7718, 0 -1px #fb7718;
 }
 
+
 .nav-b-btn3 a {
   color: white;
   font-size: 1.2rem;
+  font-weight: 600;
 }
 
-.nav-b-btn3 a:hover {
+.nav-b-btn3 a:hover, .nav-menu a:hover {
   color: #3D1D06;
   text-decoration: none;
   text-shadow: -1px 0 #fb7718, 0 1px #fb7718, 1px 0 #fb7718, 0 -1px #fb7718;
@@ -128,4 +142,8 @@ export default {
   text-shadow: 4px 4px 4px #443022;
 }
 
+.nav-menu a {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
 </style>

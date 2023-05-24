@@ -91,7 +91,6 @@ export default {
       }
 
       this.$store.dispatch("login", loginUser);
-
       this.$router.push("/");
     },
     
