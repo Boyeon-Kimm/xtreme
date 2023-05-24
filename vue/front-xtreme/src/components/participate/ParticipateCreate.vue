@@ -154,10 +154,10 @@ export default {
 
   methods: {
     createParticipate() {
-      // if(this.playerId === '' ){
-      //   alert("Please fill in all fields");
-      //   retrun;
-      // }
+      if(this.playerId === '' || this.teamName === '' || this.playerName === '' || this.birth === '' || this.phone === '' || this.playerEmail === ''){
+        alert("Please fill in all fields.");
+        return;
+      }
       let participate = {
         playerId: this.playerId,
         playerName: this.playerName,
