@@ -62,6 +62,11 @@ import { mapState } from "vuex";
 
 export default {
   name: "ParticipateDetail",
+  data(){
+    return{
+      participate: null,
+    };
+  },
   computed: {
     ...mapState(["competition", "participate"]),
   },

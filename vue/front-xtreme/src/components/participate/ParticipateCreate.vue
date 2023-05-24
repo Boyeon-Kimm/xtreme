@@ -135,25 +135,15 @@ export default {
   data() {
     return {
       // compName: '',
-      playerId: "",
-      playerName: "",
-      teamName: "",
-      birth: "",
-      phone: "",
-      playerEmail: "",
+      playerId: '',
+      playerName: '',
+      teamName: '',
+      birth: '',
+      phone: '',
+      playerEmail: '',
+      selected: null,
     };
   },
-
-  // computed: {
-  //   ...mapState(['competitions']),
-  //   compId(){
-  //     return this.$route.params.compId;
-  //   },
-  //   competitionName(){
-  //     const competition = this.competitions.find(c => c.compId === this.compId);
-  //     return competition ? competition.compName : '';
-  //   },
-  // },
 
   methods: {
     createParticipate() {
@@ -172,7 +162,6 @@ export default {
         params: { id: participate.id },
       });
     },
-    moveCompList() {},
   },
 };
 </script>
