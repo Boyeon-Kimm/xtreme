@@ -69,7 +69,7 @@
           <div class="login-form-text">
             <input
               type="number"
-              placeholder="phone number"
+              placeholder="phone number(Write it without '-')"
               id="phone"
               v-model="phone"
             />

@@ -55,11 +55,8 @@
             </div>
           </div>
             <div class="login-form-btn">
-
-                <input @click.prevent="moveUpdate" type="submit" value="Update" />
-
-              <input @click="goHome()" type="button" value="Home" />
-              <input @click="$router.back()" type="button" value="Cancel" />
+              <input @click.prevent="moveUpdate" type="submit" value="Update" />
+              <input @click.prevent="$router.back()" type="button" value="Cancel" />
             </div>
         </div>
       </div>

@@ -45,7 +45,7 @@
               <th scope="col" class="second-td">Tournaments Name</th>
               <th scope="col" class="comp-date" id="fourth-td">Tournaments Date</th>
               <th scope="col" class="comp-date" id="fifth-td">Registration Period</th>
-              <th scope="col" class="third-td">View</th>
+              <!-- <th scope="col" class="third-td">View</th> -->
             </tr>
           </thead>
           <tbody>
@@ -58,7 +58,7 @@
               </td>
               <td>{{ competition.compDay }}</td>
               <td>{{ competition.registDate }}</td>
-              <td>{{ competition.viewCnt }}</td>
+              <!-- <td>{{ competition.viewCnt }}</td> -->
             </tr>
           </tbody>
         </table>

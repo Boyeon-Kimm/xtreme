@@ -16,6 +16,12 @@
   </header>
   <div class="compList-main">
     <div class="login-form">
+      <div class="sect01">
+        <div class="line-box" @click.prevent="moveCompList()">
+          <span class="line-01"></span>
+          <span class="line-02"></span>
+        </div>
+      </div>
       <div class="compList-title">
         <h3 class="fnt-kr">{{ competition.compName }}</h3>
         <hr />
@@ -72,9 +78,7 @@ export default {
   },
   methods:{ 
     moveParticipate(){
-
       this.$router.push({ name: "participateCreate", params: { id: this.competition.id }});
-
     },
     moveCompList(){
       this.$router.push("/competition");
@@ -99,12 +103,12 @@ export default {
 }
 
 .login-form {
-  height: 40rem;
+  height: auto;
   width: 70rem;
+  padding-bottom: 2rem;
 }
 
 .compList-title {
-  padding-top: 2rem;
   display: inline-block;
 }
 
@@ -194,5 +198,10 @@ button:hover {
 	  justify-content: center;
     cursor: pointer;
   }
+
+  
+.sect01 {
+  margin: 1rem 0 0 63.6rem; 
+}
 
 </style>
