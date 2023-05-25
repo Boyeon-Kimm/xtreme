@@ -34,6 +34,15 @@ import { mapState } from 'vuex';
 
 export default {
   name: "UserUpdate",
+  data(){
+    return{
+      name: "",
+      id: "",
+      email: "",
+      password: "",
+      age: "",
+    }
+  },
   computed: {
     ...mapState(['user']),
   },

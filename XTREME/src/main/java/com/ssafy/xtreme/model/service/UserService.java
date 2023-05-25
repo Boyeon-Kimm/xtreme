@@ -23,4 +23,7 @@ public interface UserService {
 	
 	//개인정보 수정
 	public int updateUser(String id, String password, String email);
+	
+	//사용자 정보 조회
+	public User userInfo(String id);
 }

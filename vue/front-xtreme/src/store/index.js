@@ -36,6 +36,9 @@ export default new Vuex.Store({
     LOGIN(state, loginUser){
       state.loginUser = loginUser;
     },
+    GET_USER(state, myInfo){
+      state.user = myInfo;
+    },
 
 
     GET_COMPETITIONS(state, competitions){
@@ -150,6 +153,43 @@ export default new Vuex.Store({
       const isLoggedIn = !!loginUser;
       commit('SET_LOGGED_IN', isLoggedIn);
     },
+
+    // goMyPage({commit}, user){
+    //   const loginUserJson = localStorage.getItem('loginUser');
+    //   const loginUser = JSON.parse(loginUserJson);
+    //   const userId = loginUser.id;
+    //   let myInfo = null;
+    //   if(user.id === userId) myInfo = user;
+    //   const API_URL = `${REST_API_USER}/login`;
+    //   axios({
+    //     url: API_URL,
+    //     method: "POST",
+    //     params: user,
+    //   })
+    //     .then((res) => {
+    //       commit('GET_USER', myInfo);
+    //     })
+    // },
+    getMyInfo({ commit }, id){
+      // const loginUser = JSON.parse(localStorage.getItem('loginUser'));
+      // id = loginUser.id; 
+      const API_URL = `${REST_API_USER}/users/${id}`;
+      axios({
+        url: API_URL,
+        method: "GET",
+      })
+        .then((res) => {
+          const data = res.data;
+          commit("GET_USER", data);
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+    },
+
+
+
     
     
     //대회 정보
