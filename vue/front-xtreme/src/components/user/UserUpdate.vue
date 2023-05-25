@@ -31,6 +31,7 @@
               placeholder="name"
               id="name"
               v-model="user.name"
+              readonly
             />
           </div>
           <div class="login-form-text">
@@ -64,6 +65,7 @@
               placeholder="age"
               id="age"
               v-model="user.age"
+              readonly
             />
           </div>
           <div class="login-form-btn">
@@ -108,6 +110,7 @@ export default {
       };
 
       this.$store.dispatch("updateUser", updatedUser);
+      this.$router.push('/login');
 
 
         // .then(() => {
@@ -117,6 +120,13 @@ export default {
         // .catch((err) => {
         //   console.log(err);
         // });
+    },
+
+    // 로그아웃
+    logoutUser() {
+      this.$store.dispatch("logoutUser");
+      // 로그인 페이지로 이동
+      this.$router.push('/login');
     },
   },
 };

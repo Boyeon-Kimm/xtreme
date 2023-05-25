@@ -107,7 +107,7 @@ export default new Vuex.Store({
         alert(
           "Your account information has been successfully updated. Please log in again."
         );
-        router.push('/login');
+        
         commit("UPDATE_USER", user);
         // router.push({ name: "myPage", params: { id: user.id }});
       });
