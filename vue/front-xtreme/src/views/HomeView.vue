@@ -48,14 +48,24 @@ import { mapState, mapActions } from 'vuex';
 
 export default {
   name: "HomeView",
+  
   computed: {
-    ...mapState(['isLoggedIn'])
+    ...mapState(['isLoggedIn', 'user'])
   },
   created() {
     this.checkLoginStatus();
+    
+    const loginUser = JSON.parse(localStorage.getItem('loginUser'));
+    const id = loginUser.id;
+    this.$store.dispatch('getMyInfo', id);
   },
   methods: {
     ...mapActions(['checkLoginStatus', 'logoutUser']),
+    
+    // //마이페이지 넘어갈 때 데이터 넘기기
+    // goMyPage(){
+    //   this.$store.dispatch("goMyPage", user);
+    // }
   }
 };
 </script>
