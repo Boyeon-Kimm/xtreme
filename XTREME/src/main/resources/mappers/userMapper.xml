@@ -36,5 +36,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE id = #{id}
 	</update>
 	
+	<!-- userInfo(String id) : 사용자 정보 조회 -->
+	<select id="userInfo" parameterType="String" resultType="User">
+		SELECT *
+		FROM users
+		WHERE id = #{id}
+	</select>
+	
 	
 </mapper>

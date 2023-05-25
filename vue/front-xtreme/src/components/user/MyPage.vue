@@ -39,21 +39,25 @@
             </div>
             <div class="my-info-textfrom">
               <div class="login-form-text">
-                <input type="text" v-model="name" readonly/>
+
+                <input type="text" id="name" v-model="user.name" readonly/>
               </div>
               <div class="login-form-text">
-                <input type="text" v-model="id" readonly/>
+                <input type="text" v-model="user.id" readonly/>
               </div>
               <div class="login-form-text">
-                <input type="text" v-model="email" readonly />
+                <input type="text" v-model="user.email" readonly />
               </div>
               <div class="login-form-text">
-                <input type="text" v-model="age" readonly />
+                <input type="text" v-model="user.age" readonly />
+
               </div>
             </div>
           </div>
             <div class="login-form-btn">
-                <!-- <input @click.prevent="updateUser" type="submit" value="Update" /> -->
+
+                <input @click.prevent="moveUpdate" type="submit" value="Update" />
+
               <input @click="goHome()" type="button" value="Home" />
               <input @click="$router.back()" type="button" value="Cancel" />
             </div>
@@ -68,9 +72,12 @@ import { mapState } from 'vuex';
 
 export default {
   name: "MyPage",
+
+ 
   computed: {
-    ...mapState(["user"]),
+    ...mapState(['user']),
   },
+
 
   methods: {
     // 로그아웃
@@ -82,6 +89,12 @@ export default {
     goHome() {
       this.$router.push("/");
     },
+
+
+    moveUpdate() {
+      this.$router.push({ name: "userUpdate" });
+    },
+
   },
 };
 </script>
@@ -167,3 +180,4 @@ export default {
 }
 
 </style>
+

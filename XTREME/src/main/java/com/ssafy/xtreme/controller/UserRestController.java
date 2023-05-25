@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -177,5 +178,14 @@ public class UserRestController {
 		
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
+	
+	//사용자 정보 조회
+	@ApiOperation(value = "사용자 정보 조회")
+	@GetMapping("/users/{id}")
+	public ResponseEntity<User> userInfo(@PathVariable String id){
+		User user = userService.userInfo(id);
+		return new ResponseEntity<User>(user, HttpStatus.OK);
+	}
+	
 	
 }
