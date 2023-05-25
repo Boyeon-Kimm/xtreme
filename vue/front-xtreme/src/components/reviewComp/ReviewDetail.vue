@@ -56,9 +56,6 @@
         <div class="write-review">
           <button @click="moveUpdate" class="write-review-btn">Update</button>
           <button @click="deleteReview" class="write-review-btn">Delete</button>
-          <!-- <button @click="$router.back()" class="write-review-btn">
-            Cancel
-          </button> -->
         </div>
       </div>
     </div>

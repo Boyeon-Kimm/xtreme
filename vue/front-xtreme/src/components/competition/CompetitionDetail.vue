@@ -108,8 +108,12 @@ export default {
   display: inline-block;
 }
 
+.compList-title h3 {
+  color: #3D1D06;
+}
+
 .compList-title > hr {
-  border-color: gray;
+  border-color: #3D1D06;
 }
 
 .compDetail {
