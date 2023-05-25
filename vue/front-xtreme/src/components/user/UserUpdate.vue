@@ -107,18 +107,16 @@ export default {
         age: this.user.age,
       };
 
-      this.$store
-        .dispatch("updateUser", updatedUser)
-        .then(() => {
-          this.$router.push("/login");
-          alert(
-            "Your account information has been successfully updated. Please log in again."
-          );
-          // 로그아웃 시키는 기능 구현
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      this.$store.dispatch("updateUser", updatedUser);
+
+
+        // .then(() => {
+          
+        //     // 로그아웃 시키는 기능 구현
+        // })
+        // .catch((err) => {
+        //   console.log(err);
+        // });
     },
   },
 };
