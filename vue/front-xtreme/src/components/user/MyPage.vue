@@ -27,7 +27,7 @@
         <div class="login-form-input">
           <div class="my-info">
             <div class="my-info-img">
-              <img src="@/assets/profile.jpg" alt="userImg">
+              <img src="@/assets/profile.png" alt="userImg">
             </div>
           </div>
           <div class="my-info-about">
@@ -55,6 +55,7 @@
             <div class="login-form-btn">
                 <!-- <input @click.prevent="updateUser" type="submit" value="Update" /> -->
               <input @click="goHome()" type="button" value="Home" />
+              <input @click="$router.back()" type="button" value="Cancel" />
             </div>
         </div>
       </div>
@@ -156,7 +157,7 @@ export default {
 
 .my-info-img {
   width: 10rem;
-  height: 10rem;
+  height: 10.5rem;
 }
 
 .my-info-img > img {

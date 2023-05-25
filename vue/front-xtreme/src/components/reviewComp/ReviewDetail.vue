@@ -47,8 +47,8 @@
               <div class="login-form-text">
                 <span>{{ review.userId }}</span>
               </div>
-              <div class="login-form-textarea">
-                <span class="fnt-kr">{{ review.content }}</span>
+              <div class="login-form-textarea" style="white-space:pre;">
+                <span class="fnt-kr" style="white-space: pre-line;"><p v-html="review.content"></p></span>
               </div>
             </div>
           </div>
@@ -147,11 +147,12 @@ export default {
   background-color: rgb(255, 255, 255, 0.65);
   border: transparent;
   text-align: left;
+  word-wrap: break-word;
 }
 
 .login-form-textarea > span {
   word-wrap: break-word;
-    color: #3D1D06;
+  color: #3D1D06;
 }
 
 .write-review {
