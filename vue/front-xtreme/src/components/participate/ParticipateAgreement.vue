@@ -59,8 +59,8 @@
       </div>
       <div class="continue-fill">
         <div class="continue-fill-btn">
-          <button @click="$router.back()" class="agree-btn">Agree</button>
-          <button @click="clickAgree()" class="dis-btn">Disagree</button><br>
+          <button @click.prevent="$router.back()" class="agree-btn">Agree</button>
+          <button @click.prevent="clickDisagree()" class="dis-btn">Disagree</button><br>
         </div>
         <div class="continue-fill-a">
         <a>Click "agree" button to fill out the application form.</a>
@@ -84,8 +84,11 @@ export default {
       this.$router.push('/login');
     },
     clickAgree(){
+
+    },
+    clickDisagree(){
       alert("Click 👉Agree button👈 to continue to fill out the application form.");
-    }
+    },
   },
 };
 </script>

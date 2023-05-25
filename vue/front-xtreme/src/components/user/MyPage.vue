@@ -39,6 +39,7 @@
             </div>
             <div class="my-info-textfrom">
               <div class="login-form-text">
+
                 <input type="text" id="name" v-model="user.name" readonly/>
               </div>
               <div class="login-form-text">
@@ -49,11 +50,14 @@
               </div>
               <div class="login-form-text">
                 <input type="text" v-model="user.age" readonly />
+
               </div>
             </div>
           </div>
             <div class="login-form-btn">
+
                 <input @click.prevent="moveUpdate" type="submit" value="Update" />
+
               <input @click="goHome()" type="button" value="Home" />
             </div>
         </div>
@@ -67,6 +71,7 @@ import { mapState } from 'vuex';
 
 export default {
   name: "MyPage",
+
  
   computed: {
     ...mapState(['user']),
@@ -84,9 +89,11 @@ export default {
       this.$router.push("/");
     },
 
+
     moveUpdate() {
       this.$router.push({ name: "userUpdate" });
     },
+
   },
 };
 </script>
@@ -163,6 +170,7 @@ export default {
 .my-info-img {
   width: 10rem;
   height: 10rem;
+
 }
 
 .my-info-img > img {
@@ -172,3 +180,4 @@ export default {
 }
 
 </style>
+
