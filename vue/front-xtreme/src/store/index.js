@@ -237,6 +237,7 @@ export default new Vuex.Store({
       })
       .then(() => {
         commit;
+        alert("Deletion Completed!");
         router.push({ name: "reviewList" });
       })
       .catch((err) => {
@@ -317,6 +318,7 @@ export default new Vuex.Store({
           // data = participate.id
           //const participateId = res.id;
           commit("CREATE_PARTICIPATE", participate);
+          alert("Submit Completed!🎉 Good luck for your Tournament.🍀");
         })
         .catch((err) => {
           console.log(err);

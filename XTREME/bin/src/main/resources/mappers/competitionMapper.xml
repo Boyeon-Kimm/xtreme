@@ -29,4 +29,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			ORDER BY ${orderBy} ${orderByDir}
 		</if>
 	</select>
+	
+	<!-- searchByName(String CompName) : 대회명으로 대회 조회 -->
+	<select id="searchByName" parameterType="String" resultType="Competition">
+		SELECT *
+		FROM competition
+		WHERE compName = #{compName}
+	</select>
+	
+	<!-- findCompId(String CompName) : 대회명으로 대회 id 뽑아오기 -->
+	<select id="findCompId" parameterType="String" resultType="int">
+		SELECT id
+		FROM competition
+		WHERE compName = #{compName} 
+	</select>
+	
 </mapper>
